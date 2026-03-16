@@ -207,7 +207,7 @@ export default function Home() {
                     href="tel:+6016 1236525"
                     className="text-sky-400 hover:text-sky-300"
                   >
-                    +6 0164740406
+                    +6016 4740406
                   </a>
                 </p>
               </div>
