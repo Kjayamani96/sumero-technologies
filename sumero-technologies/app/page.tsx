@@ -204,10 +204,10 @@ export default function Home() {
                 <p>
                   <span className="font-semibold text-slate-100">Phone:</span>{" "}
                   <a
-                    href="tel:+6016 1236525"
+                    href="tel:+6016 4740406"
                     className="text-sky-400 hover:text-sky-300"
                   >
-                    +6016 4740406
+                    +6 (016) 4740406
                   </a>
                 </p>
               </div>
