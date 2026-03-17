@@ -68,9 +68,6 @@ export default function Home() {
             <a href="#services" className="hover:text-sky-400">
               Services
             </a>
-            <a href="#work" className="hover:text-sky-400">
-              Work
-            </a>
             <a href="#process" className="hover:text-sky-400">
               Process
             </a>
@@ -115,12 +112,6 @@ export default function Home() {
                 className="inline-flex items-center justify-center rounded-full bg-sky-500 px-6 py-2.5 text-sm font-medium text-slate-950 shadow-[0_0_25px_rgba(56,189,248,0.7)] transition hover:bg-sky-400"
               >
                 Contact Us
-              </a>
-              <a
-                href="#work"
-                className="inline-flex items-center justify-center rounded-full border border-slate-700 bg-slate-900/40 px-6 py-2.5 text-sm font-medium text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/70"
-              >
-                View Work
               </a>
             </div>
             <div className="grid grid-cols-3 gap-3 pt-2 text-xs text-slate-300 sm:text-sm">
@@ -274,150 +265,9 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Portfolio */}
-          <section id="work" className="space-y-6">
-            <div className="space-y-2">
-              <h2 className="text-lg font-semibold tracking-tight sm:text-xl">
-                Portfolio
-              </h2>
-              <p className="text-xs text-slate-400 sm:text-sm">
-                A few examples of the kind of work we deliver.
-              </p>
-            </div>
-            <div className="grid gap-4 lg:grid-cols-3">
-              {[
-                {
-                  name: "SwiftEats",
-                  category: "Mobile App",
-                  headline: "Food delivery app for local restaurants",
-                  description:
-                    "Real-time order tracking, driver dispatch, and in-app payments with a fast, reliable mobile experience.",
-                  technologies: ["React Native", "Firebase", "Stripe"],
-                  accent: "from-emerald-400/25 via-sky-400/10 to-transparent",
-                  icon: "🍔",
-                },
-                {
-                  name: "NovaCart",
-                  category: "Business Website",
-                  headline: "Modern e-commerce storefront & admin",
-                  description:
-                    "A conversion-focused shop with product search, cart/checkout, and an admin dashboard for inventory and orders.",
-                  technologies: ["Next.js", "React", "PostgreSQL"],
-                  accent: "from-sky-400/25 via-purple-400/10 to-transparent",
-                  icon: "🛒",
-                },
-                {
-                  name: "BookMate",
-                  category: "Web App",
-                  headline: "Booking system for a service business",
-                  description:
-                    "Availability rules, automated reminders, and staff calendars—designed for mobile and built to scale.",
-                  technologies: ["Next.js", "React", "Prisma"],
-                  accent: "from-amber-300/25 via-sky-400/10 to-transparent",
-                  icon: "📅",
-                },
-              ].map((p) => (
-                <div
-                  key={p.name}
-                  className="group rounded-3xl border border-slate-800 bg-slate-900/60 p-5 transition duration-200 hover:-translate-y-1 hover:border-slate-600 hover:bg-slate-900/75 hover:shadow-[0_26px_80px_rgba(0,0,0,0.75)]"
-                >
-                  {/* Image placeholder */}
-                  <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/40">
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-br ${p.accent}`}
-                    />
-                    <div className="flex aspect-[16/10] items-center justify-center">
-                      <div className="flex items-center gap-2 rounded-2xl border border-slate-800 bg-slate-950/40 px-4 py-2 text-sm text-slate-200 shadow-[0_0_30px_rgba(56,189,248,0.12)] backdrop-blur">
-                        <span className="text-lg">{p.icon}</span>
-                        <span className="font-semibold">{p.name}</span>
-                      </div>
-                    </div>
-                  </div>
+          {/* Portfolio removed */}
 
-                  <div className="mt-4 flex items-center justify-between">
-                    <p className="text-xs font-semibold text-slate-100">
-                      {p.name}
-                    </p>
-                    <span className="rounded-full border border-slate-700 bg-slate-950/40 px-2 py-1 text-[0.65rem] text-slate-300">
-                      {p.category}
-                    </span>
-                  </div>
-
-                  <p className="mt-2 text-sm font-semibold text-slate-50">
-                    {p.headline}
-                  </p>
-                  <p className="mt-2 text-xs leading-relaxed text-slate-400">
-                    {p.description}
-                  </p>
-
-                  <div className="mt-4 flex flex-wrap gap-2 text-[0.7rem] text-slate-300">
-                    {p.technologies.map((t) => (
-                      <span
-                        key={t}
-                        className="rounded-full bg-slate-950/50 px-2 py-1 transition group-hover:bg-slate-950/70"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Testimonials */}
-          <section id="testimonials" className="space-y-6">
-            <div className="space-y-2">
-              <h2 className="text-lg font-semibold tracking-tight sm:text-xl">
-                Testimonials
-              </h2>
-              <p className="text-xs text-slate-400 sm:text-sm">
-                What clients say about working with Sumero Technologies.
-              </p>
-            </div>
-            <div className="grid gap-4 lg:grid-cols-3">
-              {[
-                {
-                  quote:
-                    "Sumero delivered a polished web app ahead of schedule. The UX is excellent and the codebase is clean.",
-                  name: "Aisha Rahman",
-                  title: "Product Lead, FinEdge",
-                },
-                {
-                  quote:
-                    "They were proactive, fast, and extremely easy to work with. Weekly demos kept us aligned the whole time.",
-                  name: "Daniel Wong",
-                  title: "Founder, StorePulse",
-                },
-                {
-                  quote:
-                    "Our internal workflows are finally automated. Huge time savings and a noticeable reduction in errors.",
-                  name: "Priya Nair",
-                  title: "Operations Manager, FlowOps",
-                },
-              ].map((t) => (
-                <div
-                  key={t.name}
-                  className="rounded-3xl border border-slate-800 bg-slate-900/60 p-5"
-                >
-                  <p className="text-sm leading-relaxed text-slate-200">
-                    “{t.quote}”
-                  </p>
-                  <div className="mt-4 flex items-center gap-3">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-950/60 text-sky-300 ring-1 ring-slate-800">
-                      {t.name[0]}
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-xs font-semibold text-slate-50">
-                        {t.name}
-                      </p>
-                      <p className="text-xs text-slate-400">{t.title}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
+          {/* Testimonials removed */}
 
           {/* Process */}
           <section id="process" className="space-y-6">
@@ -604,7 +454,7 @@ export default function Home() {
                 reserved.
               </p>
               <p className="text-[0.7rem] text-slate-600">
-                Powered by Sumero Technologies  Kathik.
+                Powered by Sumero Technologies.
               </p>
             </div>
           </footer>
