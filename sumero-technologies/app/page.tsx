@@ -318,7 +318,7 @@ placeholder="Your name"
                 reserved.
               </p>
               <p className="text-[0.7rem] text-slate-600">
-                Designed for modern web &amp; mobile products.
+              <p>Powered by Sumero Technologies.</p>
               </p>
             </div>
           </footer>
