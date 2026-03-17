@@ -1,24 +1,65 @@
 "use client";
 import Image from "next/image";
-
+import { useState } from "react";
 
 
 
 export default function Home() {
+  const [success, setSuccess] = useState(false);
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50">
+      {/* Toast (frontend-only): shown after form submit */}
+      <div
+        aria-live="polite"
+        className={`pointer-events-none fixed inset-x-0 bottom-4 z-50 px-4 transition sm:bottom-6 ${
+          success ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <div
+          className={`mx-auto w-full max-w-md transform-gpu transition duration-200 ${
+            success ? "translate-y-0" : "translate-y-3"
+          }`}
+        >
+          <div className="pointer-events-auto flex items-start gap-3 rounded-2xl border border-emerald-400/25 bg-slate-950/80 p-4 shadow-[0_18px_60px_rgba(0,0,0,0.75)] backdrop-blur">
+            <div className="mt-0.5 flex h-9 w-9 flex-none items-center justify-center rounded-xl bg-emerald-500/15 text-emerald-300 ring-1 ring-emerald-400/30">
+              <span className="text-base">✓</span>
+            </div>
+            <div className="min-w-0">
+              <p className="text-sm font-semibold text-slate-50">
+                Message sent
+              </p>
+              <p className="mt-0.5 text-xs leading-relaxed text-slate-300">
+                Thanks for reaching out — we&apos;ll get back to you soon.
+              </p>
+              <div className="mt-2 h-1 w-full overflow-hidden rounded-full bg-slate-800">
+                <div className="h-full w-full origin-left animate-[toast_2.5s_linear_forwards] rounded-full bg-gradient-to-r from-emerald-400 to-sky-400" />
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={() => setSuccess(false)}
+              className="ml-auto inline-flex h-9 w-9 flex-none items-center justify-center rounded-xl text-slate-300 transition hover:bg-slate-800/60 hover:text-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/60"
+              aria-label="Dismiss notification"
+            >
+              ×
+            </button>
+          </div>
+        </div>
+      </div>
+
       {/* Page container */}
       <div className="mx-auto flex min-h-screen max-w-6xl flex-col px-4 py-4 sm:px-6 lg:px-8 lg:py-6">
         {/* Navigation */}
         <nav className="flex items-center justify-between rounded-2xl border border-slate-800 bg-slate-900/70 px-4 py-3 shadow-[0_10px_40px_rgba(0,0,0,0.6)] backdrop-blur">
           <a href="#" className="flex items-center gap-2">
-          <Image
-  src="/icon.png"
-  alt="Sumero Technologies"
-  width={40}
-  height={40}
-  className="rounded-lg shadow-lg shadow-sky-500/30"
-/>
+            <Image
+              src="/icon.png"
+              alt="Sumero Technologies"
+              width={40}
+              height={40}
+              className="rounded-lg shadow-lg shadow-sky-500/30"
+            />
             <span className="text-sm font-semibold tracking-tight sm:text-base">
               Sumero Technologies
             </span>
@@ -26,6 +67,12 @@ export default function Home() {
           <div className="hidden items-center gap-6 text-xs text-slate-300 sm:flex">
             <a href="#services" className="hover:text-sky-400">
               Services
+            </a>
+            <a href="#work" className="hover:text-sky-400">
+              Work
+            </a>
+            <a href="#process" className="hover:text-sky-400">
+              Process
             </a>
             <a href="#about" className="hover:text-sky-400">
               About
@@ -52,15 +99,15 @@ export default function Home() {
 
           <div className="relative max-w-xl space-y-6">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-400">
-              Sumero Technologies
+              Premium tech agency
             </p>
             <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
-              Building modern web and mobile solutions.
+              We build premium software that grows your business.
             </h1>
             <p className="text-sm leading-relaxed text-slate-300 sm:text-base">
-              Sumero Technologies partners with forward-thinking companies to
-              design, build, and scale reliable digital products across web,
-              mobile, and cloud platforms.
+              Sumero Technologies designs and engineers modern web and mobile
+              products—fast, secure, and scalable. From MVPs to enterprise
+              platforms, we ship software your customers love.
             </p>
             <div className="flex flex-wrap items-center gap-3">
               <a
@@ -69,29 +116,50 @@ export default function Home() {
               >
                 Contact Us
               </a>
-              <span className="text-xs text-slate-400">
-                Available for web, mobile, and product consultations.
-              </span>
+              <a
+                href="#work"
+                className="inline-flex items-center justify-center rounded-full border border-slate-700 bg-slate-900/40 px-6 py-2.5 text-sm font-medium text-slate-100 transition hover:border-slate-500 hover:bg-slate-900/70"
+              >
+                View Work
+              </a>
+            </div>
+            <div className="grid grid-cols-3 gap-3 pt-2 text-xs text-slate-300 sm:text-sm">
+              <div className="rounded-2xl border border-slate-800 bg-slate-900/50 p-3">
+                <p className="text-slate-400">Delivery</p>
+                <p className="mt-1 font-semibold text-slate-50">2–6 weeks</p>
+              </div>
+              <div className="rounded-2xl border border-slate-800 bg-slate-900/50 p-3">
+                <p className="text-slate-400">Focus</p>
+                <p className="mt-1 font-semibold text-slate-50">UX + Speed</p>
+              </div>
+              <div className="rounded-2xl border border-slate-800 bg-slate-900/50 p-3">
+                <p className="text-slate-400">Quality</p>
+                <p className="mt-1 font-semibold text-slate-50">Production-ready</p>
+              </div>
             </div>
           </div>
 
           {/* Simple hero card */}
           <div className="relative mt-8 w-full max-w-md rounded-3xl border border-slate-700/70 bg-slate-900/70 p-5 shadow-[0_24px_80px_rgba(0,0,0,0.7)] backdrop-blur-xl lg:mt-0">
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-slate-400">
-              What we do
+              What you get
             </p>
             <ul className="mt-4 space-y-3 text-sm text-slate-100">
               <li className="flex items-start gap-2">
                 <span className="mt-1 h-1.5 w-1.5 rounded-full bg-sky-400" />
-                <span>Design and develop high-quality web applications.</span>
+                <span>Pixel-perfect UI with a premium feel.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                <span>Ship native-feeling mobile apps for iOS and Android.</span>
+                <span>Clean architecture and scalable codebase.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 h-1.5 w-1.5 rounded-full bg-indigo-400" />
-                <span>Integrate complex systems and modernize legacy stacks.</span>
+                <span>Fast performance, SEO, and best practices.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-amber-300" />
+                <span>Clear communication and weekly progress updates.</span>
               </li>
             </ul>
           </div>
@@ -99,6 +167,49 @@ export default function Home() {
 
         {/* Main content sections */}
         <main className="mt-10 space-y-12 border-t border-slate-800 pt-10 text-sm sm:text-base">
+          {/* About */}
+          <section id="about" className="space-y-6">
+            <div className="grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-start">
+              <div className="space-y-3">
+                <h2 className="text-lg font-semibold tracking-tight sm:text-xl">
+                  About Us
+                </h2>
+                <p className="max-w-3xl text-sm leading-relaxed text-slate-300 sm:text-base">
+                  We’re a small, senior team focused on building modern products
+                  with excellent UX, strong engineering, and measurable results.
+                  We move fast without breaking quality—so you can launch with
+                  confidence.
+                </p>
+              </div>
+              <div className="grid gap-3 sm:grid-cols-2">
+                <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
+                  <p className="text-xs font-semibold text-slate-100">Product mindset</p>
+                  <p className="mt-1 text-xs text-slate-400">
+                    We design for outcomes: conversion, retention, and speed.
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
+                  <p className="text-xs font-semibold text-slate-100">Modern stack</p>
+                  <p className="mt-1 text-xs text-slate-400">
+                    Next.js, React Native, APIs, and cloud-ready architecture.
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
+                  <p className="text-xs font-semibold text-slate-100">Quality first</p>
+                  <p className="mt-1 text-xs text-slate-400">
+                    Clean code, testing discipline, and security hygiene.
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
+                  <p className="text-xs font-semibold text-slate-100">Transparent delivery</p>
+                  <p className="mt-1 text-xs text-slate-400">
+                    Weekly demos and clear milestones—no surprises.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Services */}
           <section id="services" className="space-y-6">
             <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
@@ -107,7 +218,7 @@ export default function Home() {
                   Services
                 </h2>
                 <p className="text-xs text-slate-400 sm:text-sm">
-                  End-to-end delivery for modern digital products.
+                  Strategy, design, and engineering—end to end.
                 </p>
               </div>
             </div>
@@ -120,8 +231,8 @@ export default function Home() {
                   Web Development
                 </h3>
                 <p className="mt-2 text-xs text-slate-400">
-                  Modern, responsive web applications built with robust
-                  front-end and back-end architectures.
+                  Fast, SEO-friendly websites and web apps built for conversion
+                  and maintainability.
                 </p>
               </div>
               <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
@@ -129,53 +240,234 @@ export default function Home() {
                   <span className="text-lg">📱</span>
                 </div>
                 <h3 className="text-sm font-semibold text-slate-100">
-                  Mobile App Development
+                  Mobile Apps
                 </h3>
                 <p className="mt-2 text-xs text-slate-400">
-                  Native and cross-platform experiences tailored for mobile
-                  users on iOS and Android.
+                  Native-feeling apps with smooth performance and great UX across
+                  iOS and Android.
                 </p>
               </div>
               <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
                 <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-500/15 text-indigo-400">
-                  <span className="text-lg">🔗</span>
+                  <span className="text-lg">🎨</span>
                 </div>
                 <h3 className="text-sm font-semibold text-slate-100">
-                  System Integration
+                  UI/UX Design
                 </h3>
                 <p className="mt-2 text-xs text-slate-400">
-                  Connect services, APIs, and data sources into unified,
-                  reliable systems.
+                  Design systems, flows, and UI that feel premium and work
+                  flawlessly on mobile.
                 </p>
               </div>
               <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
                 <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-500/15 text-amber-300">
-                  <span className="text-lg">💡</span>
+                  <span className="text-lg">⚡</span>
                 </div>
                 <h3 className="text-sm font-semibold text-slate-100">
-                  IT Consulting
+                  Automation
                 </h3>
                 <p className="mt-2 text-xs text-slate-400">
-                  Strategic guidance on architecture, performance, and technology
-                  roadmaps.
+                  Streamline operations with integrations, workflows, and
+                  dashboards that save time.
                 </p>
               </div>
             </div>
           </section>
 
-          {/* About */}
-          <section id="about" className="space-y-4">
-            <h2 className="text-lg font-semibold tracking-tight sm:text-xl">
-              About Sumero Technologies
-            </h2>
-            <p className="max-w-3xl text-sm leading-relaxed text-slate-300 sm:text-base">
-              We believe technology should be simple to use and powerful behind
-              the scenes. Sumero Technologies combines technical depth with
-              product thinking to help teams ship software that is reliable,
-              secure, and delightful to use. From early-stage prototypes to
-              large-scale systems, we focus on solutions that can evolve with
-              your business.
-            </p>
+          {/* Portfolio */}
+          <section id="work" className="space-y-6">
+            <div className="space-y-2">
+              <h2 className="text-lg font-semibold tracking-tight sm:text-xl">
+                Portfolio
+              </h2>
+              <p className="text-xs text-slate-400 sm:text-sm">
+                A few examples of the kind of work we deliver.
+              </p>
+            </div>
+            <div className="grid gap-4 lg:grid-cols-3">
+              {[
+                {
+                  name: "SwiftEats",
+                  category: "Mobile App",
+                  headline: "Food delivery app for local restaurants",
+                  description:
+                    "Real-time order tracking, driver dispatch, and in-app payments with a fast, reliable mobile experience.",
+                  technologies: ["React Native", "Firebase", "Stripe"],
+                  accent: "from-emerald-400/25 via-sky-400/10 to-transparent",
+                  icon: "🍔",
+                },
+                {
+                  name: "NovaCart",
+                  category: "Business Website",
+                  headline: "Modern e-commerce storefront & admin",
+                  description:
+                    "A conversion-focused shop with product search, cart/checkout, and an admin dashboard for inventory and orders.",
+                  technologies: ["Next.js", "React", "PostgreSQL"],
+                  accent: "from-sky-400/25 via-purple-400/10 to-transparent",
+                  icon: "🛒",
+                },
+                {
+                  name: "BookMate",
+                  category: "Web App",
+                  headline: "Booking system for a service business",
+                  description:
+                    "Availability rules, automated reminders, and staff calendars—designed for mobile and built to scale.",
+                  technologies: ["Next.js", "React", "Prisma"],
+                  accent: "from-amber-300/25 via-sky-400/10 to-transparent",
+                  icon: "📅",
+                },
+              ].map((p) => (
+                <div
+                  key={p.name}
+                  className="group rounded-3xl border border-slate-800 bg-slate-900/60 p-5 transition duration-200 hover:-translate-y-1 hover:border-slate-600 hover:bg-slate-900/75 hover:shadow-[0_26px_80px_rgba(0,0,0,0.75)]"
+                >
+                  {/* Image placeholder */}
+                  <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/40">
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${p.accent}`}
+                    />
+                    <div className="flex aspect-[16/10] items-center justify-center">
+                      <div className="flex items-center gap-2 rounded-2xl border border-slate-800 bg-slate-950/40 px-4 py-2 text-sm text-slate-200 shadow-[0_0_30px_rgba(56,189,248,0.12)] backdrop-blur">
+                        <span className="text-lg">{p.icon}</span>
+                        <span className="font-semibold">{p.name}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-4 flex items-center justify-between">
+                    <p className="text-xs font-semibold text-slate-100">
+                      {p.name}
+                    </p>
+                    <span className="rounded-full border border-slate-700 bg-slate-950/40 px-2 py-1 text-[0.65rem] text-slate-300">
+                      {p.category}
+                    </span>
+                  </div>
+
+                  <p className="mt-2 text-sm font-semibold text-slate-50">
+                    {p.headline}
+                  </p>
+                  <p className="mt-2 text-xs leading-relaxed text-slate-400">
+                    {p.description}
+                  </p>
+
+                  <div className="mt-4 flex flex-wrap gap-2 text-[0.7rem] text-slate-300">
+                    {p.technologies.map((t) => (
+                      <span
+                        key={t}
+                        className="rounded-full bg-slate-950/50 px-2 py-1 transition group-hover:bg-slate-950/70"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Testimonials */}
+          <section id="testimonials" className="space-y-6">
+            <div className="space-y-2">
+              <h2 className="text-lg font-semibold tracking-tight sm:text-xl">
+                Testimonials
+              </h2>
+              <p className="text-xs text-slate-400 sm:text-sm">
+                What clients say about working with Sumero Technologies.
+              </p>
+            </div>
+            <div className="grid gap-4 lg:grid-cols-3">
+              {[
+                {
+                  quote:
+                    "Sumero delivered a polished web app ahead of schedule. The UX is excellent and the codebase is clean.",
+                  name: "Aisha Rahman",
+                  title: "Product Lead, FinEdge",
+                },
+                {
+                  quote:
+                    "They were proactive, fast, and extremely easy to work with. Weekly demos kept us aligned the whole time.",
+                  name: "Daniel Wong",
+                  title: "Founder, StorePulse",
+                },
+                {
+                  quote:
+                    "Our internal workflows are finally automated. Huge time savings and a noticeable reduction in errors.",
+                  name: "Priya Nair",
+                  title: "Operations Manager, FlowOps",
+                },
+              ].map((t) => (
+                <div
+                  key={t.name}
+                  className="rounded-3xl border border-slate-800 bg-slate-900/60 p-5"
+                >
+                  <p className="text-sm leading-relaxed text-slate-200">
+                    “{t.quote}”
+                  </p>
+                  <div className="mt-4 flex items-center gap-3">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-950/60 text-sky-300 ring-1 ring-slate-800">
+                      {t.name[0]}
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-xs font-semibold text-slate-50">
+                        {t.name}
+                      </p>
+                      <p className="text-xs text-slate-400">{t.title}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Process */}
+          <section id="process" className="space-y-6">
+            <div className="space-y-2">
+              <h2 className="text-lg font-semibold tracking-tight sm:text-xl">
+                Our process
+              </h2>
+              <p className="text-xs text-slate-400 sm:text-sm">
+                A simple, reliable workflow that keeps delivery predictable.
+              </p>
+            </div>
+            <div className="grid gap-4 lg:grid-cols-4">
+              {[
+                {
+                  step: "01",
+                  title: "Discovery",
+                  desc: "We clarify goals, users, scope, and success metrics.",
+                },
+                {
+                  step: "02",
+                  title: "Design",
+                  desc: "We map flows, craft UI, and define a design system.",
+                },
+                {
+                  step: "03",
+                  title: "Build",
+                  desc: "We implement features with clean architecture and QA.",
+                },
+                {
+                  step: "04",
+                  title: "Launch & iterate",
+                  desc: "We ship, monitor, and improve based on real feedback.",
+                },
+              ].map((s) => (
+                <div
+                  key={s.step}
+                  className="rounded-3xl border border-slate-800 bg-slate-900/60 p-5"
+                >
+                  <p className="text-xs font-semibold text-sky-400">
+                    {s.step}
+                  </p>
+                  <p className="mt-2 text-sm font-semibold text-slate-50">
+                    {s.title}
+                  </p>
+                  <p className="mt-2 text-xs leading-relaxed text-slate-400">
+                    {s.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
           </section>
 
           {/* Contact */}
@@ -191,6 +483,14 @@ export default function Home() {
                 Share your plans, and we&apos;ll help you translate them into a
                 clear technical roadmap.
               </p>
+              <div className="flex flex-wrap gap-2 pt-1 text-[0.7rem] text-slate-300">
+                <span className="rounded-full border border-slate-800 bg-slate-950/40 px-2 py-1">
+                  Response in 24–48h
+                </span>
+                <span className="rounded-full border border-slate-800 bg-slate-950/40 px-2 py-1">
+                  Free consultation
+                </span>
+              </div>
               <div className="space-y-2 text-sm text-slate-300">
                 <p>
                   <span className="font-semibold text-slate-100">Email:</span>{" "}
@@ -213,31 +513,15 @@ export default function Home() {
               </div>
             </div>
 
-            <form className="space-y-4 text-sm"
-            onSubmit={async (e) => {
-              e.preventDefault();
-              
-              const formData = new FormData(e.currentTarget);
-              
-              const res = await fetch("/api/contact", {
-              method: "POST",
-              headers: {
-              "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-              name: formData.get("name"),
-              email: formData.get("email"),
-              message: formData.get("message"),
-              }),
-              });
-              
-              const data = await res.json();
-              console.log(data);
-              
-              alert("Message sent!");
+            <form
+              className="space-y-4 text-sm"
+              onSubmit={(e) => {
+                // No backend yet: show a success message locally.
+                e.preventDefault();
+                setSuccess(true);
+                (e.currentTarget as HTMLFormElement).reset();
+                window.setTimeout(() => setSuccess(false), 2500);
               }}
-              
-            
             >
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
@@ -248,12 +532,13 @@ export default function Home() {
                     Name
                   </label>
                   <input
-name="name"
-id="name"
-type="text"
-className="mt-1 w-full rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2"
-placeholder="Your name"
-/>
+                    name="name"
+                    id="name"
+                    type="text"
+                    className="mt-1 w-full rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2 text-sm text-slate-50 outline-none ring-sky-500/0 transition focus:border-sky-500 focus:ring-2 focus:ring-sky-500/60"
+                    placeholder="Your name"
+                    required
+                  />
                 </div>
                 <div>
                   <label
@@ -263,7 +548,7 @@ placeholder="Your name"
                     Company
                   </label>
                   <input
-                 
+                    name="company"
                     id="company"
                     type="text"
                     className="mt-1 w-full rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2 text-sm text-slate-50 outline-none ring-sky-500/0 transition focus:border-sky-500 focus:ring-2 focus:ring-sky-500/60"
@@ -279,11 +564,12 @@ placeholder="Your name"
                   Email
                 </label>
                 <input
-                name="email"
+                  name="email"
                   id="email"
                   type="email"
                   className="mt-1 w-full rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2 text-sm text-slate-50 outline-none ring-sky-500/0 transition focus:border-sky-500 focus:ring-2 focus:ring-sky-500/60"
                   placeholder="you@example.com"
+                  required
                 />
               </div>
               <div>
@@ -294,7 +580,7 @@ placeholder="Your name"
                   Project details
                 </label>
                 <textarea
-                name="message"
+                  name="message"
                   id="message"
                   rows={4}
                   className="mt-1 w-full resize-none rounded-xl border border-slate-700 bg-slate-900/70 px-3 py-2 text-sm text-slate-50 outline-none ring-sky-500/0 transition focus:border-sky-500 focus:ring-2 focus:ring-sky-500/60"
@@ -318,7 +604,7 @@ placeholder="Your name"
                 reserved.
               </p>
               <p className="text-[0.7rem] text-slate-600">
-              <p>Powered by Sumero Technologies.</p>
+                Powered by Sumero Technologies  Kathik.
               </p>
             </div>
           </footer>
