@@ -386,12 +386,11 @@ export default function Home() {
     const data = await res.json();
 
     if (data.success) {
-      alert("Message sent successfully!");
-      form.reset();
       setSuccess(true);
+      form.reset();
       setTimeout(() => setSuccess(false), 2500);
     } else {
-      alert(data.message || "Failed to send message");
+      alert("Failed to send message");
       console.log(data);
     }
   }}
