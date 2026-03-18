@@ -364,15 +364,38 @@ export default function Home() {
             </div>
 
             <form
-              className="space-y-4 text-sm"
-              onSubmit={(e) => {
-                // No backend yet: show a success message locally.
-                e.preventDefault();
-                setSuccess(true);
-                (e.currentTarget as HTMLFormElement).reset();
-                window.setTimeout(() => setSuccess(false), 2500);
-              }}
-            >
+  className="space-y-4 text-sm"
+  onSubmit={async (e) => {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const message = formData.get("message");
+
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, email, message }),
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      alert("Message sent successfully!");
+      form.reset();
+      setSuccess(true);
+      setTimeout(() => setSuccess(false), 2500);
+    } else {
+      alert(data.message || "Failed to send message");
+      console.log(data);
+    }
+  }}
+>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <label
