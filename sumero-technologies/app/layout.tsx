@@ -12,23 +12,44 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-
-export const metadata = {
-  title: "Sumero Technologies",
-  description: "Building modern web and mobile solutions.",
+export const metadata: Metadata = {
+  metadataBase: new URL("https://sumerotech.com"),
+  title: "Sumero Technologies | Web & Mobile App Development",
+  description:
+    "Sumero Technologies builds modern websites, web apps, and mobile solutions for businesses.",
+  keywords: [
+    "Sumero Technologies",
+    "web development",
+    "mobile app development",
+    "website development",
+    "software company",
+    "Malaysia web developer",
+    "Sumero Tech",
+    "Sumero ",
+    "sumerotech",
+    ],
   openGraph: {
-    title: "Sumero Technologies",
-    description: "Building modern web and mobile solutions.",
-    url: "https://www.sumerotech.com",
+    title: "Sumero Technologies | Web & Mobile App Development",
+    description:
+      "Sumero Technologies builds modern websites, web apps, and mobile solutions for businesses.",
+    url: "https://sumerotech.com",
     siteName: "Sumero Technologies",
     images: [
       {
-        url: "/preview.png", 
+        url: "/preview.png",
         width: 1200,
         height: 630,
+        alt: "Sumero Technologies",
       },
     ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sumero Technologies | Web & Mobile App Development",
+    description:
+      "Sumero Technologies builds modern websites, web apps, and mobile solutions for businesses.",
+    images: ["/preview.png"],
   },
 };
 
