@@ -146,13 +146,14 @@ export default function HomePage() {
                     clinic workspace, live preview
                   </span>
                 </div>
-                <div className="relative aspect-[4/3] w-full bg-zinc-950 sm:aspect-[16/11]">
+                <div className="bg-zinc-950 p-1 sm:p-2">
                   <Image
                     src="/marketing/dashboard-queue.png"
-                    alt="Sumero HealthOS dashboard showing today's operations, collections, and visits."
-                    fill
-                    className="object-cover object-top"
+                    alt="Sumero HealthOS operations overview: daily sales, visits, and clinic metrics."
+                    width={1920}
+                    height={1080}
                     sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="mx-auto block h-auto max-h-[min(58vh,520px)] w-auto max-w-full object-contain sm:max-h-[min(62vh,580px)]"
                     priority
                   />
                 </div>

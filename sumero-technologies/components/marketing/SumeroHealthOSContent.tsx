@@ -30,14 +30,15 @@ function Screenshot({
   if (src) {
     return (
       <figure className="mx-auto max-w-5xl">
-        <div className="overflow-hidden rounded-2xl border border-white/[0.08] bg-zinc-900/40 shadow-[0_24px_80px_-12px_rgba(0,0,0,0.65)] ring-1 ring-white/[0.06]">
-          <div className="relative h-[min(58vh,620px)] min-h-[320px] w-full sm:min-h-[380px] lg:min-h-[440px]">
+        <div className="overflow-hidden rounded-2xl border border-white/[0.08] bg-zinc-950/80 shadow-[0_24px_80px_-12px_rgba(0,0,0,0.65)] ring-1 ring-white/[0.06]">
+          <div className="flex w-full items-center justify-center p-2 sm:p-4">
             <Image
               src={src}
               alt={alt}
-              fill
+              width={1920}
+              height={1080}
               sizes="(max-width: 1024px) 100vw, 896px"
-              className="object-contain object-top p-3 sm:p-5"
+              className="mx-auto block h-auto max-h-[min(88vh,960px)] w-auto max-w-full object-contain"
               priority={priority ?? false}
             />
           </div>
