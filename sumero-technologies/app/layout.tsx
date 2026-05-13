@@ -14,24 +14,25 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sumerotech.com"),
-  title: "Sumero Technologies | Web & Mobile App Development",
+  title: {
+    default: "Sumero HealthOS",
+    template: "%s | Sumero Technologies",
+  },
   description:
-    "Sumero Technologies builds modern websites, web apps, and mobile solutions for businesses.",
+    "Sumero HealthOS helps private clinics run queue, care, pharmacy, billing, and insurer receivables in one secure workspace from Sumero Technologies.",
   keywords: [
+    "Sumero HealthOS",
     "Sumero Technologies",
-    "web development",
-    "mobile app development",
-    "website development",
-    "software company",
-    "Malaysia web developer",
-    "Sumero Tech",
-    "Sumero ",
-    "sumerotech",
-    ],
+    "clinic software",
+    "private clinic Malaysia",
+    "clinic queue system",
+    "panel billing clinic",
+    "pharmacy dispensing software",
+  ],
   openGraph: {
-    title: "Sumero Technologies | Web & Mobile App Development",
+    title: "Sumero HealthOS | Clinic Operations Platform",
     description:
-      "Sumero Technologies builds modern websites, web apps, and mobile solutions for businesses.",
+      "One workspace for reception, doctors, pharmacy, billing, and accounts, with privacy built in.",
     url: "https://sumerotech.com",
     siteName: "Sumero Technologies",
     images: [
@@ -39,16 +40,16 @@ export const metadata: Metadata = {
         url: "/preview.png",
         width: 1200,
         height: 630,
-        alt: "Sumero Technologies",
+        alt: "Sumero HealthOS",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sumero Technologies | Web & Mobile App Development",
+    title: "Sumero HealthOS | Clinic Operations Platform",
     description:
-      "Sumero Technologies builds modern websites, web apps, and mobile solutions for businesses.",
+      "Run the clinic day in one place, from walk-in to payment and follow-up.",
     images: ["/preview.png"],
   },
 };
@@ -61,7 +62,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-zinc-950 font-sans text-zinc-100 antialiased`}
       >
         {children}
       </body>
