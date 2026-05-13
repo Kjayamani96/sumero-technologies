@@ -7,7 +7,6 @@ const nav = [
   { href: "/products/sumero-healthos", label: "HealthOS" },
   { href: "/security", label: "Security" },
   { href: "/contact", label: "Contact" },
-  { href: "/login", label: "Log in" },
 ] as const;
 
 export function SiteHeader() {
