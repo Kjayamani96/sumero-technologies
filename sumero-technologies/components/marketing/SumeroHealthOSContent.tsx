@@ -19,11 +19,13 @@ function Screenshot({
   alt,
   title,
   caption,
+  priority,
 }: {
   src?: string;
   alt: string;
   title: string;
   caption: string;
+  priority?: boolean;
 }) {
   if (src) {
     return (
@@ -36,7 +38,7 @@ function Screenshot({
               fill
               sizes="(max-width: 1024px) 100vw, 896px"
               className="object-contain object-top p-3 sm:p-5"
-              priority={false}
+              priority={priority ?? false}
             />
           </div>
         </div>
@@ -231,33 +233,35 @@ export function SumeroHealthOSContent() {
       <section className="border-b border-white/[0.05]">
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
           <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-400/90">
-            Product previews
+            Screens
           </p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-50 sm:text-4xl">
             Inside the workspace
           </h2>
-          <p className="mt-5 max-w-3xl text-base leading-relaxed text-zinc-400 sm:text-lg">
-            Full-width previews so you can actually read the UI. These are the same three
-            surfaces teams live in every week.
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-400 sm:text-lg">
+            These are real product frames, shown large so you can read the text.
+            Most weeks, your team keeps coming back to three views: how the day
+            looks, how pharmacy closes the loop, and how panel money is tracking.
           </p>
-          <div className="mt-16 flex flex-col gap-20 sm:gap-24">
+          <div className="mt-12 flex flex-col gap-14 sm:mt-14 sm:gap-20">
             <Screenshot
               src="/marketing/dashboard-queue.png"
-              alt="Clinic dashboard showing today's collections, visits, and operational overview."
-              title={"Dashboard & today's pulse"}
-              caption="Collections, visits, and what still needs attention, without switching tools."
+              alt="HealthOS operations overview: daily sales, visits, and payment breakdown for a clinic."
+              title="Today at the clinic"
+              caption="Sales, visits, stock warnings, and payment splits on one home screen so owners and leads do not live inside five different tabs."
+              priority
             />
             <Screenshot
               src="/marketing/pharmacy-dispense.png"
               alt="Dispensing checkout: dispensary review before payment and finalize dispense."
               title="Pharmacy handoff"
-              caption="Prescription intent, dispensary review, and finalize before payment, with fewer errors at the counter."
+              caption="Pharmacy sees what the room ordered, confirms or adjusts with a reason, then clears the patient before anyone takes payment."
             />
             <Screenshot
               src="/marketing/panel-receivables.png"
               alt="Panel company billing: invoiced, paid, outstanding, and credit control summary."
               title="Panel receivables"
-              caption="What each company owes, what is overdue, and where to focus collection, in one view."
+              caption="What each company owes, what is late, and where to chase next, without rebuilding AR in a spreadsheet."
             />
           </div>
         </div>
