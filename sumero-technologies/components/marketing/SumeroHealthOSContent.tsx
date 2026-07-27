@@ -30,8 +30,8 @@ function Screenshot({
   if (src) {
     return (
       <figure className="mx-auto max-w-5xl">
-        <div className="overflow-hidden rounded-2xl border border-white/[0.08] bg-zinc-950/80 shadow-[0_24px_80px_-12px_rgba(0,0,0,0.65)] ring-1 ring-white/[0.06]">
-          <div className="flex w-full items-center justify-center p-2 sm:p-4">
+        <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-lg shadow-zinc-900/5 ring-1 ring-zinc-100">
+          <div className="flex w-full items-center justify-center bg-zinc-50 p-2 sm:p-4">
             <Image
               src={src}
               alt={alt}
@@ -44,10 +44,10 @@ function Screenshot({
           </div>
         </div>
         <figcaption className="mt-5 px-1 sm:px-2">
-          <span className="block text-base font-semibold tracking-tight text-zinc-100">
+          <span className="block text-base font-semibold tracking-tight text-zinc-900">
             {title}
           </span>
-          <span className="mt-1 block text-sm leading-relaxed text-zinc-500">
+          <span className="mt-1 block text-sm leading-relaxed text-zinc-600">
             {caption}
           </span>
         </figcaption>
@@ -57,12 +57,12 @@ function Screenshot({
 
   return (
     <figure className="mx-auto max-w-5xl">
-      <div className="overflow-hidden rounded-2xl border border-white/[0.08] bg-zinc-900/30">
-        <div className="flex aspect-[16/10] min-h-[240px] flex-col items-center justify-center bg-gradient-to-br from-zinc-900/80 via-zinc-950 to-zinc-900/80 p-8 text-center">
-          <span className="rounded-full border border-white/[0.1] bg-white/[0.04] px-3 py-1 text-[10px] font-medium uppercase tracking-wider text-zinc-500">
+      <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-50">
+        <div className="flex aspect-[16/10] min-h-[240px] flex-col items-center justify-center p-8 text-center">
+          <span className="rounded-full border border-zinc-200 bg-white px-3 py-1 text-[10px] font-medium uppercase tracking-wider text-zinc-500">
             Preview
           </span>
-          <p className="mt-4 max-w-sm text-base font-medium text-zinc-300">
+          <p className="mt-4 max-w-sm text-base font-medium text-zinc-700">
             {title}
           </p>
         </div>
@@ -82,16 +82,14 @@ function FeatureCard({
   body: string;
 }) {
   return (
-    <div className="group rounded-2xl border border-white/[0.06] bg-white/[0.025] p-6 sm:p-7 transition duration-300 hover:border-white/[0.12] hover:bg-white/[0.045]">
-      <div className="mb-4 inline-flex rounded-xl border border-white/[0.08] bg-zinc-950/50 p-2.5 text-sky-300/90">
+    <div className="group rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition duration-300 hover:border-sky-200 hover:shadow-md sm:p-7">
+      <div className="mb-4 inline-flex rounded-xl border border-sky-100 bg-sky-50 p-2.5 text-sky-700">
         {icon}
       </div>
-      <h3 className="text-base font-semibold tracking-tight text-zinc-50">
+      <h3 className="text-base font-semibold tracking-tight text-zinc-900">
         {title}
       </h3>
-      <p className="mt-3 text-[15px] leading-relaxed text-zinc-400">
-        {body}
-      </p>
+      <p className="mt-3 text-[15px] leading-relaxed text-zinc-600">{body}</p>
     </div>
   );
 }
@@ -114,16 +112,16 @@ const trustTeasers = [
 export function SumeroHealthOSContent() {
   return (
     <>
-      <section className="relative overflow-hidden border-b border-white/[0.05]">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(56,189,248,0.14),transparent_55%)]" />
+      <section className="relative overflow-hidden border-b border-zinc-200">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(14,165,233,0.1),transparent_55%)]" />
         <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-28">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-400/90">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-600">
             Platform overview
           </p>
-          <h1 className="mt-5 max-w-3xl text-[2.5rem] font-semibold leading-[1.08] tracking-tight text-zinc-50 sm:text-5xl sm:leading-[1.06]">
+          <h1 className="mt-5 max-w-3xl text-[2.5rem] font-semibold leading-[1.08] tracking-tight text-zinc-900 sm:text-5xl sm:leading-[1.06]">
             One place to run the clinic day
           </h1>
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-zinc-400 sm:text-xl sm:leading-relaxed">
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-zinc-600 sm:text-xl sm:leading-relaxed">
             From the first patient at the door through consultation, pharmacy,
             billing, and follow-up. HealthOS keeps your team aligned without
             juggling spreadsheets and disconnected apps.
@@ -136,13 +134,13 @@ export function SumeroHealthOSContent() {
           <div className="mt-12 flex flex-wrap gap-3">
             <Link
               href="/contact"
-              className="inline-flex rounded-full bg-white px-6 py-3 text-sm font-medium text-zinc-950 shadow-lg shadow-black/25 transition hover:bg-zinc-100"
+              className="inline-flex rounded-full bg-sky-600 px-6 py-3 text-sm font-medium text-white shadow-md shadow-sky-600/20 transition hover:bg-sky-500"
             >
               Book a walkthrough
             </Link>
             <Link
               href="/security"
-              className="inline-flex rounded-full border border-white/[0.12] bg-white/[0.04] px-6 py-3 text-sm font-medium text-zinc-100 transition hover:bg-white/[0.08]"
+              className="inline-flex rounded-full border border-zinc-300 bg-white px-6 py-3 text-sm font-medium text-zinc-800 transition hover:bg-zinc-50"
             >
               How we protect your data
             </Link>
@@ -150,15 +148,15 @@ export function SumeroHealthOSContent() {
         </div>
       </section>
 
-      <section className="border-b border-white/[0.05]">
+      <section className="border-b border-zinc-200">
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-400/90">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-600">
             Patient journey
           </p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-50 sm:text-4xl">
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
             A clear path for every visit
           </h2>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-400 sm:text-lg">
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg">
             Everyone sees the same story: who is waiting, who is in the room,
             what was prescribed, what is ready to collect, and what is still
             owed.
@@ -169,15 +167,15 @@ export function SumeroHealthOSContent() {
         </div>
       </section>
 
-      <section className="border-b border-white/[0.05]">
+      <section className="border-b border-zinc-200 bg-zinc-50/60">
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-400/90">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-600">
             Capabilities
           </p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-50 sm:text-4xl">
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
             What you get
           </h2>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-400 sm:text-lg">
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg">
             The essentials teams use every week, written the way owners and
             managers already talk about the work.
           </p>
@@ -231,15 +229,15 @@ export function SumeroHealthOSContent() {
         </div>
       </section>
 
-      <section className="border-b border-white/[0.05]">
+      <section className="border-b border-zinc-200">
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-400/90">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-600">
             Screens
           </p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-50 sm:text-4xl">
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
             Inside the workspace
           </h2>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-400 sm:text-lg">
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg">
             These are real product frames, shown large so you can read the text.
             Most weeks, your team keeps coming back to three views: how the day
             looks, how pharmacy closes the loop, and how panel money is tracking.
@@ -268,15 +266,15 @@ export function SumeroHealthOSContent() {
         </div>
       </section>
 
-      <section id="security" className="border-b border-white/[0.05]">
+      <section id="security" className="border-b border-zinc-200 bg-zinc-50/60">
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-400/90">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-600">
             Trust
           </p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-50 sm:text-4xl">
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
             Trust, in human terms
           </h2>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-400 sm:text-lg">
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg">
             No acronyms, just what clinic owners ask us about before they go
             live.
           </p>
@@ -284,13 +282,13 @@ export function SumeroHealthOSContent() {
             {trustTeasers.map((item) => (
               <div
                 key={item.title}
-                className="rounded-2xl border border-white/[0.06] bg-white/[0.025] p-6 sm:p-7"
+                className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm sm:p-7"
               >
-                <div className="mb-4 h-px w-8 rounded-full bg-gradient-to-r from-sky-400/80 to-violet-400/60" />
-                <h3 className="text-base font-semibold tracking-tight text-zinc-50">
+                <div className="mb-4 h-px w-8 rounded-full bg-sky-500" />
+                <h3 className="text-base font-semibold tracking-tight text-zinc-900">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+                <p className="mt-3 text-sm leading-relaxed text-zinc-600">
                   {item.body}
                 </p>
               </div>
@@ -299,7 +297,7 @@ export function SumeroHealthOSContent() {
           <p className="mt-10">
             <Link
               href="/security"
-              className="text-sm font-medium text-sky-400 transition hover:text-sky-300"
+              className="text-sm font-medium text-sky-700 transition hover:text-sky-600"
             >
               Security and trust: full overview →
             </Link>
@@ -307,15 +305,15 @@ export function SumeroHealthOSContent() {
         </div>
       </section>
 
-      <section className="border-b border-white/[0.05]">
+      <section className="border-b border-zinc-200">
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-400/90">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-600">
             Multi-branch
           </p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-50 sm:text-4xl">
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
             Branches that share, without losing control
           </h2>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-400 sm:text-lg">
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg">
             When you operate more than one site, you choose what travels between
             branches (such as shared patient lookup or stock) and what stays
             local to each desk. Owners keep a single subscription view while
@@ -326,15 +324,15 @@ export function SumeroHealthOSContent() {
 
       <section>
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
-          <div className="relative overflow-hidden rounded-3xl border border-white/[0.1] bg-gradient-to-br from-zinc-800/80 via-zinc-900 to-zinc-950 p-8 sm:flex sm:items-center sm:justify-between sm:gap-10 sm:p-10">
-            <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-sky-500/10 blur-3xl" />
-            <p className="relative max-w-xl text-base leading-relaxed text-zinc-300">
+          <div className="relative overflow-hidden rounded-3xl border border-sky-100 bg-gradient-to-br from-sky-50 via-white to-zinc-50 p-8 sm:flex sm:items-center sm:justify-between sm:gap-10 sm:p-10">
+            <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-sky-200/40 blur-3xl" />
+            <p className="relative max-w-xl text-base leading-relaxed text-zinc-600">
               Tell us how your clinic runs today, and we will show the screens that
               map to your reception, doctors, pharmacy, and accounts team.
             </p>
             <Link
               href="/contact"
-              className="relative mt-8 inline-flex shrink-0 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-zinc-950 transition hover:bg-zinc-100 sm:mt-0"
+              className="relative mt-8 inline-flex shrink-0 rounded-full bg-sky-600 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-sky-500 sm:mt-0"
             >
               Book a demo
             </Link>

@@ -31,13 +31,13 @@ export default function SecurityPage() {
   return (
     <MarketingShell>
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-400/90">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-600">
           Security &amp; trust
         </p>
-        <h1 className="mt-4 max-w-2xl text-4xl font-semibold tracking-tight text-zinc-50 sm:text-5xl">
+        <h1 className="mt-4 max-w-2xl text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl">
           Built so clinics can sleep at night
         </h1>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400">
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600">
           Sumero HealthOS is designed for private clinics that handle sensitive
           data every day. Here is how we think about safety, in plain language.
         </p>
@@ -46,10 +46,10 @@ export default function SecurityPage() {
           {pillars.map((p) => (
             <section
               key={p.title}
-              className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 sm:p-8"
+              className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm sm:p-8"
             >
-              <h2 className="text-lg font-semibold text-zinc-100">{p.title}</h2>
-              <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+              <h2 className="text-lg font-semibold text-zinc-900">{p.title}</h2>
+              <p className="mt-3 text-sm leading-relaxed text-zinc-600">
                 {p.body}
               </p>
             </section>
@@ -65,7 +65,7 @@ export default function SecurityPage() {
         <p className="mt-14 text-center text-sm text-zinc-500">
           <Link
             href="/products/sumero-healthos"
-            className="font-medium text-sky-400 hover:text-sky-300"
+            className="font-medium text-sky-700 hover:text-sky-600"
           >
             ← Back to Sumero HealthOS
           </Link>

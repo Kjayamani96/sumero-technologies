@@ -3,15 +3,15 @@ import { CompanyLink } from "@/components/marketing/CompanyLink";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-white/[0.06] bg-zinc-950">
+    <footer className="border-t border-zinc-200 bg-zinc-50">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           <div className="max-w-xs space-y-4 lg:col-span-1">
-            <p className="text-sm font-semibold text-zinc-100">Sumero HealthOS</p>
-            <p className="text-sm leading-relaxed text-zinc-500">
+            <p className="text-sm font-semibold text-zinc-900">Sumero HealthOS</p>
+            <p className="text-sm leading-relaxed text-zinc-600">
               Clinic operations workspace from queue through payment, pharmacy, and
               panel receivables. From{" "}
-              <CompanyLink className="text-zinc-400 underline-offset-2 transition hover:text-zinc-300 hover:underline">
+              <CompanyLink className="text-zinc-800 underline-offset-2 transition hover:text-sky-700 hover:underline">
                 Sumero Technologies
               </CompanyLink>
               .
@@ -21,17 +21,17 @@ export function SiteFooter() {
             <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
               Product
             </p>
-            <ul className="space-y-2.5 text-zinc-400">
+            <ul className="space-y-2.5 text-zinc-600">
               <li>
                 <Link
                   href="/products/sumero-healthos"
-                  className="transition hover:text-zinc-200"
+                  className="transition hover:text-zinc-900"
                 >
                   Sumero HealthOS
                 </Link>
               </li>
               <li>
-                <Link href="/products" className="transition hover:text-zinc-200">
+                <Link href="/products" className="transition hover:text-zinc-900">
                   All products
                 </Link>
               </li>
@@ -41,14 +41,14 @@ export function SiteFooter() {
             <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
               Company
             </p>
-            <ul className="space-y-2.5 text-zinc-400">
+            <ul className="space-y-2.5 text-zinc-600">
               <li>
-                <CompanyLink className="transition hover:text-zinc-200">
+                <CompanyLink className="transition hover:text-zinc-900">
                   Sumero Technologies
                 </CompanyLink>
               </li>
               <li>
-                <Link href="/contact" className="transition hover:text-zinc-200">
+                <Link href="/contact" className="transition hover:text-zinc-900">
                   Contact
                 </Link>
               </li>
@@ -58,28 +58,28 @@ export function SiteFooter() {
             <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
               Trust
             </p>
-            <ul className="space-y-2.5 text-zinc-400">
+            <ul className="space-y-2.5 text-zinc-600">
               <li>
-                <Link href="/login" className="transition hover:text-zinc-200">
+                <Link href="/login" className="transition hover:text-zinc-900">
                   Staff sign in
                 </Link>
               </li>
               <li>
-                <Link href="/security" className="transition hover:text-zinc-200">
+                <Link href="/security" className="transition hover:text-zinc-900">
                   Security &amp; trust
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="transition hover:text-zinc-200">
+                <Link href="/contact" className="transition hover:text-zinc-900">
                   Book a demo
                 </Link>
               </li>
             </ul>
           </div>
         </div>
-        <p className="mt-12 border-t border-white/[0.06] pt-8 text-xs text-zinc-600">
+        <p className="mt-12 border-t border-zinc-200 pt-8 text-xs text-zinc-500">
           © {new Date().getFullYear()}{" "}
-          <CompanyLink className="text-zinc-500 underline-offset-2 transition hover:text-zinc-400 hover:underline">
+          <CompanyLink className="text-zinc-600 underline-offset-2 transition hover:text-sky-700 hover:underline">
             Sumero Technologies
           </CompanyLink>
           . Private clinics. One workspace.
