@@ -7,14 +7,13 @@ export function SiteFooter() {
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           <div className="max-w-xs space-y-4 lg:col-span-1">
-            <p className="text-sm font-semibold text-zinc-900">Sumero HealthOS</p>
+            <p className="text-sm font-semibold text-zinc-900">
+              Sumero Technologies
+            </p>
+            <p className="text-sm font-medium text-zinc-800">Sumero HealthOS</p>
             <p className="text-sm leading-relaxed text-zinc-600">
-              Clinic operations workspace from queue through payment, pharmacy, and
-              panel receivables. From{" "}
-              <CompanyLink className="text-zinc-800 underline-offset-2 transition hover:text-sky-700 hover:underline">
-                Sumero Technologies
-              </CompanyLink>
-              .
+              Clinic operations workspace from appointment and queue through
+              consultation, dispensing, payment, and owner reporting.
             </p>
           </div>
           <div className="space-y-4 text-sm">
@@ -27,7 +26,12 @@ export function SiteFooter() {
                   href="/products/sumero-healthos"
                   className="transition hover:text-zinc-900"
                 >
-                  Sumero HealthOS
+                  HealthOS
+                </Link>
+              </li>
+              <li>
+                <Link href="/pricing" className="transition hover:text-zinc-900">
+                  Pricing
                 </Link>
               </li>
               <li>
@@ -52,26 +56,39 @@ export function SiteFooter() {
                   Contact
                 </Link>
               </li>
-            </ul>
-          </div>
-          <div className="space-y-4 text-sm">
-            <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
-              Trust
-            </p>
-            <ul className="space-y-2.5 text-zinc-600">
               <li>
                 <Link href="/login" className="transition hover:text-zinc-900">
                   Staff sign in
                 </Link>
               </li>
+            </ul>
+          </div>
+          <div className="space-y-4 text-sm">
+            <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
+              Trust &amp; legal
+            </p>
+            <ul className="space-y-2.5 text-zinc-600">
               <li>
                 <Link href="/security" className="transition hover:text-zinc-900">
-                  Security &amp; trust
+                  Security &amp; Trust
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="transition hover:text-zinc-900">
-                  Book a demo
+                <Link href="/terms" className="transition hover:text-zinc-900">
+                  Terms
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy" className="transition hover:text-zinc-900">
+                  Privacy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/data-deletion"
+                  className="transition hover:text-zinc-900"
+                >
+                  Data deletion
                 </Link>
               </li>
             </ul>
@@ -82,7 +99,7 @@ export function SiteFooter() {
           <CompanyLink className="text-zinc-600 underline-offset-2 transition hover:text-sky-700 hover:underline">
             Sumero Technologies
           </CompanyLink>
-          . Private clinics. One workspace.
+          . Sumero HealthOS. Private clinics. One workspace.
         </p>
       </div>
     </footer>

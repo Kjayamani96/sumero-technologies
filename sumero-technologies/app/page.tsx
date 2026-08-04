@@ -12,6 +12,7 @@ import {
 } from "@/components/marketing/MarketingIcons";
 import { MarketingShell } from "@/components/marketing/MarketingShell";
 import { WorkflowPipeline } from "@/components/marketing/WorkflowPipeline";
+import { formatRm, PRICING } from "@/lib/pricing";
 
 export const metadata: Metadata = {
   description:
@@ -61,7 +62,7 @@ const trustPoints = [
   {
     icon: IconBuilding,
     title: "Built for clinics",
-    body: "Panel weeks, locums, and multi-branch groups.",
+    body: "Panel weeks, locums, and structured multi-branch planning.",
   },
 ] as const;
 
@@ -112,6 +113,27 @@ export default function HomePage() {
               priority
             />
           </div>
+        </div>
+      </section>
+
+      {/* Trust / value strip */}
+      <section className="border-b border-zinc-200 bg-white">
+        <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
+          <ul className="grid gap-4 text-center sm:grid-cols-2 lg:grid-cols-4 lg:gap-2 lg:text-left">
+            {[
+              "Built for Malaysian private clinics",
+              "Guided onboarding",
+              "Clinic-scoped data",
+              `From ${formatRm(PRICING.essential.monthly)}/month`,
+            ].map((item) => (
+              <li
+                key={item}
+                className="text-sm font-medium tracking-tight text-zinc-700"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -166,6 +188,66 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Pricing preview */}
+      <section className="border-b border-zinc-200">
+        <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-600">
+            Pricing
+          </p>
+          <h2 className="mt-4 max-w-2xl text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
+            Straightforward plans for growing clinics
+          </h2>
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-600">
+            Dependable daily workflow first, then deeper inventory, panel,
+            workforce and financial control when you need them—not positioned as
+            the cheapest clinic software, but as a complete clinic workspace with
+            guided onboarding.
+          </p>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                name: "Essential",
+                price: `From ${formatRm(PRICING.essential.monthly)}/month`,
+                body: "Daily clinic workflow for independent clinics.",
+              },
+              {
+                name: "Professional",
+                price: `From ${formatRm(PRICING.professional.monthly)}/month`,
+                body: "Advanced operations, panels, inventory and workforce control.",
+              },
+              {
+                name: "Group",
+                price: "Custom quotation",
+                body: "Planned rollout for multi-branch operators.",
+              },
+            ].map((plan) => (
+              <div
+                key={plan.name}
+                className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm"
+              >
+                <h3 className="text-lg font-semibold tracking-tight text-zinc-900">
+                  {plan.name}
+                </h3>
+                <p className="mt-2 text-base font-semibold text-zinc-800">
+                  {plan.price}
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-zinc-600">
+                  {plan.body}
+                </p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-10">
+            <Link
+              href="/pricing"
+              className="inline-flex min-h-11 items-center rounded-full bg-sky-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-sky-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
+            >
+              Compare plans
+            </Link>
+          </p>
+        </div>
+      </section>
+
       {/* Trust: plain row, less chrome */}
       <section className="border-b border-zinc-200">
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
@@ -204,25 +286,24 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
           <div className="rounded-3xl bg-sky-50 px-8 py-12 sm:px-12 sm:py-14">
             <h2 className="max-w-xl text-2xl font-semibold tracking-tight text-zinc-900 sm:text-3xl">
-              See HealthOS mapped to how you work
+              See HealthOS using your clinic&apos;s real workflow
             </h2>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-zinc-600">
-              We walk queue, pharmacy, billing, and panel money the way your
-              clinic actually runs. Bring your questions, and leave with a clear
-              picture of fit.
+              Walk through registration, queue, consultation, dispensing,
+              payment and owner reporting with the Sumero team.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-full bg-sky-600 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-sky-500"
+                className="inline-flex min-h-11 items-center justify-center rounded-full bg-sky-600 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-sky-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
               >
                 Book a demo
               </Link>
               <Link
-                href="/products/sumero-healthos"
-                className="inline-flex items-center justify-center rounded-full border border-zinc-300 bg-white px-7 py-3.5 text-sm font-semibold text-zinc-800 transition hover:bg-zinc-50"
+                href="/pricing"
+                className="inline-flex min-h-11 items-center justify-center rounded-full border border-zinc-300 bg-white px-7 py-3.5 text-sm font-semibold text-zinc-800 transition hover:bg-zinc-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
               >
-                Product overview
+                View pricing
               </Link>
             </div>
           </div>

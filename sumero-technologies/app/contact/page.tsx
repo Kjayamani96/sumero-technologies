@@ -1,13 +1,24 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
 import { ContactForm } from "@/components/marketing/ContactForm";
 import { MarketingShell } from "@/components/marketing/MarketingShell";
 
 export const metadata: Metadata = {
   title: "Contact | Sumero HealthOS",
   description:
-    "Book a walkthrough or ask about onboarding. Sumero HealthOS by Sumero Technologies.",
+    "Book a HealthOS demo for your Malaysian clinic. Share branches, doctors and operational needs so we can prepare a relevant walkthrough.",
 };
+
+function FormFallback() {
+  return (
+    <div className="animate-pulse space-y-4" aria-hidden>
+      <div className="h-10 rounded-lg bg-zinc-100" />
+      <div className="h-10 rounded-lg bg-zinc-100" />
+      <div className="h-24 rounded-lg bg-zinc-100" />
+    </div>
+  );
+}
 
 export default function ContactPage() {
   return (
@@ -18,38 +29,46 @@ export default function ContactPage() {
             Contact
           </p>
           <h1 className="mt-3 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
-            Book a 20-minute walkthrough
+            Book a HealthOS demo
           </h1>
           <p className="mt-4 text-sm leading-relaxed text-zinc-600 sm:text-base">
-            Share how your clinic runs today (queue, pharmacy, billing, insurer
-            money), and we will show the parts of HealthOS that match.
+            Tell us how your clinic runs today. We will walk registration, queue,
+            consultation, dispensing, payment and owner reporting with your
+            workflow in mind.
           </p>
         </div>
 
-        <div className="mx-auto mt-12 grid max-w-5xl gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-start">
+        <div className="mx-auto mt-12 grid max-w-5xl gap-10 lg:grid-cols-[1fr_1.15fr] lg:items-start">
           <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">
             <h2 className="text-sm font-semibold text-zinc-900">
               What to expect
             </h2>
             <ul className="mt-4 space-y-3 text-sm leading-relaxed text-zinc-600">
               <li>
-                We walk your real patient journey:{" "}
+                A walkthrough of the clinic day:{" "}
                 <span className="font-medium text-zinc-800">
-                  front desk → doctor → pharmacy → payment → follow-up
+                  front desk → doctor → pharmacy → payment → owner view
                 </span>
                 .
               </li>
               <li>
-                We cover privacy, who can see money screens, and insurer
-                receivables if those matter for your clinic.
+                Discussion of Essential, Professional, Group or founding-clinic
+                fit for your size and complexity.
               </li>
               <li>
-                Prefer reading first?{" "}
+                Prefer reading first? See{" "}
+                <Link
+                  href="/pricing"
+                  className="font-medium text-sky-700 hover:text-sky-600"
+                >
+                  pricing
+                </Link>{" "}
+                or the{" "}
                 <Link
                   href="/products/sumero-healthos"
                   className="font-medium text-sky-700 hover:text-sky-600"
                 >
-                  Product overview
+                  product overview
                 </Link>
                 .
               </li>
@@ -66,7 +85,9 @@ export default function ContactPage() {
           </div>
 
           <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">
-            <ContactForm />
+            <Suspense fallback={<FormFallback />}>
+              <ContactForm />
+            </Suspense>
           </div>
         </div>
       </div>

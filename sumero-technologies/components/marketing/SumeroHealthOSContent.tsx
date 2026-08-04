@@ -13,6 +13,7 @@ import {
   IconUsers,
 } from "@/components/marketing/MarketingIcons";
 import { WorkflowPipeline } from "@/components/marketing/WorkflowPipeline";
+import { formatRm, PRICING } from "@/lib/pricing";
 
 function Screenshot({
   src,
@@ -76,15 +77,24 @@ function FeatureCard({
   icon,
   title,
   body,
+  badge,
 }: {
   icon: ReactNode;
   title: string;
   body: string;
+  badge?: string;
 }) {
   return (
     <div className="group rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition duration-300 hover:border-sky-200 hover:shadow-md sm:p-7">
-      <div className="mb-4 inline-flex rounded-xl border border-sky-100 bg-sky-50 p-2.5 text-sky-700">
-        {icon}
+      <div className="mb-4 flex items-start justify-between gap-3">
+        <div className="inline-flex rounded-xl border border-sky-100 bg-sky-50 p-2.5 text-sky-700">
+          {icon}
+        </div>
+        {badge ? (
+          <span className="rounded-md bg-sky-50 px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-sky-800 ring-1 ring-sky-100">
+            {badge}
+          </span>
+        ) : null}
       </div>
       <h3 className="text-base font-semibold tracking-tight text-zinc-900">
         {title}
@@ -131,18 +141,24 @@ export function SumeroHealthOSContent() {
             (&quot;panel&quot;) patients, run an in-house pharmacy, and care
             about who can see what.
           </p>
-          <div className="mt-12 flex flex-wrap gap-3">
+          <div className="mt-12 flex flex-wrap items-center gap-3">
             <Link
               href="/contact"
-              className="inline-flex rounded-full bg-sky-600 px-6 py-3 text-sm font-medium text-white shadow-md shadow-sky-600/20 transition hover:bg-sky-500"
+              className="inline-flex min-h-11 items-center rounded-full bg-sky-600 px-6 py-3 text-sm font-medium text-white shadow-md shadow-sky-600/20 transition hover:bg-sky-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
             >
               Book a walkthrough
             </Link>
             <Link
               href="/security"
-              className="inline-flex rounded-full border border-zinc-300 bg-white px-6 py-3 text-sm font-medium text-zinc-800 transition hover:bg-zinc-50"
+              className="inline-flex min-h-11 items-center rounded-full border border-zinc-300 bg-white px-6 py-3 text-sm font-medium text-zinc-800 transition hover:bg-zinc-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
             >
               How we protect your data
+            </Link>
+            <Link
+              href="/pricing"
+              className="text-sm font-semibold text-sky-700 transition hover:text-sky-600"
+            >
+              Plans start at {formatRm(PRICING.essential.monthly)}/month →
             </Link>
           </div>
         </div>
@@ -204,27 +220,67 @@ export function SumeroHealthOSContent() {
               icon={<IconBuilding className="h-5 w-5" />}
               title="Company (panel) receivables"
               body="Track what each insurer owes, nudge before invoices go stale, and record partial payments when money arrives in chunks."
+              badge="Professional"
             />
             <FeatureCard
               icon={<IconChart className="h-5 w-5" />}
               title="Stock & purchasing"
-              body="See what is on hand, what is expiring soon, and what to order. Sensitive stock changes leave a trail owners can review."
+              body="See what is on hand, what is expiring soon, and what to order. Advanced inventory, suppliers and purchase orders are on Professional."
+              badge="Professional for advanced"
             />
             <FeatureCard
               icon={<IconUsers className="h-5 w-5" />}
               title="Staff & attendance"
-              body="Rosters, leave, and simple clock-in options help you run payroll conversations with fewer arguments about who was on site."
+              body="Rosters, leave, and simple clock-in options help you run workforce conversations with fewer arguments about who was on site."
+              badge="Professional"
             />
             <FeatureCard
               icon={<IconArrowPath className="h-5 w-5" />}
               title="Moving from another system"
               body="Guided imports and checks for patients, stock, and insurer lists so you are not rebuilding everything by hand on day one."
+              badge="Professional"
             />
             <FeatureCard
               icon={<IconShield className="h-5 w-5" />}
               title="Plans & clinic settings"
               body="Trials, renewals, and clinic-wide switches (like read-only mode when a subscription needs attention) stay under control."
             />
+          </div>
+          <div className="mt-10 rounded-2xl border border-amber-100 bg-amber-50/60 p-5 sm:p-6">
+            <h3 className="text-sm font-semibold text-zinc-900">
+              Current availability
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-zinc-600">
+              Manual WhatsApp reminder workflows are available in Essential.
+              Clinic-owned WhatsApp automation and delivery tracking require
+              successful clinic connection, approved Meta templates and
+              production activation{" "}
+              <span className="font-medium text-amber-800">(Requires setup)</span>
+              . MyInvois submission and some other capabilities remain on the{" "}
+              <span className="font-medium text-zinc-800">roadmap</span> and are
+              not generally included yet—see{" "}
+              <Link
+                href="/pricing"
+                className="font-semibold text-sky-700 hover:text-sky-600"
+              >
+                pricing
+              </Link>{" "}
+              for the clear boundary.
+            </p>
+          </div>
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <Link
+              href="/pricing"
+              className="inline-flex min-h-11 items-center justify-center rounded-full bg-sky-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-sky-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
+            >
+              Compare HealthOS plans
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex min-h-11 items-center justify-center rounded-full border border-zinc-300 bg-white px-6 py-3 text-sm font-semibold text-zinc-800 transition hover:bg-zinc-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
+            >
+              Book a demo
+            </Link>
           </div>
         </div>
       </section>
@@ -311,13 +367,21 @@ export function SumeroHealthOSContent() {
             Multi-branch
           </p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
-            Branches that share, without losing control
+            Planning for multiple branches
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg">
-            When you operate more than one site, you choose what travels between
-            branches (such as shared patient lookup or stock) and what stays
-            local to each desk. Owners keep a single subscription view while
-            branch teams see only what they should.
+            HealthOS can support a structured branch-by-branch rollout under a
+            Group agreement. Cross-branch reporting, shared-data rules and
+            central operating requirements are confirmed during solution design
+            before contracting.
+          </p>
+          <p className="mt-6">
+            <Link
+              href="/contact?plan=Group&interest=group"
+              className="text-sm font-semibold text-sky-700 transition hover:text-sky-600"
+            >
+              Discuss a group rollout →
+            </Link>
           </p>
         </div>
       </section>
@@ -326,16 +390,35 @@ export function SumeroHealthOSContent() {
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
           <div className="relative overflow-hidden rounded-3xl border border-sky-100 bg-gradient-to-br from-sky-50 via-white to-zinc-50 p-8 sm:flex sm:items-center sm:justify-between sm:gap-10 sm:p-10">
             <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-sky-200/40 blur-3xl" />
-            <p className="relative max-w-xl text-base leading-relaxed text-zinc-600">
-              Tell us how your clinic runs today, and we will show the screens that
-              map to your reception, doctors, pharmacy, and accounts team.
-            </p>
-            <Link
-              href="/contact"
-              className="relative mt-8 inline-flex shrink-0 rounded-full bg-sky-600 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-sky-500 sm:mt-0"
-            >
-              Book a demo
-            </Link>
+            <div className="relative max-w-xl">
+              <p className="text-base leading-relaxed text-zinc-600">
+                Tell us how your clinic runs today, and we will show the screens
+                that map to your reception, doctors, pharmacy, and accounts team.
+              </p>
+              <p className="mt-3 text-sm text-zinc-500">
+                Plans start at {formatRm(PRICING.essential.monthly)}/month.{" "}
+                <Link
+                  href="/pricing"
+                  className="font-semibold text-sky-700 hover:text-sky-600"
+                >
+                  View pricing
+                </Link>
+              </p>
+            </div>
+            <div className="relative mt-8 flex shrink-0 flex-col gap-3 sm:mt-0 sm:flex-row">
+              <Link
+                href="/contact"
+                className="inline-flex min-h-11 items-center justify-center rounded-full bg-sky-600 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-sky-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
+              >
+                Book a demo
+              </Link>
+              <Link
+                href="/pricing"
+                className="inline-flex min-h-11 items-center justify-center rounded-full border border-zinc-300 bg-white px-7 py-3.5 text-sm font-semibold text-zinc-800 transition hover:bg-zinc-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
+              >
+                Compare plans
+              </Link>
+            </div>
           </div>
         </div>
       </section>
