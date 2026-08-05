@@ -227,44 +227,125 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Roadmap boundary */}
+      {/* Product status */}
       <section className="border-b border-zinc-200 bg-zinc-50/70">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-          <h2 className="text-2xl font-semibold tracking-tight text-zinc-900 sm:text-3xl">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-600">
+            Transparency
+          </p>
+          <h2 className="mt-4 max-w-2xl text-2xl font-semibold tracking-tight text-zinc-900 sm:text-3xl">
             What is not included yet
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-600">
-            MyInvois submission is on the HealthOS roadmap and is not currently
-            included in Essential or Professional. Certain WhatsApp automation
-            capabilities require Meta approval, clinic onboarding and approved
-            message templates.
+            We would rather be clear upfront than over-promise. Essential and
+            Professional cover the full clinic day; the items below are either
+            planned, need clinic-specific setup, or sit outside HealthOS today.
           </p>
-          <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+
+          <div className="mt-10 space-y-8">
             {[
-              { label: "Roadmap", item: "MyInvois submission" },
-              { label: "Requires setup", item: "Clinic-owned WhatsApp automation" },
-              { label: "Roadmap", item: "MyKad reading" },
-              { label: "Roadmap", item: "Laboratory workflow" },
-              { label: "Not included", item: "Payroll" },
-              { label: "Not included", item: "Accounting general ledger" },
-              { label: "Not included", item: "AI clinical assistance" },
               {
-                label: "Not claimed",
-                item: "Compliance certification or guaranteed SLA",
+                heading: "On the roadmap",
+                description:
+                  "In development or planned — not part of current plan pricing.",
+                items: [
+                  {
+                    label: "Roadmap",
+                    tone: "amber" as const,
+                    title: "MyInvois submission",
+                  },
+                  {
+                    label: "Roadmap",
+                    tone: "amber" as const,
+                    title: "MyKad reading",
+                  },
+                  {
+                    label: "Roadmap",
+                    tone: "amber" as const,
+                    title: "Laboratory workflow",
+                  },
+                ],
               },
-            ].map(({ label, item }) => (
-              <li
-                key={item}
-                className="flex items-start gap-3 rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm"
-              >
-                <span className="shrink-0 rounded-md bg-zinc-100 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-zinc-600">
-                  {label}
-                </span>
-                <span className="text-zinc-700">{item}</span>
-              </li>
+              {
+                heading: "Needs clinic setup first",
+                description:
+                  "Available only after connection, approval and go-live steps are complete.",
+                items: [
+                  {
+                    label: "Requires setup",
+                    tone: "sky" as const,
+                    title: "Clinic-owned WhatsApp automation",
+                    note: "Meta-approved templates and production activation required.",
+                  },
+                ],
+              },
+              {
+                heading: "Outside current HealthOS scope",
+                description:
+                  "Not included in Essential or Professional today.",
+                items: [
+                  {
+                    label: "Not included",
+                    tone: "zinc" as const,
+                    title: "Payroll",
+                  },
+                  {
+                    label: "Not included",
+                    tone: "zinc" as const,
+                    title: "Accounting general ledger",
+                  },
+                  {
+                    label: "Not included",
+                    tone: "zinc" as const,
+                    title: "AI clinical assistance",
+                  },
+                  {
+                    label: "Standard terms",
+                    tone: "zinc" as const,
+                    title: "Compliance certification or guaranteed SLA",
+                    note: "We do not advertise certifications or fixed SLAs on this website.",
+                  },
+                ],
+              },
+            ].map((group) => (
+              <div key={group.heading}>
+                <h3 className="text-sm font-semibold text-zinc-900">
+                  {group.heading}
+                </h3>
+                <p className="mt-1 text-sm text-zinc-500">{group.description}</p>
+                <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                  {group.items.map((item) => (
+                    <li
+                      key={item.title}
+                      className="rounded-xl border border-zinc-200 bg-white p-4"
+                    >
+                      <span
+                        className={`inline-block rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide ${
+                          item.tone === "amber"
+                            ? "bg-amber-50 text-amber-800 ring-1 ring-amber-100"
+                            : item.tone === "sky"
+                              ? "bg-sky-50 text-sky-800 ring-1 ring-sky-100"
+                              : "bg-zinc-100 text-zinc-600 ring-1 ring-zinc-200/80"
+                        }`}
+                      >
+                        {item.label}
+                      </span>
+                      <p className="mt-3 text-sm font-medium leading-snug text-zinc-900">
+                        {item.title}
+                      </p>
+                      {"note" in item && item.note ? (
+                        <p className="mt-1.5 text-sm leading-relaxed text-zinc-500">
+                          {item.note}
+                        </p>
+                      ) : null}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
-          </ul>
-          <p className="mt-8 text-sm text-zinc-500">
+          </div>
+
+          <p className="mt-10 text-sm leading-relaxed text-zinc-500">
             Prefer a walkthrough first?{" "}
             <Link
               href="/contact"
