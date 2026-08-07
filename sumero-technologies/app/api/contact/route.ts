@@ -62,9 +62,9 @@ export async function POST(req: Request) {
   ];
 
   try {
-    const result = await resend.emails.send({
-      from: "Sumero Technologies <support@sumerotech.com>",
-      to: "support@sumerotech.com",
+    const { data, error } = await resend.emails.send({
+      from: "Sumero HealthOS <onboarding@resend.dev>",
+      to: "kathikgesu.j@gmail.com",
       subject: `HealthOS enquiry${interestedPlan ? `: ${interestedPlan}` : ""} — ${clinicName || name}`,
       replyTo: email,
       html: `
@@ -80,8 +80,19 @@ export async function POST(req: Request) {
       `,
     });
 
-    console.log("Resend success:", result);
-    return Response.json({ success: true, result });
+    if (error) {
+      console.error("Resend error:", error);
+      return Response.json(
+        {
+          success: false,
+          message: "We could not send your enquiry. Please email support@sumerotech.com.",
+        },
+        { status: 502 },
+      );
+    }
+
+    console.log("Resend success:", data);
+    return Response.json({ success: true, data });
   } catch (error: unknown) {
     console.error("Resend error:", error);
     const messageText =
