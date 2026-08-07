@@ -133,9 +133,9 @@ export default function PricingPage() {
             Become a HealthOS founding clinic
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-300 sm:text-lg">
-            Work directly with Sumero to validate HealthOS against your real
-            clinic workflow, train your team and measure the results before wider
-            rollout.
+            Work directly with the Sumero team to test HealthOS against your
+            clinic&apos;s actual workflow, train your staff and review the results
+            before a wider rollout.
           </p>
           <ul className="mt-10 grid gap-3 sm:grid-cols-2">
             {[
@@ -159,7 +159,7 @@ export default function PricingPage() {
           <div className="mt-8 space-y-2 text-sm text-zinc-400">
             <p>Participation is subject to application and fit.</p>
             <p>
-              Clinics are not automatically obligated to provide a testimonial.
+              Clinics are not required to provide a testimonial.
             </p>
             <p>Custom development is not included.</p>
             <p>
@@ -237,9 +237,10 @@ export default function PricingPage() {
             What is not included yet
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-600">
-            We would rather be clear upfront than over-promise. Essential and
-            Professional cover the full clinic day; the items below are either
-            planned, need clinic-specific setup, or sit outside HealthOS today.
+            We want you to know exactly what is available before you subscribe.
+            Essential and Professional cover the main clinic workflow; the items
+            below are planned, require clinic-specific setup or are currently
+            outside the scope of HealthOS.
           </p>
 
           <div className="mt-10 space-y-8">
@@ -247,7 +248,7 @@ export default function PricingPage() {
               {
                 heading: "On the roadmap",
                 description:
-                  "In development or planned — not part of current plan pricing.",
+                  "In development or planned, and not included in current plan pricing.",
                 items: [
                   {
                     label: "Roadmap",

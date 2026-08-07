@@ -22,7 +22,7 @@ const pillars = [
     body: "Owners, doctors, front desk, nurses, pharmacists, and accounts each get a sensible workspace. Visiting doctors don’t get owner-level money screens unless you allow it.",
   },
   {
-    title: "A trail when you need answers",
+    title: "A clear audit trail",
     body: "Important actions on patients, visits, payments, and stock can be traced when you need to review what changed, when, and by whom. That helps with peace of mind and panel queries.",
   },
 ] as const;
@@ -35,11 +35,12 @@ export default function SecurityPage() {
           Security &amp; trust
         </p>
         <h1 className="mt-4 max-w-2xl text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl">
-          Built so clinics can sleep at night
+          Security designed for daily clinic operations
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600">
           Sumero HealthOS is designed for private clinics that handle sensitive
-          data every day. Here is how we think about safety, in plain language.
+          information every day. Here is a straightforward overview of how we
+          protect access and clinic data.
         </p>
 
         <div className="mt-16 grid gap-6 sm:grid-cols-2">

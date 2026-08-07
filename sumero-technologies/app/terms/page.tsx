@@ -19,7 +19,7 @@ export default function TermsPage() {
           Terms of Use
         </h1>
         <p className="mt-3 text-sm text-zinc-500">
-          Last updated: 5 August 2026
+          Last updated: 7 August 2026
         </p>
 
         <div className="prose-legal mt-10 space-y-8 text-sm leading-relaxed text-zinc-600">
@@ -115,10 +115,10 @@ export default function TermsPage() {
             <p className="mt-3">
               Questions about these terms:{" "}
               <a
-                href="mailto:contact@sumerotech.com"
+                href="mailto:support@sumerotech.com"
                 className="font-medium text-sky-700 hover:text-sky-600"
               >
-                contact@sumerotech.com
+                support@sumerotech.com
               </a>
               . See also our{" "}
               <Link href="/privacy" className="font-medium text-sky-700 hover:text-sky-600">

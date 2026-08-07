@@ -128,7 +128,7 @@ export function ContactForm() {
             });
             const data = await res.json();
             if (!res.ok || !data.success) {
-              throw new Error(data.message || "Failed to send");
+              throw new Error(data.message || "We could not send your enquiry.");
             }
             track("demo_form_submitted");
             setSuccess(true);
@@ -136,7 +136,11 @@ export function ContactForm() {
             setPlanOverride("");
             window.setTimeout(() => setSuccess(false), 4000);
           } catch (err: unknown) {
-            setError(err instanceof Error ? err.message : "Something went wrong");
+            setError(
+              err instanceof Error
+                ? err.message
+                : "Something went wrong. Please try again.",
+            );
           } finally {
             setPending(false);
           }
@@ -217,7 +221,7 @@ export function ContactForm() {
               name="branches"
               inputMode="numeric"
               className={fieldClass}
-              placeholder="e.g. 1"
+              placeholder="For example, 1"
             />
           </div>
           <div>
@@ -232,7 +236,7 @@ export function ContactForm() {
               name="doctors"
               inputMode="numeric"
               className={fieldClass}
-              placeholder="e.g. 2"
+              placeholder="For example, 2"
             />
           </div>
         </div>
@@ -326,7 +330,7 @@ export function ContactForm() {
             name="message"
             rows={4}
             className={`${fieldClass} resize-none`}
-            placeholder="Anything else we should know before the walkthrough."
+            placeholder="Tell us anything else that would help us prepare for the demo."
           />
         </div>
 

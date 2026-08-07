@@ -1,8 +1,8 @@
 const steps = [
   { label: "Check-in", detail: "Register or find the patient" },
-  { label: "Wait", detail: "Fair queue, clear order" },
-  { label: "See the Doctor", detail: "Notes, scripts, letters in one visit" },
-  { label: "Dispense Medicine", detail: "Pharmacy prepares what was prescribed" },
+  { label: "Wait", detail: "A clear queue in the right order" },
+  { label: "See the doctor", detail: "Notes, prescriptions and letters in one visit" },
+  { label: "Collect medicine", detail: "Pharmacy prepares and verifies each item" },
   { label: "Pay", detail: "Cash, transfer, card, or company panel" },
   { label: "Review", detail: "Sales, panels, and follow-ups in one place" },
 ] as const;

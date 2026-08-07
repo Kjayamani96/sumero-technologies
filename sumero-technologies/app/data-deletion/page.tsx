@@ -16,10 +16,10 @@ export default function DataDeletionPage() {
           Legal
         </p>
         <h1 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
-          Data deletion
+          Data Deletion
         </h1>
         <p className="mt-3 text-sm text-zinc-500">
-          Last updated: 5 August 2026
+          Last updated: 7 August 2026
         </p>
 
         <div className="mt-10 space-y-8 text-sm leading-relaxed text-zinc-600">
@@ -31,10 +31,10 @@ export default function DataDeletionPage() {
               If you submitted a contact or demo form on sumerotech.com and want
               that enquiry record deleted, email{" "}
               <a
-                href="mailto:contact@sumerotech.com"
+                href="mailto:support@sumerotech.com"
                 className="font-medium text-sky-700 hover:text-sky-600"
               >
-                contact@sumerotech.com
+                support@sumerotech.com
               </a>{" "}
               with the subject line &quot;Data deletion request&quot; and include
               the email address you used in the form. We will process legitimate
@@ -58,10 +58,10 @@ export default function DataDeletionPage() {
               Authorised clinic owners may request account closure and data
               deletion by contacting Sumero support or{" "}
               <a
-                href="mailto:contact@sumerotech.com"
+                href="mailto:support@sumerotech.com"
                 className="font-medium text-sky-700 hover:text-sky-600"
               >
-                contact@sumerotech.com
+                support@sumerotech.com
               </a>
               . We may need to verify authority before acting. Some records may
               be retained where required by law or for legitimate security and

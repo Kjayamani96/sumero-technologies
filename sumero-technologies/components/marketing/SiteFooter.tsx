@@ -12,8 +12,8 @@ export function SiteFooter() {
             </p>
             <p className="text-sm font-medium text-zinc-800">Sumero HealthOS</p>
             <p className="text-sm leading-relaxed text-zinc-600">
-              Clinic operations workspace from appointment and queue through
-              consultation, dispensing, payment, and owner reporting.
+              A clinic operations workspace covering appointments, queues,
+              consultations, dispensing, payments and management reporting.
             </p>
           </div>
           <div className="space-y-4 text-sm">
@@ -99,7 +99,8 @@ export function SiteFooter() {
           <CompanyLink className="text-zinc-600 underline-offset-2 transition hover:text-sky-700 hover:underline">
             Sumero Technologies
           </CompanyLink>
-          . Sumero HealthOS. Private clinics. One workspace.
+          . Sumero HealthOS helps private clinics manage daily operations in one
+          workspace.
         </p>
       </div>
     </footer>

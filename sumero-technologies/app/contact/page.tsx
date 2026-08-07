@@ -5,7 +5,7 @@ import { ContactForm } from "@/components/marketing/ContactForm";
 import { MarketingShell } from "@/components/marketing/MarketingShell";
 
 export const metadata: Metadata = {
-  title: "Contact | Sumero HealthOS",
+  title: "Contact",
   description:
     "Book a HealthOS demo for your Malaysian clinic. Share branches, doctors and operational needs so we can prepare a relevant walkthrough.",
 };
@@ -32,9 +32,9 @@ export default function ContactPage() {
             Book a HealthOS demo
           </h1>
           <p className="mt-4 text-sm leading-relaxed text-zinc-600 sm:text-base">
-            Tell us how your clinic runs today. We will walk registration, queue,
-            consultation, dispensing, payment and owner reporting with your
-            workflow in mind.
+            Tell us how your clinic operates today. We will tailor the demo to
+            your registration, queue, consultation, dispensing, payment and
+            reporting workflows.
           </p>
         </div>
 
@@ -52,8 +52,8 @@ export default function ContactPage() {
                 .
               </li>
               <li>
-                Discussion of Essential, Professional, Group or founding-clinic
-                fit for your size and complexity.
+                A practical discussion on whether Essential, Professional,
+                Group or our Founding Clinic Programme suits your clinic.
               </li>
               <li>
                 Prefer reading first? See{" "}
@@ -76,10 +76,10 @@ export default function ContactPage() {
             <div className="mt-8 rounded-xl border border-zinc-200 bg-zinc-50 p-4 text-xs text-zinc-500">
               <p className="font-medium text-zinc-700">Email</p>
               <a
-                href="mailto:contact@sumerotech.com"
+                href="mailto:support@sumerotech.com"
                 className="mt-1 block text-sky-700 hover:text-sky-600"
               >
-                contact@sumerotech.com
+                support@sumerotech.com
               </a>
             </div>
           </div>

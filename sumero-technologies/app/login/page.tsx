@@ -24,7 +24,7 @@ const highlights = [
   {
     Icon: IconBuilding,
     title: "Multi-branch clinics",
-    body: "One subscription view for owners; each branch keeps its own day-to-day workspace.",
+    body: "Owners get a consolidated view while each branch manages its own daily operations.",
   },
   {
     Icon: IconShield,
@@ -33,13 +33,13 @@ const highlights = [
   },
   {
     Icon: IconClinical,
-    title: "Clinical through pharmacy",
-    body: "Visits, scripts, labels, and stock checks stay on the same patient thread.",
+    title: "Consultation to pharmacy",
+    body: "Consultation notes, prescriptions, labels and stock checks stay connected to the same patient visit.",
   },
   {
     Icon: IconChart,
     title: "Operational clarity",
-    body: "Collections, panel receivables, and open work surface where managers expect them.",
+    body: "Managers can see collections, panel receivables and outstanding work in the right place.",
   },
   {
     Icon: IconUsers,
@@ -89,12 +89,12 @@ export default function LoginPage() {
             </p>
 
             <h1 className="mt-12 max-w-md text-3xl font-semibold leading-tight tracking-tight text-zinc-900 sm:text-4xl">
-              Modern clinic operations workspace
+              A modern workspace for clinic operations
             </h1>
             <p className="mt-5 max-w-md text-sm leading-relaxed text-zinc-600 sm:text-base">
-              Patients, queue, visits, pharmacy, billing, panel receivables, and
-              staff workflows, all structured so your team spends less time
-              reconciling tools and more time on care.
+              Keep patient records, queues, consultations, pharmacy, billing,
+              panel receivables and staff workflows in one place, so your team
+              spends less time reconciling separate systems.
             </p>
 
             <ul className="mt-12 max-w-md space-y-3">
@@ -167,9 +167,9 @@ export default function LoginPage() {
                 </li>
               </ul>
               <p className="mt-6 text-center text-xs leading-relaxed text-zinc-500">
-                SSO, MFA, and organisation portals can plug in on the workspace as
-                your clinic adopts them, without changing how staff think about
-                signing in.
+                SSO, MFA and organisation portals can be added to the workspace
+                as your clinic adopts them, without disrupting the way staff
+                sign in.
               </p>
             </div>
 

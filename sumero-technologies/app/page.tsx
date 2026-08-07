@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Sumero HealthOS | Clinic workspace",
     description:
-      "From walk-in to payment, one spine connects reception, doctors, pharmacy, and accounts.",
+      "From registration to payment, HealthOS keeps reception, doctors, pharmacy and accounts connected.",
     url: "https://sumerotech.com",
   },
 };
@@ -28,18 +28,18 @@ export const metadata: Metadata = {
 const pillars = [
   {
     icon: IconReception,
-    title: "Front of house",
-    body: "Queue, registration, and handoff to the right doctor, without sticky notes and side spreadsheets.",
+    title: "Front desk",
+    body: "Manage registration, queues and patient handovers without relying on sticky notes or separate spreadsheets.",
   },
   {
     icon: IconClinical,
-    title: "Care & pharmacy",
-    body: "Visits, scripts, labels, and stock checks tied together so the counter never guesses what the room decided.",
+    title: "Consultation and pharmacy",
+    body: "Keep consultation notes, prescriptions, labels and stock checks connected from the consultation room to the pharmacy counter.",
   },
   {
     icon: IconMoney,
-    title: "Money & stock",
-    body: "Desk collections, panel invoices, reminders, and inventory moves with an owner-visible trail when it matters.",
+    title: "Finance and stock",
+    body: "Track collections, panel invoices, payment reminders and stock movements with a clear audit history.",
   },
 ] as const;
 
@@ -56,7 +56,7 @@ const trustPoints = [
   },
   {
     icon: IconChart,
-    title: "Clear today view",
+    title: "Clear daily overview",
     body: "Collections, visits, and open work in one place.",
   },
   {
@@ -81,8 +81,9 @@ export default function HomePage() {
               Run the clinic day in one place
             </h1>
             <p className="hero-fade-up-delay-2 mx-auto mt-5 max-w-xl text-base leading-relaxed text-zinc-600 sm:text-lg">
-              Reception, doctors, pharmacy, and billing share one spine from
-              walk-in to payment, for private clinics across Malaysia and beyond.
+              Keep reception, consultation, pharmacy and billing connected from
+              patient registration to payment, in one system built for private
+              clinics in Malaysia.
             </p>
             <div className="hero-fade-up-delay-2 mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
@@ -144,12 +145,12 @@ export default function HomePage() {
             Why HealthOS
           </p>
           <h2 className="mt-4 max-w-2xl text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
-            Three places your team already works
+            One system for your clinic team
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg">
-            Built for private GP and specialist clinics with in-house pharmacy
-            and panel visits. Fewer tabs, fewer handoffs, fewer moments where
-            nobody knows who changed what.
+            HealthOS is built for private GP and specialist clinics that manage
+            in-house dispensing and panel patients. Your team works with fewer
+            disconnected tools and has a clearer record of every update.
           </p>
           <div className="mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
             {pillars.map(({ icon: Icon, title, body }) => (
@@ -176,7 +177,7 @@ export default function HomePage() {
             Patient journey
           </p>
           <h2 className="mt-4 max-w-2xl text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
-            From door to payment on one track
+            From registration to payment, in one workflow
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg">
             When reception, doctors, and pharmacy share the same visit story,
@@ -198,10 +199,9 @@ export default function HomePage() {
             Straightforward plans for growing clinics
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-600">
-            Dependable daily workflow first, then deeper inventory, panel,
-            workforce and financial control when you need them—not positioned as
-            the cheapest clinic software, but as a complete clinic workspace with
-            guided onboarding.
+            Start with a dependable daily workflow, then add more advanced
+            inventory, panel, workforce and financial controls as your clinic
+            grows. Every plan includes guided onboarding.
           </p>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {[
@@ -255,7 +255,7 @@ export default function HomePage() {
             Trust
           </p>
           <h2 className="mt-4 max-w-2xl text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
-            Serious about who sees what
+            Access that matches each person&apos;s role
           </h2>
           <ul className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
             {trustPoints.map(({ icon: Icon, title, body }) => (

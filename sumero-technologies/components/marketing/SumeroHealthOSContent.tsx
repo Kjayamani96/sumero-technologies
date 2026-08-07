@@ -110,8 +110,8 @@ const trustTeasers = [
     body: "Patient and money data stay scoped to your organisation. Other customers on the platform never see it.",
   },
   {
-    title: "Sign-in that fits real desks",
-    body: "Sensible password rules and lockouts so busy reception areas stay protected without slowing everyone down.",
+    title: "Secure access for busy teams",
+    body: "Password rules and account lockouts help protect busy reception areas without making daily access unnecessarily difficult.",
   },
   {
     title: "A paper trail when it matters",
@@ -132,9 +132,9 @@ export function SumeroHealthOSContent() {
             One place to run the clinic day
           </h1>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-zinc-600 sm:text-xl sm:leading-relaxed">
-            From the first patient at the door through consultation, pharmacy,
-            billing, and follow-up. HealthOS keeps your team aligned without
-            juggling spreadsheets and disconnected apps.
+            From registration to consultation, dispensing, billing and
+            follow-up, HealthOS keeps your team working from the same reliable
+            information.
           </p>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-500">
             Built for private clinics and small groups that see insured
@@ -192,14 +192,14 @@ export function SumeroHealthOSContent() {
             What you get
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg">
-            The essentials teams use every week, written the way owners and
-            managers already talk about the work.
+            Practical tools for the work clinic owners, managers and staff
+            handle every day.
           </p>
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             <FeatureCard
               icon={<IconReception className="h-5 w-5" />}
               title="Front desk & queue"
-              body="Take a number, see who is waiting, and hand patients to the right doctor. Urgent cases can jump ahead when your policy allows."
+              body="Register patients, see who is waiting and assign each patient to the right doctor. Staff can prioritise urgent cases according to the clinic's policy."
             />
             <FeatureCard
               icon={<IconClinical className="h-5 w-5" />}
@@ -219,7 +219,7 @@ export function SumeroHealthOSContent() {
             <FeatureCard
               icon={<IconBuilding className="h-5 w-5" />}
               title="Company (panel) receivables"
-              body="Track what each insurer owes, nudge before invoices go stale, and record partial payments when money arrives in chunks."
+              body="Track outstanding amounts by panel company, follow up on overdue invoices and record partial payments as they are received."
               badge="Professional"
             />
             <FeatureCard
@@ -231,7 +231,7 @@ export function SumeroHealthOSContent() {
             <FeatureCard
               icon={<IconUsers className="h-5 w-5" />}
               title="Staff & attendance"
-              body="Rosters, leave, and simple clock-in options help you run workforce conversations with fewer arguments about who was on site."
+              body="Manage rosters, leave and attendance records with a clear view of who was scheduled and who was present."
               badge="Professional"
             />
             <FeatureCard
@@ -243,7 +243,7 @@ export function SumeroHealthOSContent() {
             <FeatureCard
               icon={<IconShield className="h-5 w-5" />}
               title="Plans & clinic settings"
-              body="Trials, renewals, and clinic-wide switches (like read-only mode when a subscription needs attention) stay under control."
+              body="Manage trials, renewals and clinic-wide settings, including read-only access when a subscription requires attention."
             />
           </div>
           <div className="mt-10 rounded-2xl border border-amber-100 bg-amber-50/60 p-5 sm:p-6">
@@ -294,9 +294,9 @@ export function SumeroHealthOSContent() {
             Inside the workspace
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg">
-            These are real product frames, shown large so you can read the text.
-            Most weeks, your team keeps coming back to three views: how the day
-            looks, how pharmacy closes the loop, and how panel money is tracking.
+            These are actual HealthOS screens. They show three common areas of
+            work: daily clinic activity, the pharmacy handover and panel
+            receivables.
           </p>
           <div className="mt-12 flex flex-col gap-14 sm:mt-14 sm:gap-20">
             <Screenshot
@@ -328,11 +328,11 @@ export function SumeroHealthOSContent() {
             Trust
           </p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
-            Trust, in human terms
+            Clear and practical security
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg">
-            No acronyms, just what clinic owners ask us about before they go
-            live.
+            Straightforward answers to the security questions clinic owners
+            usually ask before going live.
           </p>
           <div className="mt-14 grid gap-5 sm:grid-cols-3">
             {trustTeasers.map((item) => (

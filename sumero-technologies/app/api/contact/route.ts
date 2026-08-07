@@ -63,8 +63,8 @@ export async function POST(req: Request) {
 
   try {
     const result = await resend.emails.send({
-      from: "onboarding@resend.dev",
-      to: "kathikgesu.j@gmail.com",
+      from: "Sumero Technologies <support@sumerotech.com>",
+      to: "support@sumerotech.com",
       subject: `HealthOS enquiry${interestedPlan ? `: ${interestedPlan}` : ""} — ${clinicName || name}`,
       replyTo: email,
       html: `

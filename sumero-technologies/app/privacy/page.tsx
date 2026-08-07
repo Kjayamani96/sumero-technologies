@@ -19,7 +19,7 @@ export default function PrivacyPage() {
           Privacy Policy
         </h1>
         <p className="mt-3 text-sm text-zinc-500">
-          Last updated: 5 August 2026
+          Last updated: 7 August 2026
         </p>
 
         <div className="mt-10 space-y-8 text-sm leading-relaxed text-zinc-600">
@@ -126,10 +126,10 @@ export default function PrivacyPage() {
               You may request access, correction or deletion of personal data we
               hold about you from website enquiries by contacting{" "}
               <a
-                href="mailto:contact@sumerotech.com"
+                href="mailto:support@sumerotech.com"
                 className="font-medium text-sky-700 hover:text-sky-600"
               >
-                contact@sumerotech.com
+                support@sumerotech.com
               </a>
               . For product workspace data deletion steps, see{" "}
               <Link
@@ -147,10 +147,10 @@ export default function PrivacyPage() {
             <p className="mt-3">
               Sumero Technologies — privacy and website enquiries:{" "}
               <a
-                href="mailto:contact@sumerotech.com"
+                href="mailto:support@sumerotech.com"
                 className="font-medium text-sky-700 hover:text-sky-600"
               >
-                contact@sumerotech.com
+                support@sumerotech.com
               </a>
               .
             </p>
