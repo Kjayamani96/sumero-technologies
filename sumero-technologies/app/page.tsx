@@ -74,15 +74,53 @@ export default function HomePage() {
 
           <div className="hero-image-reveal relative mx-auto w-full max-w-lg lg:max-w-none">
             <div className="absolute inset-8 rounded-full bg-gradient-to-br from-blue-500/12 via-cyan-400/10 to-teal-400/10 blur-3xl" />
-            <div className="relative rounded-[2rem] border border-slate-200 bg-white/85 p-10 shadow-[0_28px_80px_-42px_rgba(11,16,38,0.35)] sm:p-14">
-              <Image
-                src="/brand/sumero-symbol.png"
-                alt="SUMERO symbol"
-                width={1246}
-                height={1263}
-                className="mx-auto h-auto w-[230px] sm:w-[280px]"
-                priority
-              />
+            <div className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_28px_80px_-42px_rgba(11,16,38,0.35)]">
+              <div className="p-7 sm:p-9">
+                <div className="flex items-center justify-between gap-4">
+                  <p className="font-heading text-[11px] font-semibold uppercase tracking-[0.2em] text-[#1d4ed8]">
+                    Flagship product
+                  </p>
+                  <span className="rounded-full bg-teal-50 px-3 py-1 font-heading text-[10px] font-semibold uppercase tracking-wider text-teal-700 ring-1 ring-teal-100">
+                    Available now
+                  </span>
+                </div>
+                <Image
+                  src="/brand/sumero-healthos-horizontal.png"
+                  alt="SUMERO HealthOS"
+                  width={2172}
+                  height={724}
+                  className="mt-6 h-auto w-full max-w-[280px]"
+                  priority
+                />
+                <p className="mt-5 max-w-md text-sm leading-6 text-slate-600">
+                  A connected operations platform for private clinics, covering
+                  the patient journey from registration to payment and reporting.
+                </p>
+              </div>
+              <div className="border-y border-slate-200 bg-[#f3f6fa] p-4 sm:p-5">
+                <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+                  <Image
+                    src="/marketing/dashboard-queue.png"
+                    alt="HealthOS clinic operations dashboard"
+                    width={1920}
+                    height={1080}
+                    sizes="(max-width: 1024px) 100vw, 520px"
+                    className="h-auto w-full"
+                    priority
+                  />
+                </div>
+              </div>
+              <div className="flex items-center justify-between gap-4 px-7 py-5 sm:px-9">
+                <p className="text-xs text-slate-500">
+                  Built by SUMERO Technologies
+                </p>
+                <Link
+                  href="/products/sumero-healthos"
+                  className="font-heading text-sm font-semibold text-[#1d4ed8] transition hover:text-[#008bff]"
+                >
+                  Explore HealthOS →
+                </Link>
+              </div>
             </div>
           </div>
         </div>
