@@ -60,11 +60,11 @@ export default function LoginPage() {
               className="inline-flex items-center gap-3 rounded-lg ring-1 ring-transparent transition hover:ring-zinc-200"
             >
               <Image
-                src="/icon.png"
-                alt="Sumero HealthOS"
-                width={40}
-                height={40}
-                className="rounded-xl ring-1 ring-zinc-200"
+                src="/brand/sumero-symbol.png"
+                alt="SUMERO"
+                width={1246}
+                height={1263}
+                className="h-10 w-10 object-contain"
               />
               <div>
                 <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-sky-700">

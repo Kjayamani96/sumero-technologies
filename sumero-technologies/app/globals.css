@@ -2,20 +2,56 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #18181b;
+  --foreground: #0b1026;
+  --sumero-navy: #0b1026;
+  --sumero-royal: #1d4ed8;
+  --sumero-blue: #008bff;
+  --sumero-cyan: #00d4ff;
+  --sumero-teal: #00c2a8;
+  --sumero-surface: #f3f6fa;
+  --sumero-border: #dce5ef;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-poppins);
+  --color-sky-50: #eff8ff;
+  --color-sky-100: #d9f1ff;
+  --color-sky-200: #afe5ff;
+  --color-sky-400: #00d4ff;
+  --color-sky-500: #008bff;
+  --color-sky-600: #1d4ed8;
+  --color-sky-700: #1647c5;
+  --color-sky-800: #123ba5;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+.font-heading {
+  font-family: var(--font-poppins), var(--font-inter), ui-sans-serif, system-ui,
+    sans-serif;
+}
+
+::selection {
+  background: rgb(0 139 255 / 18%);
+  color: var(--sumero-navy);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 @keyframes toast {

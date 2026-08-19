@@ -128,6 +128,14 @@ export function SumeroHealthOSContent() {
           <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-600">
             Platform overview
           </p>
+          <Image
+            src="/brand/sumero-healthos-horizontal.png"
+            alt="SUMERO HealthOS"
+            width={2172}
+            height={724}
+            className="mt-6 h-auto w-full max-w-[310px]"
+            priority
+          />
           <h1 className="mt-5 max-w-3xl text-[2.5rem] font-semibold leading-[1.08] tracking-tight text-zinc-900 sm:text-5xl sm:leading-[1.06]">
             One place to run the clinic day
           </h1>

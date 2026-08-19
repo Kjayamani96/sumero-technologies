@@ -1,92 +1,100 @@
+import Image from "next/image";
 import Link from "next/link";
-import { CompanyLink } from "@/components/marketing/CompanyLink";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-zinc-200 bg-zinc-50">
-      <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
+    <footer className="bg-[#0b1026] text-white">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
-          <div className="max-w-xs space-y-4 lg:col-span-1">
-            <p className="text-sm font-semibold text-zinc-900">
-              Sumero Technologies
-            </p>
-            <p className="text-sm font-medium text-zinc-800">Sumero HealthOS</p>
-            <p className="text-sm leading-relaxed text-zinc-600">
-              A clinic operations workspace covering appointments, queues,
-              consultations, dispensing, payments and management reporting.
+          <div className="max-w-sm space-y-5 lg:col-span-1">
+            <Image
+              src="/brand/sumero-technologies-white.png"
+              alt="SUMERO Technologies"
+              width={2172}
+              height={724}
+              className="h-auto w-[210px]"
+            />
+            <p className="text-sm leading-relaxed text-slate-300">
+              We design and build practical technology products that simplify
+              complex operations and connect the way teams work.
             </p>
           </div>
           <div className="space-y-4 text-sm">
-            <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
-              Product
+            <p className="font-heading text-xs font-semibold uppercase tracking-wider text-cyan-300">
+              Products
             </p>
-            <ul className="space-y-2.5 text-zinc-600">
+            <ul className="space-y-2.5 text-slate-300">
               <li>
                 <Link
                   href="/products/sumero-healthos"
-                  className="transition hover:text-zinc-900"
+                  className="transition hover:text-white"
                 >
                   HealthOS
                 </Link>
               </li>
               <li>
-                <Link href="/pricing" className="transition hover:text-zinc-900">
-                  Pricing
+                <Link href="/products" className="transition hover:text-white">
+                  Product portfolio
                 </Link>
               </li>
               <li>
-                <Link href="/products" className="transition hover:text-zinc-900">
-                  All products
+                <Link href="/pricing" className="transition hover:text-white">
+                  HealthOS pricing
                 </Link>
               </li>
             </ul>
           </div>
           <div className="space-y-4 text-sm">
-            <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
+            <p className="font-heading text-xs font-semibold uppercase tracking-wider text-cyan-300">
               Company
             </p>
-            <ul className="space-y-2.5 text-zinc-600">
+            <ul className="space-y-2.5 text-slate-300">
               <li>
-                <CompanyLink className="transition hover:text-zinc-900">
-                  Sumero Technologies
-                </CompanyLink>
+                <Link href="/#about" className="transition hover:text-white">
+                  About Us
+                </Link>
               </li>
               <li>
-                <Link href="/contact" className="transition hover:text-zinc-900">
+                <Link href="/#technology" className="transition hover:text-white">
+                  Technology
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="transition hover:text-white">
                   Contact
                 </Link>
               </li>
               <li>
-                <Link href="/login" className="transition hover:text-zinc-900">
+                <Link href="/login" className="transition hover:text-white">
                   Staff sign in
                 </Link>
               </li>
             </ul>
           </div>
           <div className="space-y-4 text-sm">
-            <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
+            <p className="font-heading text-xs font-semibold uppercase tracking-wider text-cyan-300">
               Trust &amp; legal
             </p>
-            <ul className="space-y-2.5 text-zinc-600">
+            <ul className="space-y-2.5 text-slate-300">
               <li>
-                <Link href="/security" className="transition hover:text-zinc-900">
+                <Link href="/security" className="transition hover:text-white">
                   Security &amp; Trust
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="transition hover:text-zinc-900">
+                <Link href="/terms" className="transition hover:text-white">
                   Terms
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="transition hover:text-zinc-900">
+                <Link href="/privacy" className="transition hover:text-white">
                   Privacy
                 </Link>
               </li>
               <li>
                 <Link
                   href="/data-deletion"
-                  className="transition hover:text-zinc-900"
+                  className="transition hover:text-white"
                 >
                   Data deletion
                 </Link>
@@ -94,14 +102,12 @@ export function SiteFooter() {
             </ul>
           </div>
         </div>
-        <p className="mt-12 border-t border-zinc-200 pt-8 text-xs text-zinc-500">
-          © {new Date().getFullYear()}{" "}
-          <CompanyLink className="text-zinc-600 underline-offset-2 transition hover:text-sky-700 hover:underline">
-            Sumero Technologies
-          </CompanyLink>
-          . Sumero HealthOS helps private clinics manage daily operations in one
-          workspace.
-        </p>
+        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-8 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} SUMERO Technologies. All rights reserved.</p>
+          <a href="mailto:support@sumerotech.com" className="transition hover:text-white">
+            support@sumerotech.com
+          </a>
+        </div>
       </div>
     </footer>
   );

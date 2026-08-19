@@ -1,62 +1,64 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { CompanyLink } from "@/components/marketing/CompanyLink";
 import { MarketingShell } from "@/components/marketing/MarketingShell";
 
 export const metadata: Metadata = {
   title: "Products",
   description:
-    "Sumero Technologies builds Sumero HealthOS for private clinics: one workspace for queue, care, pharmacy, billing, and insurer receivables.",
+    "Explore technology products from SUMERO Technologies, including our flagship clinic operations platform, HealthOS.",
 };
 
 export default function ProductsPage() {
   return (
     <MarketingShell>
-      <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-600">
+      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
+        <p className="font-heading text-xs font-semibold uppercase tracking-[0.24em] text-[#1d4ed8]">
           Products
         </p>
-        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl">
-          Software that matches how clinics work
+        <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-[-0.03em] text-[#0b1026] sm:text-5xl">
+          Products designed around the way people work.
         </h1>
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg">
-          <CompanyLink className="font-medium text-zinc-900 underline-offset-2 transition hover:text-sky-700 hover:underline">
-            Sumero Technologies
-          </CompanyLink>{" "}
-          focuses on operational tools for private healthcare. Today that means
-          Sumero HealthOS, a single workspace that replaces disconnected tools
-          across your clinic.
+        <p className="mt-6 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+          SUMERO Technologies builds focused software products for complex
+          operational environments. HealthOS is our flagship product, with more
+          products planned as the portfolio grows.
         </p>
 
         <div className="mt-14 grid gap-6 lg:grid-cols-2">
           <Link
             href="/products/sumero-healthos"
-            className="group relative overflow-hidden rounded-2xl border border-zinc-200 bg-white p-8 shadow-sm transition hover:border-sky-200 hover:shadow-md"
+            className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 shadow-[0_20px_60px_-42px_rgba(11,16,38,0.35)] transition hover:-translate-y-1 hover:border-blue-200 sm:p-10"
           >
-            <div className="pointer-events-none absolute -right-20 -top-20 h-40 w-40 rounded-full bg-sky-100/80 blur-3xl transition group-hover:bg-sky-200/70" />
-            <p className="text-xs font-medium uppercase tracking-wider text-sky-600">
+            <div className="pointer-events-none absolute -right-20 -top-20 h-48 w-48 rounded-full bg-cyan-100/80 blur-3xl" />
+            <p className="font-heading text-xs font-semibold uppercase tracking-wider text-[#1d4ed8]">
               Flagship
             </p>
-            <h2 className="mt-3 text-2xl font-semibold text-zinc-900">
-              Sumero HealthOS
-            </h2>
-            <p className="mt-3 text-sm leading-relaxed text-zinc-600">
+            <Image
+              src="/brand/sumero-healthos-horizontal.png"
+              alt="SUMERO HealthOS"
+              width={2172}
+              height={724}
+              className="mt-5 h-auto w-full max-w-[300px]"
+            />
+            <p className="mt-7 text-sm leading-6 text-slate-600">
               Queue, consultations, pharmacy, billing, company receivables,
               stock, staff attendance, and onboarding, built for clinics that
               need a clear view of their daily operations.
             </p>
-            <span className="mt-6 inline-flex text-sm font-medium text-sky-700 group-hover:text-sky-600">
+            <span className="mt-7 inline-flex font-heading text-sm font-semibold text-[#1d4ed8] group-hover:text-[#008bff]">
               View product →
             </span>
           </Link>
 
-          <div className="rounded-2xl border border-dashed border-zinc-300 bg-zinc-50 p-8">
-            <h2 className="text-lg font-semibold text-zinc-500">
-              More to come
+          <div className="rounded-3xl border border-dashed border-slate-300 bg-[#f3f6fa] p-8 sm:p-10">
+            <h2 className="text-xl font-semibold text-[#0b1026]">
+              A growing product portfolio
             </h2>
-            <p className="mt-3 text-sm leading-relaxed text-zinc-500">
-              We will list new product lines here when they are ready for
-              clinics. HealthOS remains where most teams start.
+            <p className="mt-4 text-sm leading-6 text-slate-600">
+              New SUMERO products will appear here when they are ready. Each one
+              will follow the same approach: understand the operation, reduce
+              complexity and build for dependable daily use.
             </p>
           </div>
         </div>

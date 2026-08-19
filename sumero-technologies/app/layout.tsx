@@ -1,28 +1,33 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sumerotech.com"),
   title: {
-    default: "Sumero HealthOS",
-    template: "%s | Sumero Technologies",
+    default: "SUMERO Technologies | Technology that simplifies operations",
+    template: "%s | SUMERO Technologies",
   },
   description:
-    "Sumero HealthOS helps private clinics run queue, care, pharmacy, billing, and insurer receivables in one secure workspace from Sumero Technologies.",
+    "SUMERO Technologies designs and builds intelligent software that helps organisations simplify operations, connect workflows and work better.",
   keywords: [
-    "Sumero HealthOS",
-    "Sumero Technologies",
+    "SUMERO Technologies",
+    "SUMERO HealthOS",
+    "business operations software",
+    "enterprise software Malaysia",
     "clinic software",
     "private clinic Malaysia",
     "clinic queue system",
@@ -30,27 +35,31 @@ export const metadata: Metadata = {
     "pharmacy dispensing software",
   ],
   openGraph: {
-    title: "Sumero HealthOS | Clinic Operations Platform",
+    title: "SUMERO Technologies | Technology that simplifies operations",
     description:
-      "One workspace for reception, doctors, pharmacy, billing, and accounts, with privacy built in.",
+      "We build practical technology products that connect workflows and make complex operations easier to manage.",
     url: "https://sumerotech.com",
     siteName: "Sumero Technologies",
     images: [
       {
-        url: "/preview.png",
-        width: 1200,
-        height: 630,
-        alt: "Sumero HealthOS",
+        url: "/brand/sumero-technologies-horizontal.png",
+        width: 2172,
+        height: 724,
+        alt: "SUMERO Technologies",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sumero HealthOS | Clinic Operations Platform",
+    title: "SUMERO Technologies | Technology that simplifies operations",
     description:
-      "Run the clinic day in one place, from walk-in to payment and follow-up.",
-    images: ["/preview.png"],
+      "Practical software products designed for clear, connected operations.",
+    images: ["/brand/sumero-technologies-horizontal.png"],
+  },
+  icons: {
+    icon: "/brand/sumero-favicon.png",
+    apple: "/brand/sumero-favicon.png",
   },
 };
 
@@ -62,7 +71,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-white font-sans text-zinc-900 antialiased`}
+        className={`${inter.variable} ${poppins.variable} min-h-screen bg-white font-sans text-slate-950 antialiased`}
       >
         {children}
       </body>

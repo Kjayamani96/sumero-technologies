@@ -1,19 +1,19 @@
 {
-    "name": "Sumero Technologies",
-    "short_name": "Sumero",
-    "description": "Building modern web and mobile solutions",
+    "name": "SUMERO Technologies",
+    "short_name": "SUMERO",
+    "description": "Technology that makes complex operations simple.",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#020617",
-    "theme_color": "#0ea5e9",
+    "background_color": "#ffffff",
+    "theme_color": "#0b1026",
     "icons": [
       {
-        "src": "/icon.png",
+        "src": "/brand/sumero-favicon.png",
         "sizes": "192x192",
         "type": "image/png"
       },
       {
-        "src": "/icon.png",
+        "src": "/brand/sumero-favicon.png",
         "sizes": "512x512",
         "type": "image/png"
       }
