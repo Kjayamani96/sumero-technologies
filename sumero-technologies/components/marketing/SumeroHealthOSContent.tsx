@@ -36,8 +36,8 @@ function Screenshot({
             <Image
               src={src}
               alt={alt}
-              width={1920}
-              height={1080}
+              width={3584}
+              height={2240}
               sizes="(max-width: 1024px) 100vw, 896px"
               className="mx-auto block h-auto max-h-[min(88vh,960px)] w-auto max-w-full object-contain"
               priority={priority ?? false}

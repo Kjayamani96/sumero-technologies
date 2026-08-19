@@ -102,8 +102,8 @@ export default function HomePage() {
                   <Image
                     src="/marketing/dashboard-queue.png"
                     alt="HealthOS clinic operations dashboard"
-                    width={1920}
-                    height={1080}
+                    width={3584}
+                    height={2240}
                     sizes="(max-width: 1024px) 100vw, 520px"
                     className="h-auto w-full"
                     priority
@@ -226,8 +226,8 @@ export default function HomePage() {
                 <Image
                   src="/marketing/dashboard-queue.png"
                   alt="SUMERO HealthOS clinic operations dashboard"
-                  width={1920}
-                  height={1080}
+                  width={3584}
+                  height={2240}
                   sizes="(max-width: 1024px) 100vw, 650px"
                   className="h-full w-full object-cover object-left-top"
                 />
