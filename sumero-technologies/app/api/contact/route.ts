@@ -2,6 +2,21 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const BRANCH_PATTERN = /^\d+$/;
+const ALLOWED_CONTACT_METHODS = new Set(["Email", "Phone call", "WhatsApp"]);
+const ALLOWED_INTERESTS = new Set([
+  "Clinic workflow",
+  "Plans and pricing",
+  "Panel and TPA operations",
+  "MyInvois e-Invoice workflows",
+  "Inventory and purchasing",
+  "Workforce and attendance",
+  "Data migration",
+  "Multi-branch rollout",
+  "Not sure yet",
+]);
+
 type ContactPayload = {
   name?: string;
   clinicName?: string;
@@ -9,12 +24,10 @@ type ContactPayload = {
   email?: string;
   phone?: string;
   branches?: string;
-  doctors?: string;
   currentSystem?: string;
-  mainProblem?: string;
-  interestedPlan?: string;
-  preferredDemoTime?: string;
-  message?: string;
+  primaryInterest?: string;
+  preferredContact?: string;
+  consent?: boolean;
 };
 
 function esc(value: string) {
@@ -33,16 +46,31 @@ export async function POST(req: Request) {
   const clinicName = String(body.clinicName ?? body.company ?? "").trim();
   const phone = String(body.phone ?? "").trim();
   const branches = String(body.branches ?? "").trim();
-  const doctors = String(body.doctors ?? "").trim();
   const currentSystem = String(body.currentSystem ?? "").trim();
-  const mainProblem = String(body.mainProblem ?? "").trim();
-  const interestedPlan = String(body.interestedPlan ?? "").trim();
-  const preferredDemoTime = String(body.preferredDemoTime ?? "").trim();
-  const message = String(body.message ?? "").trim();
+  const primaryInterest = String(body.primaryInterest ?? "").trim();
+  const preferredContact = String(body.preferredContact ?? "").trim();
+  const consent = body.consent === true;
 
-  if (!name || !email) {
+  if (
+    !name ||
+    !clinicName ||
+    !email ||
+    !phone ||
+    !branches ||
+    !currentSystem ||
+    !primaryInterest ||
+    !preferredContact ||
+    !consent ||
+    !EMAIL_PATTERN.test(email) ||
+    !BRANCH_PATTERN.test(branches) ||
+    !ALLOWED_CONTACT_METHODS.has(preferredContact) ||
+    !ALLOWED_INTERESTS.has(primaryInterest)
+  ) {
     return Response.json(
-      { success: false, message: "Name and email are required." },
+      {
+        success: false,
+        message: "Please complete all required fields and confirm your consent.",
+      },
       { status: 400 },
     );
   }
@@ -53,19 +81,17 @@ export async function POST(req: Request) {
     ["Email", email],
     ["Phone", phone || "—"],
     ["Branches", branches || "—"],
-    ["Doctors", doctors || "—"],
-    ["Current system", currentSystem || "—"],
-    ["Main problem", mainProblem || "—"],
-    ["Interested plan", interestedPlan || "—"],
-    ["Preferred demo time", preferredDemoTime || "—"],
-    ["Message", message || "—"],
+    ["Current system", currentSystem],
+    ["Primary interest", primaryInterest],
+    ["Preferred contact", preferredContact],
+    ["Consent", "Confirmed"],
   ];
 
   try {
     const { data, error } = await resend.emails.send({
       from: "Sumero HealthOS <onboarding@resend.dev>",
       to: "kathikgesu.j@gmail.com",
-      subject: `HealthOS enquiry${interestedPlan ? `: ${interestedPlan}` : ""} — ${clinicName || name}`,
+      subject: `HealthOS enquiry: ${primaryInterest} — ${clinicName}`,
       replyTo: email,
       html: `
         <h2>New HealthOS enquiry</h2>

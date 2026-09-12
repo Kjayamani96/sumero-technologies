@@ -13,6 +13,7 @@ import { formatRm, PRICING } from "@/lib/pricing";
 export const metadata: Metadata = {
   description:
     "SUMERO Technologies designs and builds intelligent software that helps organisations simplify operations, connect workflows and work better.",
+  alternates: { canonical: "/" },
   openGraph: {
     title: "SUMERO Technologies | Technology that simplifies operations",
     description:

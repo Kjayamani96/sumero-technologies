@@ -7,7 +7,14 @@ import { MarketingShell } from "@/components/marketing/MarketingShell";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Book a HealthOS demo for your Malaysian clinic. Share branches, doctors and operational needs so we can prepare a relevant walkthrough.",
+    "Request a tailored SUMERO HealthOS demo for your Malaysian clinic, including workflow, panel, TPA, inventory, workforce, migration and controlled MyInvois e-Invoice options.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Request a SUMERO HealthOS demo",
+    description:
+      "Tell us about your clinic and the area you want to improve. We will prepare a relevant HealthOS walkthrough.",
+    url: "https://sumerotech.com/contact",
+  },
 };
 
 function FormFallback() {
@@ -32,9 +39,8 @@ export default function ContactPage() {
             Book a HealthOS demo
           </h1>
           <p className="mt-4 text-sm leading-relaxed text-zinc-600 sm:text-base">
-            Tell us how your clinic operates today. We will tailor the demo to
-            your registration, queue, consultation, dispensing, payment and
-            reporting workflows.
+            Tell us about your clinic, current process and main area of interest.
+            We will prepare a relevant walkthrough for your team.
           </p>
         </div>
 

@@ -13,11 +13,14 @@ export const metadata: Metadata = {
     absolute: "HealthOS Pricing | Clinic Management Software Malaysia | Sumero",
   },
   description:
-    "Compare Sumero HealthOS Essential and Professional plans for Malaysian clinics. Transparent monthly pricing, guided onboarding and multi-branch options.",
+    "Compare Sumero HealthOS plans for Malaysian clinics, including monthly pricing, onboarding, multi-branch options and controlled MyInvois rollout details.",
+  alternates: {
+    canonical: "/pricing",
+  },
   openGraph: {
     title: "HealthOS Pricing | Sumero Technologies",
     description:
-      "Transparent Essential and Professional plans for Malaysian clinics, with guided onboarding.",
+      "Compare HealthOS clinic software plans, onboarding options and controlled MyInvois rollout details.",
     url: "https://sumerotech.com/pricing",
   },
 };
@@ -91,6 +94,7 @@ export default function PricingPage() {
     <MarketingShell>
       <PricingViewTracker />
       <script
+        id="healthos-pricing-jsonld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
@@ -234,27 +238,33 @@ export default function PricingPage() {
             Transparency
           </p>
           <h2 className="mt-4 max-w-2xl text-2xl font-semibold tracking-tight text-zinc-900 sm:text-3xl">
-            What is not included yet
+            Availability and product boundaries
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-600">
-            We want you to know exactly what is available before you subscribe.
-            Essential and Professional cover the main clinic workflow; the items
-            below are planned, require clinic-specific setup or are currently
-            outside the scope of HealthOS.
+            See what is ready today, what requires clinic-specific activation,
+            and what remains planned or outside the current HealthOS scope.
           </p>
 
           <div className="mt-10 space-y-8">
             {[
               {
+                heading: "Available now",
+                description:
+                  "Core plan capabilities are available subject to your selected plan and onboarding scope.",
+                items: [
+                  {
+                    label: "Available",
+                    tone: "sky" as const,
+                    title: "Essential and Professional clinic workflows",
+                    note: "The capabilities listed in the plan cards above are available now.",
+                  },
+                ],
+              },
+              {
                 heading: "On the roadmap",
                 description:
                   "In development or planned, and not included in current plan pricing.",
                 items: [
-                  {
-                    label: "Roadmap",
-                    tone: "amber" as const,
-                    title: "MyInvois submission",
-                  },
                   {
                     label: "Roadmap",
                     tone: "amber" as const,
@@ -268,10 +278,16 @@ export default function PricingPage() {
                 ],
               },
               {
-                heading: "Needs clinic setup first",
+                heading: "Requires clinic setup and activation",
                 description:
                   "Available only after connection, approval and go-live steps are complete.",
                 items: [
+                  {
+                    label: "Controlled rollout",
+                    tone: "sky" as const,
+                    title: "MyInvois e-Invoice workflows",
+                    note: "Available only as a controlled-rollout or add-on capability. Clinic-specific configuration, MyInvois credentials and authorisation, testing, and explicit production activation are required. Setup and third-party charges, if any, are confirmed separately.",
+                  },
                   {
                     label: "Requires setup",
                     tone: "sky" as const,

@@ -219,6 +219,12 @@ export function PricingPlans() {
           </Link>
         </article>
       </div>
+      <div className="mt-6 rounded-2xl border border-sky-100 bg-sky-50/70 p-5 text-left sm:p-6">
+        <p className="text-sm font-semibold text-zinc-900">MyInvois e-Invoice controlled rollout</p>
+        <p className="mt-2 text-sm leading-relaxed text-zinc-600">
+          e-Invoice operations are not assigned to a standard plan by default. They are scoped as a controlled-rollout or add-on capability and require clinic-specific configuration, credentials, authorisation, testing and production activation. Setup and third-party usage charges are confirmed separately; no e-Invoice price is included here.
+        </p>
+      </div>
     </div>
   );
 }

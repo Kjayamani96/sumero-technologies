@@ -19,7 +19,7 @@ export default function PrivacyPage() {
           Privacy Policy
         </h1>
         <p className="mt-3 text-sm text-zinc-500">
-          Last updated: 7 August 2026
+          Last updated: 12 September 2026
         </p>
 
         <div className="mt-10 space-y-8 text-sm leading-relaxed text-zinc-600">
@@ -39,10 +39,11 @@ export default function PrivacyPage() {
               2. Data we collect on this website
             </h2>
             <p className="mt-3">
-              When you submit a contact or demo form, we may collect: full name,
-              clinic name, work email, phone number, number of branches and
-              doctors, current system, operational problem description,
-              interested plan, preferred demo time, and your message.
+              When you submit a contact or demo form, we may collect your name,
+              clinic or organisation name, work email, phone number, number of
+              branches, preferred contact method, current system or manual
+              process, primary area of interest, and consent to be contacted
+              about your enquiry.
             </p>
             <p className="mt-3">
               Our hosting and email providers may process technical logs such as

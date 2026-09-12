@@ -3,13 +3,14 @@ import { MarketingShell } from "@/components/marketing/MarketingShell";
 import { SumeroHealthOSContent } from "@/components/marketing/SumeroHealthOSContent";
 
 export const metadata: Metadata = {
-  title: "Platform overview",
+  title: "Clinic Management Software Malaysia | HealthOS",
   description:
-    "Sumero HealthOS: one workspace for private clinics (queue, consultations, pharmacy, billing, insurer receivables, stock, and staff). Plain-language overview.",
+    "Explore SUMERO HealthOS clinic management software for Malaysian private clinics: patients, queue, consultation, pharmacy, billing, panels, TPA claims, inventory, workforce and controlled MyInvois e-Invoice workflows.",
+  alternates: { canonical: "/products/sumero-healthos" },
   openGraph: {
-    title: "Sumero HealthOS | Clinic operations",
+    title: "SUMERO HealthOS | Clinic Management Software Malaysia",
     description:
-      "See how your team moves from walk-in to payment without losing the thread.",
+      "Connect patient registration, consultation, dispensing, billing, panel and TPA receivables, inventory, workforce and reporting in one clinic workspace.",
     url: "https://sumerotech.com/products/sumero-healthos",
   },
 };

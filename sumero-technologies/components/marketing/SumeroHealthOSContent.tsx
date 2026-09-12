@@ -206,74 +206,113 @@ export function SumeroHealthOSContent() {
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             <FeatureCard
               icon={<IconReception className="h-5 w-5" />}
-              title="Front desk & queue"
-              body="Register patients, see who is waiting and assign each patient to the right doctor. Staff can prioritise urgent cases according to the clinic's policy."
+              title="Patients, appointments & queue"
+              body="Keep patient registration and records together, manage appointments and queues, and run a patient-facing Queue TV from the same workspace."
             />
             <FeatureCard
               icon={<IconClinical className="h-5 w-5" />}
-              title="Consultations"
-              body="Visit notes, prescriptions, time off certificates, referrals, and follow-up reminders stay attached to the patient and the visit."
+              title="Consultation & documents"
+              body="Keep consultation notes, prescriptions, medical certificates, referrals and follow-up actions attached to the patient visit."
             />
             <FeatureCard
               icon={<IconPharmacy className="h-5 w-5" />}
-              title="Pharmacy"
-              body="Pharmacists confirm what leaves the shelf, print labels, and catch mismatches before the patient pays."
+              title="Dispensing & Medicine Counter"
+              body="Verify dispensed items, print medicine labels and support direct counter sales without creating an unnecessary consultation."
             />
             <FeatureCard
               icon={<IconMoney className="h-5 w-5" />}
-              title="Billing & payments"
-              body="Cash, card, transfer, and company-covered visits in one flow so the front desk does not re-key the same totals twice."
+              title="Billing, receipts & payments"
+              body="Record cash, card, transfer and panel payments, issue receipts and keep outstanding amounts visible for follow-up."
             />
             <FeatureCard
               icon={<IconBuilding className="h-5 w-5" />}
-              title="Company (panel) receivables"
-              body="Track outstanding amounts by panel company, follow up on overdue invoices and record partial payments as they are received."
+              title="Direct Company, panel & TPA"
+              body="Manage panel companies, Direct Company billing, TPA claims, invoices, partial payments and receivables without rebuilding the ledger elsewhere."
               badge="Professional"
             />
             <FeatureCard
               icon={<IconChart className="h-5 w-5" />}
-              title="Stock & purchasing"
-              body="See what is on hand, what is expiring soon, and what to order. Advanced inventory, suppliers and purchase orders are on Professional."
-              badge="Professional for advanced"
+              title="Inventory & purchasing"
+              body="Track batches, expiry dates and adjustments, then manage suppliers and purchase orders as stock requirements change."
+              badge="Professional"
             />
             <FeatureCard
               icon={<IconUsers className="h-5 w-5" />}
-              title="Staff & attendance"
-              body="Manage rosters, leave and attendance records with a clear view of who was scheduled and who was present."
+              title="Workforce operations"
+              body="Coordinate attendance schedules, leave and exceptions, with workforce analytics for a clearer view of clinic coverage."
+              badge="Professional"
+            />
+            <FeatureCard
+              icon={<IconChart className="h-5 w-5" />}
+              title="Owner & financial dashboards"
+              body="Review owner summaries, revenue, profit, outstanding payments and operational performance from focused dashboards."
               badge="Professional"
             />
             <FeatureCard
               icon={<IconArrowPath className="h-5 w-5" />}
-              title="Moving from another system"
-              body="Guided imports and checks for patients, stock, and insurer lists so you are not rebuilding everything by hand on day one."
+              title="CSV-based Migration Center"
+              body="Prepare and validate CSV imports for patients, inventory and panel companies, with migration history for clearer onboarding."
               badge="Professional"
             />
             <FeatureCard
               icon={<IconShield className="h-5 w-5" />}
-              title="Plans & clinic settings"
-              body="Manage trials, renewals and clinic-wide settings, including read-only access when a subscription requires attention."
+              title="MyInvois e-Invoice operations"
+              body="Support individual buyer, monthly consolidated, Direct Company/panel and TPA claim e-Invoice workflows through a controlled rollout."
+              badge="Requires activation"
+            />
+            <FeatureCard
+              icon={<IconArrowPath className="h-5 w-5" />}
+              title="WhatsApp workflows"
+              body="Use manual reminder workflows, with clinic-owned automation available after clinic connection, Meta template approval and production activation."
+              badge="Requires setup"
             />
           </div>
-          <div className="mt-10 rounded-2xl border border-amber-100 bg-amber-50/60 p-5 sm:p-6">
-            <h3 className="text-sm font-semibold text-zinc-900">
-              Current availability
-            </h3>
-            <p className="mt-2 text-sm leading-relaxed text-zinc-600">
-              Manual WhatsApp reminder workflows are available in Essential.
-              Clinic-owned WhatsApp automation and delivery tracking require
-              successful clinic connection, approved Meta templates and
-              production activation{" "}
-              <span className="font-medium text-amber-800">(Requires setup)</span>
-              . MyInvois submission and some other capabilities remain on the{" "}
-              <span className="font-medium text-zinc-800">roadmap</span> and are
-              not generally included yet—see{" "}
-              <Link
-                href="/pricing"
-                className="font-semibold text-sky-700 hover:text-sky-600"
-              >
-                pricing
-              </Link>{" "}
-              for the clear boundary.
+          <div className="mt-10 grid gap-4 lg:grid-cols-3">
+            <section className="rounded-2xl border border-emerald-100 bg-emerald-50/60 p-5 sm:p-6">
+              <h3 className="text-sm font-semibold text-zinc-900">Available now</h3>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-600">
+                Core patient, queue, consultation, dispensing, billing and receipt workflows are available now. Plan-specific capabilities include panel and TPA operations, advanced inventory, workforce tools, dashboards and the Migration Center.
+              </p>
+            </section>
+            <section className="rounded-2xl border border-sky-100 bg-sky-50/70 p-5 sm:p-6">
+              <h3 className="text-sm font-semibold text-zinc-900">Requires clinic setup and activation</h3>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-600">
+                MyInvois e-Invoice workflows are available through a controlled rollout and require clinic-specific configuration, credentials, authorisation, testing and production activation. WhatsApp automation also requires a clinic connection and approved Meta templates.
+              </p>
+            </section>
+            <section className="rounded-2xl border border-amber-100 bg-amber-50/60 p-5 sm:p-6">
+              <h3 className="text-sm font-semibold text-zinc-900">On the roadmap</h3>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-600">
+                MyKad reading and laboratory workflows are not currently included. Payroll, a general ledger and AI clinical assistance also remain outside the current product scope.
+              </p>
+            </section>
+          </div>
+          <div className="mt-6 rounded-2xl border border-zinc-200 bg-white p-5 sm:p-6">
+            <h3 className="text-base font-semibold text-zinc-900">Controlled MyInvois rollout</h3>
+            <p className="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-600">
+              Once a clinic has completed onboarding and production activation, HealthOS can support the following e-Invoice operations:
+            </p>
+            <ul className="mt-4 grid gap-x-8 gap-y-2 text-sm leading-relaxed text-zinc-600 sm:grid-cols-2">
+              {[
+                "Individual buyer e-Invoices",
+                "Monthly consolidated e-Invoices for eligible self-paid receipts",
+                "Direct Company and panel e-Invoices",
+                "TPA claim e-Invoices",
+                "MyInvois submission-status monitoring",
+                "QR codes and official validation links",
+                "Cancellation within the permitted MyInvois window",
+                "Credit notes linked to the original validated invoice",
+                "Automatic retry and backoff for temporary failures",
+                "An action-required queue with operational alerts",
+              ].map((item) => (
+                <li key={item} className="flex gap-2">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500" aria-hidden />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4 text-xs leading-relaxed text-zinc-500">
+              Availability is not automatic for every customer. Configuration, credentials, authorisation, testing and production activation must be completed for each clinic.
             </p>
           </div>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">

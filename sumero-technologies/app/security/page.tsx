@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Security & trust",
   description:
     "How Sumero HealthOS keeps clinic data private, controls who can do what, and leaves a clear record for owners and auditors.",
+  alternates: { canonical: "/security" },
 };
 
 const pillars = [
