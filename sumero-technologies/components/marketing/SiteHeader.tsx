@@ -6,7 +6,8 @@ import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
 const nav = [
   { href: "/", label: "Home" },
-  { href: "/products", label: "Products" },
+  { href: "/products/sumero-healthos", label: "HealthOS" },
+  { href: "/pricing", label: "Pricing" },
   { href: "/#technology", label: "Technology" },
   { href: "/#about", label: "About Us" },
   { href: "/contact", label: "Contact" },
@@ -75,10 +76,10 @@ export function SiteHeader() {
             );
           })}
           <Link
-            href="/products"
+            href="/contact"
             className="ml-2 inline-flex min-h-11 items-center rounded-full bg-[#1d4ed8] px-5 py-2 text-[13px] font-semibold text-white shadow-sm shadow-blue-700/15 transition hover:bg-[#123fb8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#008bff]/40"
           >
-            Explore products
+            Book a demo
           </Link>
         </nav>
 
@@ -132,11 +133,11 @@ export function SiteHeader() {
             })}
             <li className="pt-2">
               <Link
-                href="/products"
+                href="/contact"
                 onClick={closeMenu}
                 className="flex min-h-11 items-center justify-center rounded-full bg-[#1d4ed8] px-4 font-heading text-sm font-semibold text-white transition hover:bg-[#123fb8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#008bff]/40"
               >
-                Explore products
+                Book a demo
               </Link>
             </li>
           </ul>

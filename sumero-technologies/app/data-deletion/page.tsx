@@ -19,7 +19,7 @@ export default function DataDeletionPage() {
           Data Deletion
         </h1>
         <p className="mt-3 text-sm text-zinc-500">
-          Last updated: 7 August 2026
+          Last updated: 4 November 2026
         </p>
 
         <div className="mt-10 space-y-8 text-sm leading-relaxed text-zinc-600">
@@ -37,7 +37,7 @@ export default function DataDeletionPage() {
                 support@sumerotech.com
               </a>{" "}
               with the subject line &quot;Data deletion request&quot; and include
-              the email address you used in the form. We will process legitimate
+              the email address or phone number you used in the form. We will process legitimate
               requests within a reasonable time, subject to any legal retention
               requirements.
             </p>
@@ -51,8 +51,9 @@ export default function DataDeletionPage() {
               Clinic patient and operational data inside a live Sumero HealthOS
               workspace is controlled by the customer clinic (or group). Deletion
               or export of that data is handled through the customer&apos;s
-              authorised owners or administrators and the applicable customer
-              agreement.
+              authorised representatives and the applicable customer agreement.
+              Within HealthOS, authorised staff can archive and restore patient
+              profiles. Permanent patient deletion is owner-only.
             </p>
             <p className="mt-3">
               Authorised clinic owners may request account closure and data

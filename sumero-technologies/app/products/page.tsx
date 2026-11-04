@@ -42,9 +42,10 @@ export default function ProductsPage() {
               className="mt-5 h-auto w-full max-w-[300px]"
             />
             <p className="mt-7 text-sm leading-6 text-slate-600">
-              Queue, consultations, pharmacy, billing, company receivables,
-              stock, staff attendance, and onboarding, built for clinics that
-              need a clear view of their daily operations.
+              A simpler clinic day, from registration to follow-up. Choose
+              focused layouts for patient registration, consultation and
+              dispensing, then keep reviews and recorded clinic activity in
+              view.
             </p>
             <span className="mt-7 inline-flex font-heading text-sm font-semibold text-[#1d4ed8] group-hover:text-[#008bff]">
               View product →

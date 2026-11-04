@@ -115,9 +115,9 @@ export default function PricingPage() {
               operations grow.
             </p>
             <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-zinc-500">
-              Sumero HealthOS helps Malaysian clinics manage the complete journey
-              from appointment and queue to consultation, dispensing, payment and
-              owner reporting—from one controlled workspace.
+              Sumero HealthOS helps Malaysian clinics manage the complete
+              journey from appointment and queue to consultation, dispensing,
+              payment and owner reporting—from one controlled workspace.
             </p>
           </div>
 
@@ -131,15 +131,15 @@ export default function PricingPage() {
       <section className="border-b border-zinc-200 bg-zinc-900 text-white">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
           <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-400">
-            Limited launch programme
+            Founding clinic programme · availability to confirm
           </p>
           <h2 className="mt-4 max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl">
-            Become a HealthOS founding clinic
+            Discuss the founding-clinic programme
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-300 sm:text-lg">
             Work directly with the Sumero team to test HealthOS against your
-            clinic&apos;s actual workflow, train your staff and review the results
-            before a wider rollout.
+            clinic&apos;s actual workflow, train your staff and review the
+            results before a wider rollout.
           </p>
           <ul className="mt-10 grid gap-3 sm:grid-cols-2">
             {[
@@ -161,10 +161,14 @@ export default function PricingPage() {
             ))}
           </ul>
           <div className="mt-8 space-y-2 text-sm text-zinc-400">
-            <p>Participation is subject to application and fit.</p>
             <p>
-              Clinics are not required to provide a testimonial.
+              Existing programme terms are shown for reference. Current
+              availability, the five-clinic cap and the 45-day guided pilot
+              require confirmation with SUMERO. Ask our team about available
+              places and trial arrangements. Participation is subject to
+              application and fit.
             </p>
+            <p>Clinics are not required to provide a testimonial.</p>
             <p>Custom development is not included.</p>
             <p>
               Provider usage fees, messaging fees and third-party fees are
@@ -186,8 +190,8 @@ export default function PricingPage() {
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-600">
             Onboarding fees cover configuration, migration preparation, training
-            and go-live support. They are kept separate so clinics can see exactly
-            what they are paying for.
+            and go-live support. They are kept separate so clinics can see
+            exactly what they are paying for.
           </p>
 
           {/* Desktop table */}
@@ -221,7 +225,9 @@ export default function PricingPage() {
                 key={row.service}
                 className="rounded-xl border border-zinc-200 bg-white p-4"
               >
-                <p className="text-sm font-medium text-zinc-900">{row.service}</p>
+                <p className="text-sm font-medium text-zinc-900">
+                  {row.service}
+                </p>
                 <p className="mt-2 text-sm font-semibold text-zinc-800">
                   {row.price}
                 </p>
@@ -242,7 +248,7 @@ export default function PricingPage() {
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-600">
             See what is ready today, what requires clinic-specific activation,
-            and what remains planned or outside the current HealthOS scope.
+            and which capabilities need a scope discussion.
           </p>
 
           <div className="mt-10 space-y-8">
@@ -261,19 +267,21 @@ export default function PricingPage() {
                 ],
               },
               {
-                heading: "On the roadmap",
+                heading: "Current capabilities — confirm plan allocation",
                 description:
-                  "In development or planned, and not included in current plan pricing.",
+                  "Confirm your plan entitlement, setup and any charges before purchase.",
                 items: [
                   {
-                    label: "Roadmap",
+                    label: "Confirm scope",
                     tone: "amber" as const,
-                    title: "MyKad reading",
+                    title: "MyKad patient and photo import",
+                    note: "Requires a compatible reader, vendor SDK, Windows computer and configured bridge. Staff review details before saving.",
                   },
                   {
-                    label: "Roadmap",
+                    label: "Confirm scope",
                     tone: "amber" as const,
-                    title: "Laboratory workflow",
+                    title: "Lab-result and referral tracking",
+                    note: "Track results and referrals. Discuss the clinic workflow and plan allocation with SUMERO.",
                   },
                 ],
               },
@@ -286,20 +294,19 @@ export default function PricingPage() {
                     label: "Controlled rollout",
                     tone: "sky" as const,
                     title: "MyInvois e-Invoice workflows",
-                    note: "Available only as a controlled-rollout or add-on capability. Clinic-specific configuration, MyInvois credentials and authorisation, testing, and explicit production activation are required. Setup and third-party charges, if any, are confirmed separately.",
+                    note: "Available only as a controlled-rollout or add-on capability. Clinic assessment, configuration, MyInvois credentials and authorisation, testing, and explicit production activation are required. Setup and third-party charges, if any, are confirmed separately.",
                   },
                   {
                     label: "Requires setup",
                     tone: "sky" as const,
-                    title: "Clinic-owned WhatsApp automation",
-                    note: "Meta-approved templates and production activation required.",
+                    title: "WhatsApp reminders and patient communication",
+                    note: "Requires a connected clinic WhatsApp number, appropriate consent and configuration. Staff review recipients and schedule sending through a background queue; status does not guarantee delivery.",
                   },
                 ],
               },
               {
                 heading: "Outside current HealthOS scope",
-                description:
-                  "Not included in Essential or Professional today.",
+                description: "Not included in Essential or Professional today.",
                 items: [
                   {
                     label: "Not included",
@@ -329,7 +336,9 @@ export default function PricingPage() {
                 <h3 className="text-sm font-semibold text-zinc-900">
                   {group.heading}
                 </h3>
-                <p className="mt-1 text-sm text-zinc-500">{group.description}</p>
+                <p className="mt-1 text-sm text-zinc-500">
+                  {group.description}
+                </p>
                 <ul className="mt-4 grid gap-3 sm:grid-cols-2">
                   {group.items.map((item) => (
                     <li

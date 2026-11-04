@@ -36,11 +36,11 @@ export default function ContactPage() {
             Contact
           </p>
           <h1 className="mt-3 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
-            Book a HealthOS demo
+            Book a demo or request a trial
           </h1>
           <p className="mt-4 text-sm leading-relaxed text-zinc-600 sm:text-base">
-            Tell us about your clinic, current process and main area of interest.
-            We will prepare a relevant walkthrough for your team.
+            Tell us about your clinic, current process and main area of
+            interest. We will prepare a relevant walkthrough for your team.
           </p>
         </div>
 
@@ -58,8 +58,9 @@ export default function ContactPage() {
                 .
               </li>
               <li>
-                A practical discussion on whether Essential, Professional,
-                Group or our Founding Clinic Programme suits your clinic.
+                A practical discussion on whether Essential, Professional or
+                Group suits your clinic. Trial and founding-clinic availability
+                and terms are confirmed with our team.
               </li>
               <li>
                 Prefer reading first? See{" "}

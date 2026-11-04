@@ -11,20 +11,20 @@ export const metadata: Metadata = {
 
 const pillars = [
   {
-    title: "Your clinic’s data stays yours",
-    body: "Each clinic’s information is isolated in the system. Another clinic on the platform never sees your patients, bills, stock, or staff files.",
+    title: "Role-based access",
+    body: "Access is based on staff roles and permissions, helping the clinic control who can view or act on patient and operational information.",
   },
   {
-    title: "Sign-in that fits a real clinic",
-    body: "Staff can log in with email or a simple clinic username. Strong passwords, lockouts after repeated failed attempts, and careful session handling help keep accounts safe.",
+    title: "Audit history",
+    body: "Audit history supports review of recorded actions and changes, including who made them and when.",
   },
   {
-    title: "The right access for each role",
-    body: "Owners, doctors, front desk, nurses, pharmacists, and accounts each get a sensible workspace. Visiting doctors don’t get owner-level money screens unless you allow it.",
+    title: "Shared-screen privacy",
+    body: "Masked shared-screen details help limit exposure of sensitive patient information in shared work areas.",
   },
   {
-    title: "A clear audit trail",
-    body: "Important actions on patients, visits, payments, and stock can be traced when you need to review what changed, when, and by whom. That helps with peace of mind and panel queries.",
+    title: "Archive, restore and deletion",
+    body: "Authorised archive and restore workflows let permitted staff manage patient profiles. Permanent patient deletion is owner-only.",
   },
 ] as const;
 
@@ -59,9 +59,8 @@ export default function SecurityPage() {
         </div>
 
         <p className="mt-12 max-w-2xl text-sm leading-relaxed text-zinc-500">
-          Password recovery is handled in a controlled, auditable way. That
-          suits clinics that prefer admin-assisted resets over anonymous email
-          links alone.
+          Discuss your clinic’s roles, access needs and operating procedures
+          during onboarding.
         </p>
 
         <p className="mt-14 text-center text-sm text-zinc-500">

@@ -82,8 +82,8 @@ export function PricingPlans() {
             Essential
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-zinc-600">
-            For independent clinics that need a dependable daily workflow without
-            unnecessary complexity.
+            For independent clinics that need a dependable daily workflow
+            without unnecessary complexity.
           </p>
           <p className="mt-6 text-2xl font-semibold tracking-tight text-zinc-900 sm:text-3xl">
             {essentialPrice}
@@ -164,9 +164,9 @@ export function PricingPlans() {
             <li className="flex gap-2">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-500" />
               <span>
-                Clinic-owned WhatsApp automation and delivery tracking — available
-                following successful clinic connection, approved Meta templates and
-                production activation.{" "}
+                WhatsApp reminders and message status — available after clinic
+                connection, message approval where required and activation.
+                Sending uses a background queue; delivery is not guaranteed.{" "}
                 <span className="text-xs font-medium text-amber-700">
                   Requires setup
                 </span>
@@ -188,8 +188,8 @@ export function PricingPlans() {
             Group
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-zinc-600">
-            For operators planning a controlled rollout across three or more clinic
-            branches.
+            For operators planning a controlled rollout across three or more
+            clinic branches.
           </p>
           <p className="mt-6 text-2xl font-semibold tracking-tight text-zinc-900 sm:text-3xl">
             Custom quotation
@@ -219,10 +219,24 @@ export function PricingPlans() {
           </Link>
         </article>
       </div>
+      <p className="mt-6 text-sm leading-7 text-slate-600">
+        The plan cards list included features. Ask us to confirm plan allocation
+        and any setup charges for MyKad import, layout choices, follow-up
+        worklists, communication, feedback, Clinic Insights, occupational health
+        and lab-result tracking before purchase.
+      </p>
       <div className="mt-6 rounded-2xl border border-sky-100 bg-sky-50/70 p-5 text-left sm:p-6">
-        <p className="text-sm font-semibold text-zinc-900">MyInvois e-Invoice controlled rollout</p>
+        <p className="text-sm font-semibold text-zinc-900">
+          MyInvois e-Invoice controlled rollout
+        </p>
         <p className="mt-2 text-sm leading-relaxed text-zinc-600">
-          e-Invoice operations are not assigned to a standard plan by default. They are scoped as a controlled-rollout or add-on capability and require clinic-specific configuration, credentials, authorisation, testing and production activation. Setup and third-party usage charges are confirmed separately; no e-Invoice price is included here.
+          e-Invoice operations are not assigned to a standard plan by default.
+          They are scoped as a controlled-rollout or add-on capability and
+          require clinic-specific configuration, credentials, authorisation,
+          testing and production activation following clinic assessment. Normal
+          receipts are separate from e-Invoice activation. Setup and third-party
+          usage charges are confirmed separately; no e-Invoice price is included
+          here.
         </p>
       </div>
     </div>
@@ -236,7 +250,7 @@ export function FoundingClinicCta() {
       onClick={() => track("founding_clinic_clicked")}
       className="mt-8 inline-flex min-h-11 items-center justify-center rounded-full bg-zinc-900 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
     >
-      Apply as a founding clinic
+      Ask about founding-clinic availability
     </Link>
   );
 }

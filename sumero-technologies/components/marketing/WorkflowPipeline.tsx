@@ -1,10 +1,17 @@
 const steps = [
-  { label: "Check-in", detail: "Register or find the patient" },
-  { label: "Wait", detail: "A clear queue in the right order" },
-  { label: "See the doctor", detail: "Notes, prescriptions and letters in one visit" },
-  { label: "Collect medicine", detail: "Pharmacy prepares and verifies each item" },
-  { label: "Pay", detail: "Cash, transfer, card, or company panel" },
-  { label: "Review", detail: "Sales, panels, and follow-ups in one place" },
+  {
+    label: "Register & welcome",
+    detail: "Review patient details and add to the queue",
+  },
+  { label: "Consult", detail: "A focused workspace for notes and care" },
+  {
+    label: "Dispense & collect",
+    detail: "Review medicines, print and check out",
+  },
+  {
+    label: "Follow up & understand",
+    detail: "Plan reviews and explore recorded clinic activity",
+  },
 ] as const;
 
 export function WorkflowPipeline() {

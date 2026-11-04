@@ -18,11 +18,11 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL("https://sumerotech.com"),
   title: {
-    default: "SUMERO Technologies | Technology that simplifies operations",
+    default: "SUMERO Technologies | A simpler clinic day with HealthOS",
     template: "%s | SUMERO Technologies",
   },
   description:
-    "SUMERO Technologies designs and builds intelligent software that helps organisations simplify operations, connect workflows and work better.",
+    "SUMERO Technologies builds HealthOS: a simpler clinic day, from registration and consultation to dispensing, payment and follow-up.",
   keywords: [
     "SUMERO Technologies",
     "SUMERO HealthOS",
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
     "pharmacy dispensing software",
   ],
   openGraph: {
-    title: "SUMERO Technologies | Technology that simplifies operations",
+    title: "SUMERO Technologies | A simpler clinic day with HealthOS",
     description:
-      "We build practical technology products that connect workflows and make complex operations easier to manage.",
+      "Discover HealthOS by SUMERO Technologies. Clear workflows for registration, consultation, dispensing, payment and follow-up.",
     url: "https://sumerotech.com",
     siteName: "Sumero Technologies",
     images: [
@@ -52,9 +52,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SUMERO Technologies | Technology that simplifies operations",
+    title: "SUMERO Technologies | A simpler clinic day with HealthOS",
     description:
-      "Practical software products designed for clear, connected operations.",
+      "HealthOS by SUMERO Technologies: a simpler clinic day, from registration to follow-up.",
     images: ["/brand/sumero-technologies-horizontal.png"],
   },
   icons: {

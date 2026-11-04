@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { HealthOSShowcase } from "@/components/marketing/HealthOSShowcase";
+import { WorkflowPipeline } from "@/components/marketing/WorkflowPipeline";
 import {
   IconArrowPath,
   IconBuilding,
@@ -12,12 +14,12 @@ import { formatRm, PRICING } from "@/lib/pricing";
 
 export const metadata: Metadata = {
   description:
-    "SUMERO Technologies designs and builds intelligent software that helps organisations simplify operations, connect workflows and work better.",
+    "Meet HealthOS by SUMERO Technologies: a simpler clinic day, from registration and focused consultation to dispensing, payment and follow-up.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "SUMERO Technologies | Technology that simplifies operations",
+    title: "SUMERO Technologies | A simpler clinic day with HealthOS",
     description:
-      "Practical technology products designed for clearer workflows and better operations.",
+      "HealthOS helps clinics welcome patients, consult, dispense, collect payment and follow up with clear everyday workflows.",
     url: "https://sumerotech.com",
   },
 };
@@ -51,24 +53,25 @@ export default function HomePage() {
               SUMERO Technologies
             </p>
             <h1 className="hero-fade-up-delay mt-5 text-4xl font-semibold leading-[1.12] tracking-[-0.035em] text-[#0b1026] sm:text-5xl sm:leading-[1.08] lg:text-[3.5rem]">
-              Technology that makes complex operations simple.
+              A simpler clinic day, from registration to follow-up.
             </h1>
             <p className="hero-fade-up-delay-2 mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-              We design and build intelligent software that helps organisations
-              simplify operations, connect workflows and work better.
+              HealthOS, our flagship clinic software, gives front-desk staff,
+              doctors and dispensary teams a clear next step—with layouts they
+              can choose.
             </p>
             <div className="hero-fade-up-delay-2 mt-9 flex flex-col gap-3 sm:flex-row">
               <Link
-                href="/products"
+                href="/products/sumero-healthos"
                 className="inline-flex min-h-12 items-center justify-center rounded-full bg-[#1d4ed8] px-7 font-heading text-sm font-semibold text-white shadow-lg shadow-blue-700/15 transition hover:-translate-y-0.5 hover:bg-[#123fb8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#008bff]/40"
               >
-                Explore our products
+                Explore HealthOS
               </Link>
               <Link
                 href="/contact"
                 className="inline-flex min-h-12 items-center justify-center rounded-full border border-slate-300 bg-white px-7 font-heading text-sm font-semibold text-[#0b1026] transition hover:border-[#008bff] hover:text-[#1d4ed8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#008bff]/30"
               >
-                Talk to our team
+                Book a demo
               </Link>
             </div>
           </div>
@@ -94,21 +97,14 @@ export default function HomePage() {
                   priority
                 />
                 <p className="mt-5 max-w-md text-sm leading-6 text-slate-600">
-                  A connected operations platform for private clinics, covering
-                  the patient journey from registration to payment and reporting.
+                  Welcome patients, consult in a focused workspace, dispense and
+                  collect payment, then follow up and understand clinic
+                  activity.
                 </p>
               </div>
               <div className="border-y border-slate-200 bg-[#f3f6fa] p-4 sm:p-5">
                 <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-                  <Image
-                    src="/marketing/dashboard-queue.png"
-                    alt="HealthOS clinic operations dashboard"
-                    width={3584}
-                    height={2240}
-                    sizes="(max-width: 1024px) 100vw, 520px"
-                    className="h-auto w-full"
-                    priority
-                  />
+                  <HealthOSShowcase />
                 </div>
               </div>
               <div className="flex items-center justify-between gap-4 px-7 py-5 sm:px-9">
@@ -127,7 +123,43 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="about" className="scroll-mt-24 border-b border-slate-200 bg-white">
+      <section className="site-section">
+        <p className="eyebrow">HealthOS · Everyday care, connected</p>
+        <h2 className="section-title">
+          One patient journey. Four clear stages.
+        </h2>
+        <div className="mt-8">
+          <WorkflowPipeline />
+        </div>
+        <div className="mt-8 grid gap-6 sm:grid-cols-3">
+          {[
+            [
+              "A workspace that fits",
+              "Choose compact or alternative layouts for registration, consultation and dispensing.",
+            ],
+            [
+              "Clear handovers",
+              "Review patient details, medicine instructions, labels and receipts at the right step.",
+            ],
+            [
+              "Keep the next review in view",
+              "Use follow-up worklists and explore insights based on recorded clinic data.",
+            ],
+          ].map(([title, body]) => (
+            <article
+              className="rounded-2xl border border-slate-200 p-6"
+              key={title}
+            >
+              <h3 className="font-semibold">{title}</h3>
+              <p className="mt-3 text-sm leading-7 text-slate-600">{body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+      <section
+        id="about"
+        className="scroll-mt-24 border-b border-slate-200 bg-white"
+      >
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             <div>
@@ -141,20 +173,24 @@ export default function HomePage() {
             <div className="space-y-5 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
               <p>
                 SUMERO Technologies is a Malaysian technology company focused on
-                building software products that make everyday operations clearer,
-                more connected and easier to manage.
+                building software products that make everyday operations
+                clearer, more connected and easier to manage.
               </p>
               <p>
                 We start with the people doing the work. By understanding their
-                processes, responsibilities and constraints, we build systems that
-                are useful in practice—not just impressive in a presentation.
+                processes, responsibilities and constraints, we build systems
+                that are useful in practice—not just impressive in a
+                presentation.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="technology" className="scroll-mt-24 border-b border-slate-200 bg-[#f3f6fa]">
+      <section
+        id="technology"
+        className="scroll-mt-24 border-b border-slate-200 bg-[#f3f6fa]"
+      >
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
           <p className="font-heading text-xs font-semibold uppercase tracking-[0.24em] text-[#1d4ed8]">
             How we build
@@ -224,13 +260,9 @@ export default function HomePage() {
             <div className="relative min-h-[320px] overflow-hidden border-t border-slate-200 bg-[#f3f6fa] p-6 lg:border-l lg:border-t-0 lg:p-10">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_90%_10%,rgba(0,212,255,0.12),transparent_42%)]" />
               <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-slate-900/10">
-                <Image
-                  src="/marketing/dashboard-queue.png"
-                  alt="SUMERO HealthOS clinic operations dashboard"
-                  width={3584}
-                  height={2240}
-                  sizes="(max-width: 1024px) 100vw, 650px"
-                  className="h-full w-full object-cover object-left-top"
+                <HealthOSShowcase
+                  kind="dispensary"
+                  title="A clear dispensary queue and workspace."
                 />
               </div>
             </div>

@@ -1,472 +1,252 @@
-import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  IconArrowPath,
-  IconBuilding,
-  IconChart,
-  IconClinical,
-  IconMoney,
-  IconPharmacy,
-  IconReception,
-  IconShield,
-  IconUsers,
-} from "@/components/marketing/MarketingIcons";
-import { WorkflowPipeline } from "@/components/marketing/WorkflowPipeline";
-import { formatRm, PRICING } from "@/lib/pricing";
+import { WorkflowPipeline } from "./WorkflowPipeline";
+import { HealthOSShowcase } from "./HealthOSShowcase";
 
-function Screenshot({
-  src,
-  alt,
-  title,
-  caption,
-  priority,
-}: {
-  src?: string;
-  alt: string;
-  title: string;
-  caption: string;
-  priority?: boolean;
-}) {
-  if (src) {
-    return (
-      <figure className="mx-auto max-w-5xl">
-        <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-lg shadow-zinc-900/5 ring-1 ring-zinc-100">
-          <div className="flex w-full items-center justify-center bg-zinc-50 p-2 sm:p-4">
-            <Image
-              src={src}
-              alt={alt}
-              width={3584}
-              height={2240}
-              sizes="(max-width: 1024px) 100vw, 896px"
-              className="mx-auto block h-auto max-h-[min(88vh,960px)] w-auto max-w-full object-contain"
-              priority={priority ?? false}
-            />
-          </div>
-        </div>
-        <figcaption className="mt-5 px-1 sm:px-2">
-          <span className="block text-base font-semibold tracking-tight text-zinc-900">
-            {title}
-          </span>
-          <span className="mt-1 block text-sm leading-relaxed text-zinc-600">
-            {caption}
-          </span>
-        </figcaption>
-      </figure>
-    );
-  }
-
-  return (
-    <figure className="mx-auto max-w-5xl">
-      <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-50">
-        <div className="flex aspect-[16/10] min-h-[240px] flex-col items-center justify-center p-8 text-center">
-          <span className="rounded-full border border-zinc-200 bg-white px-3 py-1 text-[10px] font-medium uppercase tracking-wider text-zinc-500">
-            Preview
-          </span>
-          <p className="mt-4 max-w-sm text-base font-medium text-zinc-700">
-            {title}
-          </p>
-        </div>
-      </div>
-      <figcaption className="sr-only">{alt}</figcaption>
-    </figure>
-  );
-}
-
-function FeatureCard({
-  icon,
-  title,
-  body,
-  badge,
-}: {
-  icon: ReactNode;
-  title: string;
-  body: string;
-  badge?: string;
-}) {
-  return (
-    <div className="group rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition duration-300 hover:border-sky-200 hover:shadow-md sm:p-7">
-      <div className="mb-4 flex items-start justify-between gap-3">
-        <div className="inline-flex rounded-xl border border-sky-100 bg-sky-50 p-2.5 text-sky-700">
-          {icon}
-        </div>
-        {badge ? (
-          <span className="rounded-md bg-sky-50 px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-sky-800 ring-1 ring-sky-100">
-            {badge}
-          </span>
-        ) : null}
-      </div>
-      <h3 className="text-base font-semibold tracking-tight text-zinc-900">
-        {title}
-      </h3>
-      <p className="mt-3 text-[15px] leading-relaxed text-zinc-600">{body}</p>
-    </div>
-  );
-}
-
-const trustTeasers = [
+const workflows = [
   {
-    title: "Your clinic, your boundary",
-    body: "Patient and money data stay scoped to your organisation. Other customers on the platform never see it.",
+    title: "Register and welcome patients",
+    kind: "registration",
+    intro: "A clear start for the front desk.",
+    points: [
+      "Choose Compact Workspace, Guided Registration or Classic to suit your team.",
+      "Import patient details and a photo with a compatible MyKad reader, vendor SDK and configured Windows bridge. Staff review the information before saving.",
+      "Save & Add To Queue keeps the next step close. Patient profiles and photos stay accessible to authorised staff.",
+    ],
   },
   {
-    title: "Secure access for busy teams",
-    body: "Password rules and account lockouts help protect busy reception areas without making daily access unnecessarily difficult.",
+    title: "Consult with a focused workspace",
+    kind: "compact-emr",
+    intro: "More space for the current consultation.",
+    points: [
+      "Choose Compact EMR or an alternative layout in settings. Use a focused, wide workspace for the visit.",
+      "Write consultation notes, use optional structured SOAP, record diagnoses and reuse templates or service packages.",
+      "Review patient history and clinical images, use the body map, and prepare medical certificates or referrals.",
+    ],
   },
   {
-    title: "A paper trail when it matters",
-    body: "When something sensitive changes, you can trace who did what. That helps with panels, audits, and disputes.",
+    title: "Dispense medicines and collect payment",
+    kind: "dispensary",
+    intro: "See what needs attention next.",
+    points: [
+      "Choose Queue & Workspace or Classic. Move through To Dispense, Awaiting Payment and Completed Today.",
+      "Review medicines and prescription instructions, print labels and complete checkout.",
+      "Choose several medicine-label formats and itemised or total-only receipts, with clinic branding and secure, expiring patient receipt links. Dark mode is available.",
+    ],
   },
-] as const;
-
+  {
+    title: "Follow up and understand clinic activity",
+    kind: "insights",
+    intro: "Keep the next action in view.",
+    points: [
+      "Book appointments and use daily worklists. Follow-up worklists distinguish patients needing contact, contacted patients, booked patients and completed reviews.",
+      "Preview and confirm reminders, queue them for sending and review status. Sending a reminder or booking an appointment does not complete the clinical review.",
+      "Explore completed consultations, recorded diagnosis trends and consultation drilldowns, new and returning patients, and medicine usage with stock-planning estimates. Selected dates and comparison periods remain clear. Insights depend on recorded clinic data.",
+    ],
+  },
+];
+const advanced = [
+  [
+    "Patient communication",
+    "Review today’s and upcoming birthdays, prepare birthday wishes or clinic campaigns, review recipients and schedule sending. Message history, consent and opt-out controls support staff review. Availability depends on a connected clinic WhatsApp number and configuration. Sending uses a background queue; delivery timing varies. Reminder consent does not authorise marketing messages.",
+  ],
+  [
+    "Patient feedback",
+    "Share a public feedback page and QR code, optionally include a feedback QR on receipts, and offer an optional Google Review link. Patients choose what feedback to share.",
+  ],
+  [
+    "Inventory and purchasing",
+    "Manage inventory, batches, expiry monitoring, adjustments, suppliers and purchasing. Review medicine usage and planning estimates using the clinic’s recorded data.",
+  ],
+  [
+    "Panels, teams and specialist work",
+    "Track panel receivables and TPA claims, workforce attendance, rosters and leave, occupational health worklists and case workflows, and lab results and referrals.",
+  ],
+  [
+    "Migration and group clinics",
+    "Discuss migration support and group clinic arrangements. Branch access and rollout capabilities depend on agreed scope and setup.",
+  ],
+  [
+    "e-Invoice activation",
+    "Availability depends on clinic assessment, configuration, authorisation, testing and activation. Normal receipts remain separate from e-Invoice activation. Confirm scope and charges with our team.",
+  ],
+];
+export const healthOSFaqs = [
+  [
+    "Will the workspace feel overwhelming?",
+    "Start with the four everyday stages. Choose registration, consultation and dispensary layouts in settings, and explore specialist capabilities as your team needs them.",
+  ],
+  [
+    "What does MyKad import need?",
+    "A compatible reader, its vendor SDK, a Windows computer and a configured bridge. Staff review imported patient details and photos before saving. Ask us to confirm reader compatibility.",
+  ],
+  [
+    "Can I use ordinary receipts before e-Invoice activation?",
+    "Yes. Normal receipts are separate. e-Invoice requires clinic assessment, configuration, authorisation, testing and activation.",
+  ],
+  [
+    "When is a follow-up complete?",
+    "When the clinical review is completed. A queued reminder, sent message or booked appointment does not complete the review.",
+  ],
+  [
+    "Are all these capabilities in every plan?",
+    "Plan cards list existing entitlements. Confirm the allocation and setup of newer capabilities with SUMERO before purchase, including MyKad import, follow-ups, communication, feedback, insights and specialist worklists.",
+  ],
+  [
+    "How do I request a trial?",
+    "Use the contact form to request a demo or discuss a trial. The team will confirm availability and terms for your clinic.",
+  ],
+];
 export function SumeroHealthOSContent() {
   return (
     <>
-      <section className="relative overflow-hidden border-b border-zinc-200">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(14,165,233,0.1),transparent_55%)]" />
-        <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-28">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-600">
-            Platform overview
-          </p>
+      <section className="health-hero border-b border-slate-200">
+        <div className="site-section">
+          <p className="eyebrow">SUMERO Technologies · Flagship product</p>
           <Image
             src="/brand/sumero-healthos-horizontal.png"
             alt="SUMERO HealthOS"
             width={2172}
             height={724}
-            className="mt-6 h-auto w-full max-w-[310px]"
+            className="mt-5 h-auto w-[260px] max-w-full"
             priority
           />
-          <h1 className="mt-5 max-w-3xl text-[2.5rem] font-semibold leading-[1.08] tracking-tight text-zinc-900 sm:text-5xl sm:leading-[1.06]">
-            One place to run the clinic day
+          <h1 className="mt-6 max-w-4xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+            A simpler clinic day,
+            <br className="hidden sm:block" /> from registration to follow-up.
           </h1>
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-zinc-600 sm:text-xl sm:leading-relaxed">
-            From registration to consultation, dispensing, billing and
-            follow-up, HealthOS keeps your team working from the same reliable
-            information.
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+            One clear next step for the front desk, doctor and dispensary.
+            HealthOS helps private clinics keep everyday care moving, with
+            layouts your team can choose.
           </p>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-500">
-            Built for private clinics and small groups that see insured
-            (&quot;panel&quot;) patients, run an in-house pharmacy, and care
-            about who can see what.
-          </p>
-          <div className="mt-12 flex flex-wrap items-center gap-3">
-            <Link
-              href="/contact"
-              className="inline-flex min-h-11 items-center rounded-full bg-sky-600 px-6 py-3 text-sm font-medium text-white shadow-md shadow-sky-600/20 transition hover:bg-sky-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
-            >
-              Book a walkthrough
-            </Link>
-            <Link
-              href="/security"
-              className="inline-flex min-h-11 items-center rounded-full border border-zinc-300 bg-white px-6 py-3 text-sm font-medium text-zinc-800 transition hover:bg-zinc-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
-            >
-              How we protect your data
-            </Link>
-            <Link
-              href="/pricing"
-              className="text-sm font-semibold text-sky-700 transition hover:text-sky-600"
-            >
-              Plans start at {formatRm(PRICING.essential.monthly)}/month →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="border-b border-zinc-200">
-        <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-600">
-            Patient journey
-          </p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
-            A clear path for every visit
-          </h2>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg">
-            Everyone sees the same story: who is waiting, who is in the room,
-            what was prescribed, what is ready to collect, and what is still
-            owed.
-          </p>
-          <div className="mt-14">
-            <WorkflowPipeline />
-          </div>
-        </div>
-      </section>
-
-      <section className="border-b border-zinc-200 bg-zinc-50/60">
-        <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-600">
-            Capabilities
-          </p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
-            What you get
-          </h2>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg">
-            Practical tools for the work clinic owners, managers and staff
-            handle every day.
-          </p>
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            <FeatureCard
-              icon={<IconReception className="h-5 w-5" />}
-              title="Patients, appointments & queue"
-              body="Keep patient registration and records together, manage appointments and queues, and run a patient-facing Queue TV from the same workspace."
-            />
-            <FeatureCard
-              icon={<IconClinical className="h-5 w-5" />}
-              title="Consultation & documents"
-              body="Keep consultation notes, prescriptions, medical certificates, referrals and follow-up actions attached to the patient visit."
-            />
-            <FeatureCard
-              icon={<IconPharmacy className="h-5 w-5" />}
-              title="Dispensing & Medicine Counter"
-              body="Verify dispensed items, print medicine labels and support direct counter sales without creating an unnecessary consultation."
-            />
-            <FeatureCard
-              icon={<IconMoney className="h-5 w-5" />}
-              title="Billing, receipts & payments"
-              body="Record cash, card, transfer and panel payments, issue receipts and keep outstanding amounts visible for follow-up."
-            />
-            <FeatureCard
-              icon={<IconBuilding className="h-5 w-5" />}
-              title="Direct Company, panel & TPA"
-              body="Manage panel companies, Direct Company billing, TPA claims, invoices, partial payments and receivables without rebuilding the ledger elsewhere."
-              badge="Professional"
-            />
-            <FeatureCard
-              icon={<IconChart className="h-5 w-5" />}
-              title="Inventory & purchasing"
-              body="Track batches, expiry dates and adjustments, then manage suppliers and purchase orders as stock requirements change."
-              badge="Professional"
-            />
-            <FeatureCard
-              icon={<IconUsers className="h-5 w-5" />}
-              title="Workforce operations"
-              body="Coordinate attendance schedules, leave and exceptions, with workforce analytics for a clearer view of clinic coverage."
-              badge="Professional"
-            />
-            <FeatureCard
-              icon={<IconChart className="h-5 w-5" />}
-              title="Owner & financial dashboards"
-              body="Review owner summaries, revenue, profit, outstanding payments and operational performance from focused dashboards."
-              badge="Professional"
-            />
-            <FeatureCard
-              icon={<IconArrowPath className="h-5 w-5" />}
-              title="CSV-based Migration Center"
-              body="Prepare and validate CSV imports for patients, inventory and panel companies, with migration history for clearer onboarding."
-              badge="Professional"
-            />
-            <FeatureCard
-              icon={<IconShield className="h-5 w-5" />}
-              title="MyInvois e-Invoice operations"
-              body="Support individual buyer, monthly consolidated, Direct Company/panel and TPA claim e-Invoice workflows through a controlled rollout."
-              badge="Requires activation"
-            />
-            <FeatureCard
-              icon={<IconArrowPath className="h-5 w-5" />}
-              title="WhatsApp workflows"
-              body="Use manual reminder workflows, with clinic-owned automation available after clinic connection, Meta template approval and production activation."
-              badge="Requires setup"
-            />
-          </div>
-          <div className="mt-10 grid gap-4 lg:grid-cols-3">
-            <section className="rounded-2xl border border-emerald-100 bg-emerald-50/60 p-5 sm:p-6">
-              <h3 className="text-sm font-semibold text-zinc-900">Available now</h3>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-600">
-                Core patient, queue, consultation, dispensing, billing and receipt workflows are available now. Plan-specific capabilities include panel and TPA operations, advanced inventory, workforce tools, dashboards and the Migration Center.
-              </p>
-            </section>
-            <section className="rounded-2xl border border-sky-100 bg-sky-50/70 p-5 sm:p-6">
-              <h3 className="text-sm font-semibold text-zinc-900">Requires clinic setup and activation</h3>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-600">
-                MyInvois e-Invoice workflows are available through a controlled rollout and require clinic-specific configuration, credentials, authorisation, testing and production activation. WhatsApp automation also requires a clinic connection and approved Meta templates.
-              </p>
-            </section>
-            <section className="rounded-2xl border border-amber-100 bg-amber-50/60 p-5 sm:p-6">
-              <h3 className="text-sm font-semibold text-zinc-900">On the roadmap</h3>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-600">
-                MyKad reading and laboratory workflows are not currently included. Payroll, a general ledger and AI clinical assistance also remain outside the current product scope.
-              </p>
-            </section>
-          </div>
-          <div className="mt-6 rounded-2xl border border-zinc-200 bg-white p-5 sm:p-6">
-            <h3 className="text-base font-semibold text-zinc-900">Controlled MyInvois rollout</h3>
-            <p className="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-600">
-              Once a clinic has completed onboarding and production activation, HealthOS can support the following e-Invoice operations:
-            </p>
-            <ul className="mt-4 grid gap-x-8 gap-y-2 text-sm leading-relaxed text-zinc-600 sm:grid-cols-2">
-              {[
-                "Individual buyer e-Invoices",
-                "Monthly consolidated e-Invoices for eligible self-paid receipts",
-                "Direct Company and panel e-Invoices",
-                "TPA claim e-Invoices",
-                "MyInvois submission-status monitoring",
-                "QR codes and official validation links",
-                "Cancellation within the permitted MyInvois window",
-                "Credit notes linked to the original validated invoice",
-                "Automatic retry and backoff for temporary failures",
-                "An action-required queue with operational alerts",
-              ].map((item) => (
-                <li key={item} className="flex gap-2">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500" aria-hidden />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-4 text-xs leading-relaxed text-zinc-500">
-              Availability is not automatic for every customer. Configuration, credentials, authorisation, testing and production activation must be completed for each clinic.
-            </p>
-          </div>
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Link
-              href="/pricing"
-              className="inline-flex min-h-11 items-center justify-center rounded-full bg-sky-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-sky-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
-            >
-              Compare HealthOS plans
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex min-h-11 items-center justify-center rounded-full border border-zinc-300 bg-white px-6 py-3 text-sm font-semibold text-zinc-800 transition hover:bg-zinc-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
-            >
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link className="primary-cta" href="/contact">
               Book a demo
             </Link>
+            <Link className="secondary-cta" href="/pricing">
+              View pricing
+            </Link>
+          </div>
+          <div className="mt-12">
+            <HealthOSShowcase />
           </div>
         </div>
       </section>
-
-      <section className="border-b border-zinc-200">
-        <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-600">
-            Screens
-          </p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
-            Inside the workspace
-          </h2>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg">
-            These are actual HealthOS screens. They show three common areas of
-            work: daily clinic activity, the pharmacy handover and panel
-            receivables.
-          </p>
-          <div className="mt-12 flex flex-col gap-14 sm:mt-14 sm:gap-20">
-            <Screenshot
-              src="/marketing/dashboard-queue.png"
-              alt="HealthOS operations overview: daily sales, visits, and payment breakdown for a clinic."
-              title="Today at the clinic"
-              caption="Sales, visits, stock warnings, and payment splits on one home screen so owners and leads do not live inside five different tabs."
-              priority
-            />
-            <Screenshot
-              src="/marketing/pharmacy-dispense.png"
-              alt="Dispensing checkout: dispensary review before payment and finalize dispense."
-              title="Pharmacy handoff"
-              caption="Pharmacy sees what the room ordered, confirms or adjusts with a reason, then clears the patient before anyone takes payment."
-            />
-            <Screenshot
-              src="/marketing/panel-receivables.png"
-              alt="Panel company billing: invoiced, paid, outstanding, and credit control summary."
-              title="Panel receivables"
-              caption="What each company owes, what is late, and where to chase next, without rebuilding AR in a spreadsheet."
-            />
-          </div>
+      <section className="site-section">
+        <p className="eyebrow">The everyday clinic journey</p>
+        <h2 className="section-title">Four stages. A clearer day.</h2>
+        <div className="mt-8">
+          <WorkflowPipeline />
         </div>
       </section>
-
-      <section id="security" className="border-b border-zinc-200 bg-zinc-50/60">
-        <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-600">
-            Trust
+      {workflows.map((step, index) => (
+        <section
+          key={step.kind}
+          className={`border-t border-slate-200 ${index % 2 === 0 ? "bg-[#f3f6fa]" : "bg-white"}`}
+        >
+          <div className="site-section grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+            <div>
+              <p className="eyebrow">0{index + 1} · Everyday workflow</p>
+              <h2 className="section-title">{step.title}</h2>
+              <p className="mt-4 text-lg text-slate-600">{step.intro}</p>
+              <ul className="mt-6 space-y-4 text-sm leading-7 text-slate-600">
+                {step.points.map((point) => (
+                  <li key={point} className="border-l-2 border-blue-200 pl-4">
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <HealthOSShowcase kind={step.kind} title={step.title} />
+          </div>
+        </section>
+      ))}
+      <section className="site-section">
+        <p className="eyebrow">Small details, everyday comfort</p>
+        <h2 className="section-title">Print clearly. Work comfortably.</h2>
+        <div className="mt-8 grid gap-8 lg:grid-cols-2">
+          <HealthOSShowcase
+            kind="printing"
+            title="Medicine labels and receipts, with choices that suit your clinic."
+          />
+          <HealthOSShowcase
+            kind="dark-mode"
+            title="Dark mode for the dispensary workspace."
+          />
+        </div>
+      </section>
+      <section className="border-y border-slate-200 bg-[#f3f6fa]">
+        <div className="site-section">
+          <p className="eyebrow">When your clinic needs more</p>
+          <h2 className="section-title">Explore one capability at a time.</h2>
+          <p className="mt-4 max-w-2xl text-slate-600 leading-7">
+            Start with the daily workflow. Open a topic to see the supporting
+            tools. Plan availability and setup are confirmed for your clinic.
           </p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
-            Clear and practical security
-          </h2>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg">
-            Straightforward answers to the security questions clinic owners
-            usually ask before going live.
-          </p>
-          <div className="mt-14 grid gap-5 sm:grid-cols-3">
-            {trustTeasers.map((item) => (
-              <div
-                key={item.title}
-                className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm sm:p-7"
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
+            {advanced.map(([title, body]) => (
+              <details
+                key={title}
+                className="rounded-2xl border border-slate-200 bg-white p-6"
               >
-                <div className="mb-4 h-px w-8 rounded-full bg-sky-500" />
-                <h3 className="text-base font-semibold tracking-tight text-zinc-900">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-zinc-600">
-                  {item.body}
-                </p>
-              </div>
+                <summary className="cursor-pointer font-semibold">
+                  {title}
+                </summary>
+                <p className="mt-4 text-sm leading-7 text-slate-600">{body}</p>
+              </details>
             ))}
           </div>
-          <p className="mt-10">
-            <Link
-              href="/security"
-              className="text-sm font-medium text-sky-700 transition hover:text-sky-600"
-            >
-              Security and trust: full overview →
-            </Link>
-          </p>
         </div>
       </section>
-
-      <section className="border-b border-zinc-200">
-        <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-sky-600">
-            Multi-branch
-          </p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
-            Planning for multiple branches
-          </h2>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg">
-            HealthOS can support a structured branch-by-branch rollout under a
-            Group agreement. Cross-branch reporting, shared-data rules and
-            central operating requirements are confirmed during solution design
-            before contracting.
-          </p>
-          <p className="mt-6">
-            <Link
-              href="/contact?plan=Group&interest=group"
-              className="text-sm font-semibold text-sky-700 transition hover:text-sky-600"
-            >
-              Discuss a group rollout →
-            </Link>
-          </p>
-        </div>
+      <section className="site-section">
+        <p className="eyebrow">Thoughtful access</p>
+        <h2 className="section-title">
+          The right information for the right role.
+        </h2>
+        <p className="mt-5 max-w-3xl text-slate-600 leading-8">
+          Role-based access, audit history and masked shared-screen details help
+          teams handle sensitive information. Authorised staff can archive and
+          restore patient profiles. Permanent patient deletion is owner-only.
+        </p>
+        <Link
+          className="mt-5 inline-block font-semibold text-blue-700 underline"
+          href="/security"
+        >
+          Read about security and access
+        </Link>
       </section>
-
-      <section>
-        <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
-          <div className="relative overflow-hidden rounded-3xl border border-sky-100 bg-gradient-to-br from-sky-50 via-white to-zinc-50 p-8 sm:flex sm:items-center sm:justify-between sm:gap-10 sm:p-10">
-            <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-sky-200/40 blur-3xl" />
-            <div className="relative max-w-xl">
-              <p className="text-base leading-relaxed text-zinc-600">
-                Tell us how your clinic runs today, and we will show the screens
-                that map to your reception, doctors, pharmacy, and accounts team.
-              </p>
-              <p className="mt-3 text-sm text-zinc-500">
-                Plans start at {formatRm(PRICING.essential.monthly)}/month.{" "}
-                <Link
-                  href="/pricing"
-                  className="font-semibold text-sky-700 hover:text-sky-600"
-                >
-                  View pricing
-                </Link>
-              </p>
-            </div>
-            <div className="relative mt-8 flex shrink-0 flex-col gap-3 sm:mt-0 sm:flex-row">
-              <Link
-                href="/contact"
-                className="inline-flex min-h-11 items-center justify-center rounded-full bg-sky-600 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-sky-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
+      <section className="border-t border-slate-200 bg-[#f3f6fa]">
+        <div className="site-section">
+          <p className="eyebrow">Common questions</p>
+          <h2 className="section-title">A few things you may be wondering.</h2>
+          <div className="mt-8 space-y-3">
+            {healthOSFaqs.map(([q, a]) => (
+              <details
+                key={q}
+                className="rounded-xl border border-slate-200 bg-white p-5"
               >
-                Book a demo
-              </Link>
-              <Link
-                href="/pricing"
-                className="inline-flex min-h-11 items-center justify-center rounded-full border border-zinc-300 bg-white px-7 py-3.5 text-sm font-semibold text-zinc-800 transition hover:bg-zinc-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
-              >
-                Compare plans
-              </Link>
-            </div>
+                <summary className="cursor-pointer font-semibold">{q}</summary>
+                <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600">
+                  {a}
+                </p>
+              </details>
+            ))}
           </div>
+        </div>
+      </section>
+      <section className="site-section">
+        <div className="rounded-3xl bg-[#0b1026] p-8 text-white sm:p-12">
+          <h2 className="text-3xl font-semibold">
+            See your clinic day in HealthOS.
+          </h2>
+          <p className="mt-4 max-w-xl leading-7 text-slate-300">
+            Bring your everyday workflow. We’ll walk through the screens your
+            team would use and discuss demo or trial arrangements.
+          </p>
+          <Link className="secondary-cta mt-7" href="/contact">
+            Book a demo
+          </Link>
         </div>
       </section>
     </>
