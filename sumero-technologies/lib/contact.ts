@@ -19,13 +19,24 @@ export function validateContact(body: unknown): {
   const input = body as Record<string, unknown>;
   const read = (key: string) =>
     typeof input[key] === "string" ? input[key].trim() : "";
+  // Older open tabs submit primaryInterest instead of requirement.
+  // Normalise that schema without relaxing contact or consent validation.
+  const requirement = read("requirement") || (
+    read("primaryInterest")
+      ? [
+          read("primaryInterest"),
+          read("currentSystem") && `Current system: ${read("currentSystem")}`,
+          read("preferredContact") && `Preferred contact: ${read("preferredContact")}`,
+        ].filter(Boolean).join("\n")
+      : ""
+  );
   const payload = {
     name: read("name"),
-    clinicName: read("clinicName"),
+    clinicName: read("clinicName") || read("company"),
     email: read("email"),
     phone: read("phone"),
     branches: read("branches"),
-    requirement: read("requirement"),
+    requirement,
     consent: input.consent === true,
     plan: read("plan"),
   };

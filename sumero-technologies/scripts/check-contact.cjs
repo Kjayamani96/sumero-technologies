@@ -108,6 +108,23 @@ function compile(path, requires, env = {}) {
     assert.equal((await res.json()).success, true);
     count++;
   }
+  const legacy = { ...valid, requirement: undefined, primaryInterest: "Clinic workflow", currentSystem: "Paper", preferredContact: "Email" };
+  const normalised = shared.validateContact(legacy).payload;
+  assert.ok(normalised.requirement.includes("Clinic workflow"));
+  assert.ok(normalised.requirement.includes("Current system: Paper"));
+  assert.ok(normalised.requirement.includes("Preferred contact: Email"));
+  assert.equal((await configured(request(legacy))).status, 200);
+  count++;
+  for (const payload of [
+    { ...legacy, consent: false },
+    { ...legacy, primaryInterest: "" },
+    { ...legacy, primaryInterest: "x".repeat(2001) },
+    { ...legacy, email: "" },
+  ]) {
+    assert.equal((await configured(request(payload))).status, 400);
+    count++;
+  }
+  assert.equal(shared.validateContact({ ...valid, primaryInterest: "Legacy" }).payload.requirement, valid.requirement);
   for (mode of ["error", "throw"]) {
     const res = await configured(request(valid));
     assert.equal(res.status, 502);
