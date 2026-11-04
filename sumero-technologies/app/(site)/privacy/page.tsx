@@ -3,6 +3,7 @@ import Link from "next/link";
 import { MarketingShell } from "@/components/marketing/MarketingShell";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/privacy" },
   title: "Privacy Policy",
   description:
     "How Sumero Technologies handles personal data collected through the public website and HealthOS enquiries.",
@@ -41,9 +42,9 @@ export default function PrivacyPage() {
             <p className="mt-3">
               When you submit a contact or demo form, we may collect your name,
               clinic or organisation name, work email, phone number, number of
-              branches, main requirement, any selected plan interest, and consent
-              to be contacted about your enquiry. An email address or phone
-              number is needed; you may choose which to provide.
+              branches, main requirement, any selected plan interest, and
+              consent to be contacted about your enquiry. An email address or
+              phone number is needed; you may choose which to provide.
             </p>
             <p className="mt-3">
               Our hosting and email providers may process technical logs such as
@@ -66,9 +67,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-zinc-900">
-              4. Sharing
-            </h2>
+            <h2 className="text-lg font-semibold text-zinc-900">4. Sharing</h2>
             <p className="mt-3">
               We may share enquiry details with service providers who help us
               operate email delivery and hosting, under appropriate
@@ -82,8 +81,8 @@ export default function PrivacyPage() {
             </h2>
             <p className="mt-3">
               We retain enquiry records for as long as needed to manage the
-              business relationship or as required by applicable law, then delete
-              or anonymise them when no longer needed.
+              business relationship or as required by applicable law, then
+              delete or anonymise them when no longer needed.
             </p>
           </section>
 
@@ -94,16 +93,14 @@ export default function PrivacyPage() {
             <p className="mt-3">
               When a clinic uses HealthOS, clinic-scoped operational and patient
               data is processed under the customer&apos;s instructions and
-              agreement. Clinics remain responsible for lawful collection and use
-              of patient information under applicable Malaysian law, including
-              the Personal Data Protection Act 2010 where it applies.
+              agreement. Clinics remain responsible for lawful collection and
+              use of patient information under applicable Malaysian law,
+              including the Personal Data Protection Act 2010 where it applies.
             </p>
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-zinc-900">
-              7. Security
-            </h2>
+            <h2 className="text-lg font-semibold text-zinc-900">7. Security</h2>
             <p className="mt-3">
               We apply appropriate technical and organisational measures for the
               systems we operate. See our{" "}

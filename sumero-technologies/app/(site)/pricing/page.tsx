@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
@@ -8,22 +9,12 @@ import { PricingViewTracker } from "@/components/marketing/PricingViewTracker";
 import { MarketingShell } from "@/components/marketing/MarketingShell";
 import { PRICING, formatRm } from "@/lib/pricing";
 
-export const metadata: Metadata = {
-  title: {
-    absolute: "HealthOS Pricing | Clinic Management Software Malaysia | Sumero",
-  },
+export const metadata: Metadata = pageMetadata({
+  title: "Clinic Software Pricing Malaysia | SUMERO HealthOS",
   description:
-    "Compare Sumero HealthOS plans for Malaysian clinics, including monthly pricing, onboarding, multi-branch options and controlled MyInvois rollout details.",
-  alternates: {
-    canonical: "/pricing",
-  },
-  openGraph: {
-    title: "HealthOS Pricing | Sumero Technologies",
-    description:
-      "Compare HealthOS clinic software plans, onboarding options and controlled MyInvois rollout details.",
-    url: "https://sumerotech.com/pricing",
-  },
-};
+    "Compare Essential and Professional clinic software plans in MYR, onboarding fees, account limits, migration services and setup-dependent capabilities.",
+  path: "/pricing",
+});
 
 const jsonLd = {
   "@context": "https://schema.org",

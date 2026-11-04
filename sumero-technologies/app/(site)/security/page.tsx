@@ -1,13 +1,14 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { MarketingShell } from "@/components/marketing/MarketingShell";
 
-export const metadata: Metadata = {
-  title: "Security & trust",
+export const metadata: Metadata = pageMetadata({
+  title: "Clinic Data Access & Security | SUMERO HealthOS",
   description:
-    "How Sumero HealthOS keeps clinic data private, controls who can do what, and leaves a clear record for owners and auditors.",
-  alternates: { canonical: "/security" },
-};
+    "Learn about HealthOS role-based access, audit history, masked shared-screen details, authorised archive and restore, and owner-only permanent patient deletion.",
+  path: "/security",
+});
 
 const pillars = [
   {

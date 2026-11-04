@@ -1,13 +1,15 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { MarketingShell } from "@/components/marketing/MarketingShell";
 
-export const metadata: Metadata = {
-  title: "Products",
+export const metadata: Metadata = pageMetadata({
+  title: "Software Products | SUMERO Technologies",
   description:
-    "Explore technology products from SUMERO Technologies, including our flagship clinic operations platform, HealthOS.",
-};
+    "Explore HealthOS, the flagship clinic management software by SUMERO Technologies for Malaysian private clinics.",
+  path: "/products",
+});
 
 export default function ProductsPage() {
   return (

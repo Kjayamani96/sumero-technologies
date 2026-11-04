@@ -2,7 +2,13 @@ import type { ReactNode } from "react";
 import { SiteFooter } from "./SiteFooter";
 import { SiteHeader } from "./SiteHeader";
 
-export function MarketingShell({ children }: { children: ReactNode }) {
+export function MarketingShell({
+  children,
+  locale = "en",
+}: {
+  children: ReactNode;
+  locale?: "en" | "ms";
+}) {
   return (
     <div className="relative min-h-screen bg-white text-slate-950">
       <div
@@ -15,7 +21,7 @@ export function MarketingShell({ children }: { children: ReactNode }) {
       />
       <SiteHeader />
       <main className="relative">{children}</main>
-      <SiteFooter />
+      <SiteFooter locale={locale} />
     </div>
   );
 }

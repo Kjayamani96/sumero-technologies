@@ -1,33 +1,18 @@
 import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
-import "./globals.css";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-export const metadata: Metadata = {
+export const siteMetadata: Metadata = {
   metadataBase: new URL("https://sumerotech.com"),
   title: {
-    default: "SUMERO Technologies | A simpler clinic day with HealthOS",
+    default: "Clinic Management Software Malaysia | SUMERO HealthOS",
     template: "%s | SUMERO Technologies",
   },
   description:
-    "SUMERO Technologies builds HealthOS: a simpler clinic day, from registration and consultation to dispensing, payment and follow-up.",
+    "SUMERO HealthOS clinic management software for Malaysian private clinics: registration, consultation, dispensing, billing and follow-up. Book a demo.",
+  verification: { google: process.env.GOOGLE_SITE_VERIFICATION || undefined },
   keywords: [
     "SUMERO Technologies",
     "SUMERO HealthOS",
-    "business operations software",
-    "enterprise software Malaysia",
+    "clinic management system Malaysia",
+    "sistem pengurusan klinik",
     "clinic software",
     "private clinic Malaysia",
     "clinic queue system",
@@ -42,9 +27,9 @@ export const metadata: Metadata = {
     siteName: "Sumero Technologies",
     images: [
       {
-        url: "/brand/sumero-technologies-horizontal.png",
-        width: 2172,
-        height: 724,
+        url: "/social/healthos.png",
+        width: 1200,
+        height: 630,
         alt: "SUMERO Technologies",
       },
     ],
@@ -55,26 +40,10 @@ export const metadata: Metadata = {
     title: "SUMERO Technologies | A simpler clinic day with HealthOS",
     description:
       "HealthOS by SUMERO Technologies: a simpler clinic day, from registration to follow-up.",
-    images: ["/brand/sumero-technologies-horizontal.png"],
+    images: ["/social/healthos.png"],
   },
   icons: {
     icon: "/brand/sumero-favicon.png",
     apple: "/brand/sumero-favicon.png",
   },
 };
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <body
-        className={`${inter.variable} ${poppins.variable} min-h-screen bg-white font-sans text-slate-950 antialiased`}
-      >
-        {children}
-      </body>
-    </html>
-  );
-}

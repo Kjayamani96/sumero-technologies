@@ -3,6 +3,7 @@ import Link from "next/link";
 import { MarketingShell } from "@/components/marketing/MarketingShell";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/terms" },
   title: "Terms of Use",
   description:
     "Terms of use for the Sumero Technologies public website and Sumero HealthOS enquiries.",
@@ -24,12 +25,14 @@ export default function TermsPage() {
 
         <div className="prose-legal mt-10 space-y-8 text-sm leading-relaxed text-zinc-600">
           <section>
-            <h2 className="text-lg font-semibold text-zinc-900">1. Who we are</h2>
+            <h2 className="text-lg font-semibold text-zinc-900">
+              1. Who we are
+            </h2>
             <p className="mt-3">
-              This website is operated by Sumero Technologies (&quot;Sumero&quot;,
-              &quot;we&quot;, &quot;us&quot;). Sumero HealthOS is our clinic
-              operations software product. These terms apply to use of this public
-              website and related enquiry forms.
+              This website is operated by Sumero Technologies
+              (&quot;Sumero&quot;, &quot;we&quot;, &quot;us&quot;). Sumero
+              HealthOS is our clinic operations software product. These terms
+              apply to use of this public website and related enquiry forms.
             </p>
           </section>
 
@@ -40,8 +43,9 @@ export default function TermsPage() {
             <p className="mt-3">
               Content on this website is provided for general information about
               Sumero HealthOS and Sumero Technologies. Product descriptions,
-              pricing and feature lists may change. A signed commercial agreement
-              governs any paid subscription or implementation engagement.
+              pricing and feature lists may change. A signed commercial
+              agreement governs any paid subscription or implementation
+              engagement.
             </p>
           </section>
 
@@ -62,9 +66,9 @@ export default function TermsPage() {
             </h2>
             <p className="mt-3">
               Submitting a contact or demo form does not create a contract for
-              software services. We may contact you using the details you provide
-              to discuss HealthOS. Submitting a form does not subscribe you to
-              marketing messages beyond that operational contact.
+              software services. We may contact you using the details you
+              provide to discuss HealthOS. Submitting a form does not subscribe
+              you to marketing messages beyond that operational contact.
             </p>
           </section>
 
@@ -74,8 +78,8 @@ export default function TermsPage() {
             </h2>
             <p className="mt-3">
               You must not misuse this website, attempt unauthorised access to
-              systems or accounts, or submit false or abusive content through our
-              forms.
+              systems or accounts, or submit false or abusive content through
+              our forms.
             </p>
           </section>
 
@@ -84,9 +88,9 @@ export default function TermsPage() {
               6. Intellectual property
             </h2>
             <p className="mt-3">
-              Website content, branding and software materials remain the property
-              of Sumero Technologies or its licensors. You may not copy or reuse
-              them for commercial purposes without permission.
+              Website content, branding and software materials remain the
+              property of Sumero Technologies or its licensors. You may not copy
+              or reuse them for commercial purposes without permission.
             </p>
           </section>
 
@@ -121,7 +125,10 @@ export default function TermsPage() {
                 support@sumerotech.com
               </a>
               . See also our{" "}
-              <Link href="/privacy" className="font-medium text-sky-700 hover:text-sky-600">
+              <Link
+                href="/privacy"
+                className="font-medium text-sky-700 hover:text-sky-600"
+              >
                 Privacy Policy
               </Link>{" "}
               and{" "}

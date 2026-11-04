@@ -1,7 +1,55 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export function SiteFooter() {
+export function SiteFooter({ locale = "en" }: { locale?: "en" | "ms" }) {
+  if (locale === "ms")
+    return (
+      <footer className="bg-[#0b1026] text-white">
+        <div className="site-section">
+          <Image
+            src="/brand/sumero-technologies-white.png"
+            alt="SUMERO Technologies"
+            width={2172}
+            height={724}
+            className="h-auto w-52"
+          />
+          <p className="mt-5 max-w-xl text-sm leading-7 text-slate-300">
+            HealthOS oleh SUMERO Technologies membantu klinik swasta
+            menghubungkan pendaftaran, konsultasi, pendispensan, pembayaran dan
+            susulan.
+          </p>
+          <nav
+            aria-label="Pautan pengaki"
+            className="mt-7 flex flex-wrap gap-5 text-sm"
+          >
+            <Link href="/ms/sistem-pengurusan-klinik">
+              Sistem pengurusan klinik
+            </Link>
+            <Link href="/ms/hubungi">Tempah demo</Link>
+            <Link href="/pricing" hrefLang="en-MY">
+              Harga penuh (English)
+            </Link>
+            <Link href="/privacy" hrefLang="en-MY">
+              Privasi (English)
+            </Link>
+            <Link href="/terms" hrefLang="en-MY">
+              Terma (English)
+            </Link>
+          </nav>
+          <a
+            href="mailto:support@sumerotech.com"
+            className="mt-7 inline-block text-sm text-cyan-200"
+          >
+            support@sumerotech.com
+          </a>
+          <p className="mt-7 text-xs text-slate-400">
+            © {new Date().getFullYear()} SUMERO Technologies. Hak cipta
+            terpelihara.
+          </p>
+        </div>
+      </footer>
+    );
+
   return (
     <footer className="bg-[#0b1026] text-white">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
@@ -33,6 +81,24 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
+                <Link
+                  href="/clinic-management-system-malaysia"
+                  className="transition hover:text-white"
+                >
+                  For Malaysian clinics
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/ms/sistem-pengurusan-klinik"
+                  hrefLang="ms-MY"
+                  lang="ms"
+                  className="transition hover:text-white"
+                >
+                  Bahasa Malaysia
+                </Link>
+              </li>
+              <li>
                 <Link href="/products" className="transition hover:text-white">
                   Product portfolio
                 </Link>
@@ -55,7 +121,10 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/#technology" className="transition hover:text-white">
+                <Link
+                  href="/#technology"
+                  className="transition hover:text-white"
+                >
                   Technology
                 </Link>
               </li>
@@ -103,8 +172,14 @@ export function SiteFooter() {
           </div>
         </div>
         <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-8 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} SUMERO Technologies. All rights reserved.</p>
-          <a href="mailto:support@sumerotech.com" className="transition hover:text-white">
+          <p>
+            © {new Date().getFullYear()} SUMERO Technologies. All rights
+            reserved.
+          </p>
+          <a
+            href="mailto:support@sumerotech.com"
+            className="transition hover:text-white"
+          >
             support@sumerotech.com
           </a>
         </div>

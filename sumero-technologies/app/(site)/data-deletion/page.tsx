@@ -3,6 +3,7 @@ import Link from "next/link";
 import { MarketingShell } from "@/components/marketing/MarketingShell";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/data-deletion" },
   title: "Data Deletion",
   description:
     "How to request deletion of Sumero Technologies website enquiry data or Sumero HealthOS clinic workspace data.",
@@ -36,10 +37,10 @@ export default function DataDeletionPage() {
               >
                 support@sumerotech.com
               </a>{" "}
-              with the subject line &quot;Data deletion request&quot; and include
-              the email address or phone number you used in the form. We will process legitimate
-              requests within a reasonable time, subject to any legal retention
-              requirements.
+              with the subject line &quot;Data deletion request&quot; and
+              include the email address or phone number you used in the form. We
+              will process legitimate requests within a reasonable time, subject
+              to any legal retention requirements.
             </p>
           </section>
 
@@ -49,11 +50,12 @@ export default function DataDeletionPage() {
             </h2>
             <p className="mt-3">
               Clinic patient and operational data inside a live Sumero HealthOS
-              workspace is controlled by the customer clinic (or group). Deletion
-              or export of that data is handled through the customer&apos;s
-              authorised representatives and the applicable customer agreement.
-              Within HealthOS, authorised staff can archive and restore patient
-              profiles. Permanent patient deletion is owner-only.
+              workspace is controlled by the customer clinic (or group).
+              Deletion or export of that data is handled through the
+              customer&apos;s authorised representatives and the applicable
+              customer agreement. Within HealthOS, authorised staff can archive
+              and restore patient profiles. Permanent patient deletion is
+              owner-only.
             </p>
             <p className="mt-3">
               Authorised clinic owners may request account closure and data

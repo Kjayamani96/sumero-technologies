@@ -105,3 +105,36 @@ Success means the email service accepted the submission, not confirmed inbox del
 - Safari automation could not open Safari (connection timeout). Safari and real-device checks remain outstanding.
 
 Regenerate illustrations with `python3 scripts/create-marketing-illustrations.py`.
+
+## Bilingual SEO update — 4 November 2026
+
+Reviewed in the local preview. The owner authorised pushing the SEO and Bahasa Malaysia pages to `main` and deploying to production.
+
+- English clinic buying page: `/clinic-management-system-malaysia`.
+- Bahasa Malaysia equivalent: `/ms/sistem-pengurusan-klinik`.
+- Bahasa Malaysia enquiry form: `/ms/hubungi`, paired with `/contact`.
+- Added workflows, accurate plan summaries and prices, migration, MyKad/WhatsApp/e-Invoice setup boundaries, access controls and six visible FAQs in both languages. Shared price constants power the displayed prices and pricing answers.
+- Added visible language switches, navigation/footer/homepage links, self-canonical URLs, reciprocal `en-MY`/`ms-MY`/`x-default` alternates, page-specific search/social metadata and a 1200×630 social card at `/social/healthos.png`.
+- Added Organization/WebSite, WebPage, SoftwareApplication/Offer, BreadcrumbList and FAQ structured data tied to visible content, without ratings, certifications or invented business addresses.
+- English pages moved internally into the `(site)` route group. Their public URLs are unchanged. Shared root-document rendering with separate English/Malay layouts produces correct server HTML language values while retaining static generation; no language-detection redirects or request middleware was added.
+- `robots.txt` explicitly allows OAI-SearchBot and retains general crawling. `/api/` is excluded. Login remains `noindex,follow` and is omitted from the sitemap. No API secrets or patient application routes are exposed. The existing GPTBot/training policy is unchanged.
+- Sitemap includes indexable pages and language alternatives, with no manufactured last-modified timestamps. This makes discovery possible; it does not prove production firewall allowlisting or search-engine indexing.
+- Chrome desktop/mobile checks cover language switching, the translated enquiry route, Malay client-side validation and page width. Offline contact checks send no email. Review warning from Grammarly’s injected browser attributes is unchanged.
+
+### Checks
+
+`npm run build`
+
+`node scripts/check-seo.mjs` — rendered metadata, canonical URLs, 12 document languages and titles, both language pairs, FAQ JSON parsing, crawler-agent HTTP responses, sitemap, noindex login and social image dimensions.
+
+`node scripts/check-website.mjs` — pages, links, assets, anchor targets and structured-data parsing.
+
+`node scripts/check-contact.cjs` — 24 offline API validation/configuration/mocked-delivery checks.
+
+### Owner account steps after publication
+
+1. In Google Search Console, use the verified `sumerotech.com` property, or verify the domain through the owner’s DNS account. If using URL-prefix HTML-tag verification instead, `GOOGLE_SITE_VERIFICATION` can be set to the supplied verification token before deployment. This optional token is a public verification identifier, not an API credential. No token was invented or configured.
+2. Submit `https://sumerotech.com/sitemap.xml` and inspect the two clinic landing URLs and the two enquiry URLs. Request indexing where appropriate. This work has not submitted URLs to Search Console or established that an account is already verified.
+3. Review crawl/indexing reports and actual query performance over time. Verify OAI-SearchBot access through hosting/firewall settings if blocking occurs. Crawler access and structured data do not guarantee rankings, citation or rich results.
+
+References used: https://developers.google.com/search/docs/specialty/international/localized-versions and https://developers.openai.com/api/docs/bots.

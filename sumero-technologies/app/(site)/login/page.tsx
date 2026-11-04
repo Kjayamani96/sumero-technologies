@@ -107,7 +107,9 @@ export default function LoginPage() {
                     <Icon className="h-5 w-5" />
                   </span>
                   <div>
-                    <p className="text-sm font-semibold text-zinc-900">{title}</p>
+                    <p className="text-sm font-semibold text-zinc-900">
+                      {title}
+                    </p>
                     <p className="mt-1 text-xs leading-relaxed text-zinc-600">
                       {body}
                     </p>
@@ -174,7 +176,10 @@ export default function LoginPage() {
             </div>
 
             <p className="mt-8 text-center text-sm text-zinc-600">
-              <Link href="/" className="font-medium text-sky-700 hover:text-sky-600">
+              <Link
+                href="/"
+                className="font-medium text-sky-700 hover:text-sky-600"
+              >
                 ← Back to marketing site
               </Link>
             </p>

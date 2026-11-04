@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,17 +13,12 @@ import {
 import { MarketingShell } from "@/components/marketing/MarketingShell";
 import { formatRm, PRICING } from "@/lib/pricing";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  title: "Clinic Management Software Malaysia | SUMERO HealthOS",
   description:
-    "Meet HealthOS by SUMERO Technologies: a simpler clinic day, from registration and focused consultation to dispensing, payment and follow-up.",
-  alternates: { canonical: "/" },
-  openGraph: {
-    title: "SUMERO Technologies | A simpler clinic day with HealthOS",
-    description:
-      "HealthOS helps clinics welcome patients, consult, dispense, collect payment and follow up with clear everyday workflows.",
-    url: "https://sumerotech.com",
-  },
-};
+    "Clinic management software for Malaysian private clinics. HealthOS connects registration, consultation, dispensing, billing and follow-up. Book a demo.",
+  path: "/",
+});
 
 const principles = [
   {
@@ -157,6 +153,33 @@ export default function HomePage() {
               <p className="mt-3 text-sm leading-7 text-slate-600">{body}</p>
             </article>
           ))}
+        </div>
+      </section>
+      <section className="site-section border-t border-slate-200">
+        <p className="eyebrow">For Malaysian private clinics</p>
+        <h2 className="section-title">
+          Choose clinic software around your everyday workflow.
+        </h2>
+        <p className="mt-5 max-w-3xl leading-8 text-slate-600">
+          Compare HealthOS workflows, pricing, migration and setup requirements
+          in English or Bahasa Malaysia.
+        </p>
+        <div className="mt-6 flex flex-wrap gap-4">
+          <Link
+            href="/clinic-management-system-malaysia"
+            hrefLang="en-MY"
+            className="secondary-cta"
+          >
+            Clinic software in Malaysia
+          </Link>
+          <Link
+            href="/ms/sistem-pengurusan-klinik"
+            hrefLang="ms-MY"
+            lang="ms"
+            className="secondary-cta"
+          >
+            Sistem pengurusan klinik
+          </Link>
         </div>
       </section>
       <section

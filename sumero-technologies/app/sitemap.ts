@@ -1,63 +1,30 @@
-import { MetadataRoute } from "next";
-
+import type { MetadataRoute } from "next";
+import {
+  SITE_URL,
+  CLINIC_PAGES,
+  CONTACT_PAGES,
+  languageAlternates,
+} from "@/lib/seo";
+// Only indexable pages. Do not claim fresh content dates on every build.
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://sumerotech.com";
-  const now = new Date();
+  const pages = [
+    "",
+    "/products",
+    "/products/sumero-healthos",
+    "/pricing",
+    "/security",
+    "/terms",
+    "/privacy",
+    "/data-deletion",
+  ];
+  const localized = [CLINIC_PAGES, CONTACT_PAGES].flatMap((pair) =>
+    Object.values(pair).map((path) => ({
+      url: `${SITE_URL}${path}`,
+      alternates: { languages: languageAlternates(pair) },
+    })),
+  );
   return [
-    { url: base, lastModified: now, changeFrequency: "weekly", priority: 1 },
-    {
-      url: `${base}/products`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${base}/products/sumero-healthos`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.95,
-    },
-    {
-      url: `${base}/pricing`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.95,
-    },
-    {
-      url: `${base}/security`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${base}/contact`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    {
-      url: `${base}/login`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.5,
-    },
-    {
-      url: `${base}/terms`,
-      lastModified: now,
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
-    {
-      url: `${base}/privacy`,
-      lastModified: now,
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
-    {
-      url: `${base}/data-deletion`,
-      lastModified: now,
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
+    ...pages.map((path) => ({ url: `${SITE_URL}${path}` })),
+    ...localized,
   ];
 }

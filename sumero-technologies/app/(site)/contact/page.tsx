@@ -1,21 +1,18 @@
+import { pageMetadata, CONTACT_PAGES } from "@/lib/seo";
 import type { Metadata } from "next";
+
 import Link from "next/link";
 import { Suspense } from "react";
 import { ContactForm } from "@/components/marketing/ContactForm";
 import { MarketingShell } from "@/components/marketing/MarketingShell";
 
-export const metadata: Metadata = {
-  title: "Contact",
+export const metadata: Metadata = pageMetadata({
+  title: "Book a Clinic Software Demo | SUMERO HealthOS Malaysia",
   description:
-    "Request a tailored SUMERO HealthOS demo for your Malaysian clinic, including workflow, panel, TPA, inventory, workforce, migration and controlled MyInvois e-Invoice options.",
-  alternates: { canonical: "/contact" },
-  openGraph: {
-    title: "Request a SUMERO HealthOS demo",
-    description:
-      "Tell us about your clinic and the area you want to improve. We will prepare a relevant HealthOS walkthrough.",
-    url: "https://sumerotech.com/contact",
-  },
-};
+    "Request a HealthOS demo for your Malaysian clinic. Tell us your branch count, current workflow and main requirement to discuss plans, onboarding or a trial.",
+  path: "/contact",
+  alternates: CONTACT_PAGES,
+});
 
 function FormFallback() {
   return (
