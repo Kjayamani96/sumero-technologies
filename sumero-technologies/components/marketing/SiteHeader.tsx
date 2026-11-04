@@ -4,11 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
+import { GUIDE_HUBS, GUIDE_PATHS } from "@/lib/guide-paths";
 const englishNav = [
   { href: "/", label: "Home" },
   { href: "/products/sumero-healthos", label: "HealthOS" },
   { href: "/pricing", label: "Pricing" },
   { href: "/clinic-management-system-malaysia", label: "For clinics" },
+  { href: GUIDE_HUBS.en, label: "Guides" },
   { href: "/#about", label: "About Us" },
   { href: "/contact", label: "Contact" },
 ] as const;
@@ -30,16 +32,22 @@ export function SiteHeader() {
         },
         { href: "/ms/sistem-pengurusan-klinik#pricing", label: "Harga" },
         { href: "/ms/sistem-pengurusan-klinik#faq", label: "Soalan lazim" },
+        { href: GUIDE_HUBS.ms, label: "Panduan" },
         { href: "/ms/hubungi", label: "Hubungi" },
       ]
     : englishNav;
   const contactHref = malay ? "/ms/hubungi" : "/contact";
-  const englishHref =
-    pathname === "/ms/hubungi" || pathname === "/contact"
+  const guidePair = [GUIDE_HUBS, ...Object.values(GUIDE_PATHS)].find(
+    (pair) => pair.en === pathname || pair.ms === pathname,
+  );
+  const englishHref = guidePair
+    ? guidePair.en
+    : pathname === "/ms/hubungi" || pathname === "/contact"
       ? "/contact"
       : "/clinic-management-system-malaysia";
-  const malayHref =
-    pathname === "/contact" || pathname === "/ms/hubungi"
+  const malayHref = guidePair
+    ? guidePair.ms
+    : pathname === "/contact" || pathname === "/ms/hubungi"
       ? "/ms/hubungi"
       : "/ms/sistem-pengurusan-klinik";
   const [open, setOpen] = useState(false);

@@ -160,3 +160,13 @@ Two unpersonalized temporary ChatGPT web-search tests for “clinic software Mal
 Validation: `npm run build`, `PREVIEW_URL=http://localhost:3001 node scripts/check-seo.mjs`, `PREVIEW_URL=http://localhost:3001 node scripts/check-website.mjs`. Chrome checks include independent preview themes, reciprocal language navigation, and a 390px page without horizontal page overflow; wide demos/tables scroll within their own regions.
 
 Sources: https://developers.openai.com/api/docs/bots and https://www.indexnow.org/documentation.
+
+## Bilingual clinic resource guides — 4 November 2026
+
+Added English `/guides` and Bahasa Malaysia `/ms/panduan` resource hubs, with paired static guides for HealthOS costs, migration/MyKad setup and a fictional patient-visit walkthrough. They have self-canonical URLs, reciprocal language alternatives, visible review dates and SUMERO attribution, matching Article/WebPage/Breadcrumb structured data, related links and sitemap entries. Navigation language switches preserve the corresponding guide. The hubs use CollectionPage and ItemList data.
+
+The cost guide calculates 12 monthly payments plus onboarding and annual subscription plus onboarding from the shared price constants; migration, optional services, equipment and applicable taxes remain separate. Migration guidance distinguishes catalogue/demographic imports from complex history and requires agreed scope. The interactive walkthrough is a website-only fictional example; no clinic application records are changed. No customer testimonials or case studies were added: the owner confirmed that approved customer evidence is not yet available.
+
+The sitemap now includes 20 public pages. `scripts/check-seo.mjs` checks every guide's article body against visible HTML, attribution, reciprocal counterparts, first-year arithmetic and a 404 for an unknown guide, in addition to existing crawler/metadata checks. `scripts/check-website.mjs` covers 19 content pages and their links. Chrome verified the Malay cost guide at 390px with no page overflow and a locally confirmed consultation note that did not save a clinical record.
+
+Bing Webmaster setup was started using the owner's Google sign-in. Direct HTML-tag verification was prepared, avoiding Google Search Console import access. Publishing the verification tag and granting the account management of the Bing property remain pending explicit browser-action approval; no verification tag is included in this guide release. The sitemap can be submitted in Bing after verification. IndexNow notifications remain a separate discovery mechanism.

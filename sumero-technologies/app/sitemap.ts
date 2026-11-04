@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { GUIDE_HUBS, GUIDE_PATHS } from "@/lib/guide-paths";
 import {
   SITE_URL,
   CLINIC_PAGES,
@@ -17,7 +18,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/privacy",
     "/data-deletion",
   ];
-  const localized = [CLINIC_PAGES, CONTACT_PAGES].flatMap((pair) =>
+  const localized = [
+    CLINIC_PAGES,
+    CONTACT_PAGES,
+    GUIDE_HUBS,
+    ...Object.values(GUIDE_PATHS),
+  ].flatMap((pair) =>
     Object.values(pair).map((path) => ({
       url: `${SITE_URL}${path}`,
       alternates: { languages: languageAlternates(pair) },

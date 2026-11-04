@@ -5,6 +5,8 @@ import { clinicContent } from "@/lib/clinic-content";
 import { clinicDiscovery } from "@/lib/clinic-discovery";
 import { HealthOSShowcase } from "./HealthOSShowcase";
 import { healthOSSchema } from "@/lib/healthos-schema";
+import { GuideCards } from "./ClinicGuides";
+import { GUIDE_HUBS } from "@/lib/guide-paths";
 import {
   CLINIC_PAGES,
   CONTACT_PAGES,
@@ -128,19 +130,44 @@ export function ClinicLandingPage({ locale }: { locale: SiteLocale }) {
       </section>
       <section className="site-section" id="product-facts">
         <h2 className="section-title">{d.factsTitle}</h2>
-        <p className="mt-5 max-w-4xl leading-8 text-slate-600">{d.factsIntro}</p>
+        <p className="mt-5 max-w-4xl leading-8 text-slate-600">
+          {d.factsIntro}
+        </p>
         <dl className="mt-8 divide-y divide-slate-200 rounded-2xl border border-slate-200 px-6">
           {d.facts.map(([label, value]) => (
-            <div key={label} className="grid gap-2 py-4 sm:grid-cols-[12rem_1fr] sm:gap-6">
+            <div
+              key={label}
+              className="grid gap-2 py-4 sm:grid-cols-[12rem_1fr] sm:gap-6"
+            >
               <dt className="font-semibold">{label}</dt>
               <dd className="leading-7 text-slate-600">
-                {value === "support@sumerotech.com" ? <a className="break-all text-blue-700 underline" href={`mailto:${value}`}>{value}</a> : value}
+                {value === "support@sumerotech.com" ? (
+                  <a
+                    className="break-all text-blue-700 underline"
+                    href={`mailto:${value}`}
+                  >
+                    {value}
+                  </a>
+                ) : (
+                  value
+                )}
               </dd>
             </div>
           ))}
         </dl>
-        <nav aria-label={d.onPage} className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm">
-          {d.navigation.map(([label, id]) => <a key={id} className="font-medium text-blue-700 underline underline-offset-4" href={`#${id}`}>{label}</a>)}
+        <nav
+          aria-label={d.onPage}
+          className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm"
+        >
+          {d.navigation.map(([label, id]) => (
+            <a
+              key={id}
+              className="font-medium text-blue-700 underline underline-offset-4"
+              href={`#${id}`}
+            >
+              {label}
+            </a>
+          ))}
         </nav>
       </section>
       <section className="site-section" id="workflow">
@@ -171,10 +198,15 @@ export function ClinicLandingPage({ locale }: { locale: SiteLocale }) {
           {c.more}
         </Link>
       </section>
-      <section className="border-y border-slate-200 bg-slate-50" id="product-previews">
+      <section
+        className="border-y border-slate-200 bg-slate-50"
+        id="product-previews"
+      >
         <div className="site-section">
           <h2 className="section-title">{d.previewsTitle}</h2>
-          <p className="mt-5 max-w-4xl leading-8 text-slate-600">{d.previewsIntro}</p>
+          <p className="mt-5 max-w-4xl leading-8 text-slate-600">
+            {d.previewsIntro}
+          </p>
           <div className="mt-8 space-y-8">
             <HealthOSShowcase kind="compact-emr" title={d.consultation} />
             <HealthOSShowcase kind="dispensary" title={d.dispensing} />
@@ -235,18 +267,43 @@ export function ClinicLandingPage({ locale }: { locale: SiteLocale }) {
         </div>
         <p className="mt-6 text-sm leading-7 text-slate-600">{c.priceNote}</p>
         <h3 className="mt-10 text-2xl font-semibold">{d.comparisonTitle}</h3>
-        <div className="mt-5 overflow-x-auto rounded-2xl border border-slate-200 focus-visible:outline-2 focus-visible:outline-blue-700" role="region" aria-label={d.comparisonTitle} tabIndex={0}>
+        <div
+          className="mt-5 overflow-x-auto rounded-2xl border border-slate-200 focus-visible:outline-2 focus-visible:outline-blue-700"
+          role="region"
+          aria-label={d.comparisonTitle}
+          tabIndex={0}
+        >
           <table className="w-full min-w-[640px] text-left text-sm">
             <caption className="sr-only">{d.comparisonCaption}</caption>
             <thead className="bg-slate-50">
-              <tr><th scope="col" className="p-4">{d.columnFeature}</th><th scope="col" className="p-4">Essential</th><th scope="col" className="p-4">Professional</th></tr>
+              <tr>
+                <th scope="col" className="p-4">
+                  {d.columnFeature}
+                </th>
+                <th scope="col" className="p-4">
+                  Essential
+                </th>
+                <th scope="col" className="p-4">
+                  Professional
+                </th>
+              </tr>
             </thead>
             <tbody className="divide-y divide-slate-200">
-              {d.comparisonRows.map(([feature, essential, professional]) => <tr key={feature}><th scope="row" className="p-4 font-medium">{feature}</th><td className="p-4 text-slate-600">{essential}</td><td className="p-4 text-slate-600">{professional}</td></tr>)}
+              {d.comparisonRows.map(([feature, essential, professional]) => (
+                <tr key={feature}>
+                  <th scope="row" className="p-4 font-medium">
+                    {feature}
+                  </th>
+                  <td className="p-4 text-slate-600">{essential}</td>
+                  <td className="p-4 text-slate-600">{professional}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
-        <p className="mt-4 text-sm leading-7 text-slate-600">{d.comparisonNote}</p>
+        <p className="mt-4 text-sm leading-7 text-slate-600">
+          {d.comparisonNote}
+        </p>
         <Link
           href="/pricing"
           hrefLang="en-MY"
@@ -281,12 +338,42 @@ export function ClinicLandingPage({ locale }: { locale: SiteLocale }) {
         <h2 className="section-title">{c.setupTitle}</h2>
         <p className="mt-5 max-w-4xl leading-8 text-slate-600">{c.setup}</p>
       </section>
-      <section className="site-section border-t border-slate-200" id="buying-checklist">
+      <section
+        className="site-section border-t border-slate-200"
+        id="buying-checklist"
+      >
         <h2 className="section-title">{d.checklistTitle}</h2>
-        <p className="mt-5 max-w-4xl leading-8 text-slate-600">{d.checklistIntro}</p>
+        <p className="mt-5 max-w-4xl leading-8 text-slate-600">
+          {d.checklistIntro}
+        </p>
         <ol className="mt-8 grid gap-5 md:grid-cols-2">
-          {d.checklist.map(([title, text], index) => <li key={title} className="rounded-2xl border border-slate-200 p-6"><p className="text-sm font-semibold text-blue-700">0{index + 1}</p><h3 className="mt-3 text-xl font-semibold">{title}</h3><p className="mt-3 text-sm leading-7 text-slate-600">{text}</p></li>)}
+          {d.checklist.map(([title, text], index) => (
+            <li key={title} className="rounded-2xl border border-slate-200 p-6">
+              <p className="text-sm font-semibold text-blue-700">
+                0{index + 1}
+              </p>
+              <h3 className="mt-3 text-xl font-semibold">{title}</h3>
+              <p className="mt-3 text-sm leading-7 text-slate-600">{text}</p>
+            </li>
+          ))}
         </ol>
+      </section>
+      <section
+        className="site-section border-t border-slate-200"
+        id="clinic-guides"
+      >
+        <h2 className="section-title">
+          {locale === "ms"
+            ? "Panduan untuk keputusan klinik anda"
+            : "Practical guides for your clinic decision"}
+        </h2>
+        <GuideCards locale={locale} />
+        <Link
+          href={GUIDE_HUBS[locale]}
+          className="mt-6 inline-block font-semibold text-blue-700 underline"
+        >
+          {locale === "ms" ? "Semua panduan klinik" : "All clinic guides"} →
+        </Link>
       </section>
       <section className="border-y border-slate-200 bg-slate-50" id="faq">
         <div className="site-section">

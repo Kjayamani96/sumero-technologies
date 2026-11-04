@@ -26,6 +26,7 @@ export function SiteFooter({ locale = "en" }: { locale?: "en" | "ms" }) {
               Sistem pengurusan klinik
             </Link>
             <Link href="/ms/hubungi">Tempah demo</Link>
+            <Link href="/ms/panduan">Panduan klinik</Link>
             <Link href="/pricing" hrefLang="en-MY">
               Harga penuh (English)
             </Link>
@@ -72,6 +73,11 @@ export function SiteFooter({ locale = "en" }: { locale?: "en" | "ms" }) {
               Products
             </p>
             <ul className="space-y-2.5 text-slate-300">
+              <li>
+                <Link href="/guides" className="transition hover:text-white">
+                  Clinic guides
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/products/sumero-healthos"

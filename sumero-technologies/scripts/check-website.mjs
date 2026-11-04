@@ -13,6 +13,14 @@ const pages = [
   "/clinic-management-system-malaysia",
   "/ms/sistem-pengurusan-klinik",
   "/ms/hubungi",
+  "/guides",
+  "/ms/panduan",
+  "/guides/clinic-software-cost-malaysia",
+  "/guides/clinic-software-migration-checklist",
+  "/guides/healthos-clinic-workflow",
+  "/ms/panduan/kos-sistem-pengurusan-klinik",
+  "/ms/panduan/senarai-semak-migrasi-sistem-klinik",
+  "/ms/panduan/aliran-kerja-klinik-healthos",
 ];
 const links = new Set();
 for (const path of pages) {

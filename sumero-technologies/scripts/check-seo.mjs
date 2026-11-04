@@ -5,6 +5,19 @@ const site = "https://sumerotech.com";
 const pairs = [
   ["/clinic-management-system-malaysia", "/ms/sistem-pengurusan-klinik"],
   ["/contact", "/ms/hubungi"],
+  ["/guides", "/ms/panduan"],
+  [
+    "/guides/clinic-software-cost-malaysia",
+    "/ms/panduan/kos-sistem-pengurusan-klinik",
+  ],
+  [
+    "/guides/clinic-software-migration-checklist",
+    "/ms/panduan/senarai-semak-migrasi-sistem-klinik",
+  ],
+  [
+    "/guides/healthos-clinic-workflow",
+    "/ms/panduan/aliran-kerja-klinik-healthos",
+  ],
 ];
 const paths = [
   "/",
@@ -65,6 +78,49 @@ for (const [en, ms] of pairs)
         `${path}: ${language} reciprocal alternate`,
       );
   }
+for (const pair of pairs.slice(3)) {
+  for (const path of pair) {
+    const html = pages.get(path);
+    const scripts = [
+      ...html.matchAll(
+        /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g,
+      ),
+    ].map((x) => JSON.parse(x[1]));
+    const article = scripts
+      .flatMap((x) => x["@graph"] || [x])
+      .find((x) => x["@type"] === "Article");
+    assert.ok(article, `${path}: attributed article`);
+    assert.equal(article.author.name, "SUMERO Technologies");
+    assert.equal(article.mainEntityOfPage["@id"], `${site}${path}#page`);
+    const content = html.replace(/<script\b[\s\S]*?<\/script>/gi, "");
+    const escapeHtml = (value) =>
+      value
+        .replaceAll("&", "&amp;")
+        .replaceAll("'", "&#x27;")
+        .replaceAll('"', "&quot;");
+    for (const paragraph of article.articleBody.split("\n\n"))
+      assert.ok(
+        content.includes(escapeHtml(paragraph)),
+        `${path}: article text matches visible HTML`,
+      );
+    assert.ok(content.includes("2026"), `${path}: visible review date`);
+    assert.ok(
+      content.includes(`href="${pair[path.startsWith("/ms/") ? 0 : 1]}"`),
+      `${path}: visible counterpart link`,
+    );
+  }
+}
+for (const path of pairs[3]) {
+  const html = pages.get(path);
+  for (const price of ["RM2,178", "RM1,880", "RM4,478", "RM3,880"])
+    assert.ok(html.includes(price), `${path}: correct first-year arithmetic`);
+}
+const missingGuide = await fetch(origin + "/guides/not-a-real-guide");
+assert.equal(
+  missingGuide.status,
+  404,
+  "Unknown guide slug must not become duplicate content",
+);
 for (const path of pairs[0]) {
   const html = pages.get(path);
   const scripts = [
@@ -76,17 +132,40 @@ for (const path of pairs[0]) {
   const faq = nodes.find((x) => x["@type"] === "FAQPage");
   assert.equal(faq.mainEntity.length, 9);
   for (const question of faq.mainEntity) {
-    assert.ok(html.includes(question.name), `${path}: FAQ question is visible HTML`);
-    assert.ok(html.includes(question.acceptedAnswer.text.replaceAll("&", "&amp;").replaceAll("'", "&#x27;")), `${path}: FAQ answer matches visible HTML`);
+    assert.ok(
+      html.includes(question.name),
+      `${path}: FAQ question is visible HTML`,
+    );
+    assert.ok(
+      html.includes(
+        question.acceptedAnswer.text
+          .replaceAll("&", "&amp;")
+          .replaceAll("'", "&#x27;"),
+      ),
+      `${path}: FAQ answer matches visible HTML`,
+    );
   }
   for (const id of ["product-facts", "product-previews", "buying-checklist"])
-    assert.ok(html.includes(`id="${id}"`), `${path}: useful buying content rendered on server`);
-  assert.ok(html.includes("RM1,880") && html.includes("RM3,880"), `${path}: annual subscription plus setup totals`);
+    assert.ok(
+      html.includes(`id="${id}"`),
+      `${path}: useful buying content rendered on server`,
+    );
+  assert.ok(
+    html.includes("RM1,880") && html.includes("RM3,880"),
+    `${path}: annual subscription plus setup totals`,
+  );
   assert.ok(html.includes("<table"), `${path}: semantic plan comparison`);
   const software = nodes.find((x) => x["@type"] === "SoftwareApplication");
   assert.equal(software["@id"], `${site}/products/sumero-healthos#software`);
-  assert.deepEqual(software.offers.map(x => x.price), [149, 299]);
-  assert.ok(software.offers.every(x => x.priceSpecification.billingDuration === "P1M"));
+  assert.deepEqual(
+    software.offers.map((x) => x.price),
+    [149, 299],
+  );
+  assert.ok(
+    software.offers.every(
+      (x) => x.priceSpecification.billingDuration === "P1M",
+    ),
+  );
   assert.ok(
     html.includes("RM149") && html.includes("RM299"),
     `${path}: public prices`,
@@ -112,8 +191,8 @@ assert.ok(
 );
 assert.equal(
   (sitemap.match(/hreflang="ms-MY"/g) || []).length,
-  4,
-  "Sitemap includes both language pairs",
+  pairs.length * 2,
+  "Sitemap includes every language pair",
 );
 const login = await (
   await fetch(origin + "/login", { headers: { "User-Agent": "Googlebot" } })
