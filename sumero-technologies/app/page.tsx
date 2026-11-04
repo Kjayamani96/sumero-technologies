@@ -47,20 +47,20 @@ export default function HomePage() {
     <MarketingShell>
       <section className="relative overflow-hidden border-b border-slate-200">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_65%_55%_at_85%_10%,rgba(0,212,255,0.10),transparent_62%),radial-gradient(ellipse_55%_45%_at_10%_5%,rgba(29,78,216,0.07),transparent_58%)]" />
-        <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 sm:py-24 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:px-8 lg:py-32">
+        <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-10 sm:px-6 sm:py-12 lg:grid-cols-[1.08fr_0.92fr] lg:items-start lg:px-8 lg:py-16">
           <div className="max-w-3xl">
-            <p className="hero-fade-up font-heading text-xs font-semibold uppercase tracking-[0.24em] text-[#1d4ed8]">
+            <p className="font-heading text-xs font-semibold uppercase tracking-[0.24em] text-[#1d4ed8]">
               SUMERO Technologies
             </p>
-            <h1 className="hero-fade-up-delay mt-5 text-4xl font-semibold leading-[1.12] tracking-[-0.035em] text-[#0b1026] sm:text-5xl sm:leading-[1.08] lg:text-[3.5rem]">
+            <h1 className="mt-5 text-4xl font-semibold leading-[1.12] tracking-[-0.035em] text-[#0b1026] sm:text-5xl sm:leading-[1.08] lg:text-[3.5rem]">
               A simpler clinic day, from registration to follow-up.
             </h1>
-            <p className="hero-fade-up-delay-2 mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
               HealthOS, our flagship clinic software, gives front-desk staff,
               doctors and dispensary teams a clear next step—with layouts they
               can choose.
             </p>
-            <div className="hero-fade-up-delay-2 mt-9 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/products/sumero-healthos"
                 className="inline-flex min-h-12 items-center justify-center rounded-full bg-[#1d4ed8] px-7 font-heading text-sm font-semibold text-white shadow-lg shadow-blue-700/15 transition hover:-translate-y-0.5 hover:bg-[#123fb8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#008bff]/40"
@@ -76,7 +76,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="hero-image-reveal relative mx-auto w-full max-w-lg lg:max-w-none">
+          <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
             <div className="absolute inset-8 rounded-full bg-gradient-to-br from-blue-500/12 via-cyan-400/10 to-teal-400/10 blur-3xl" />
             <div className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_28px_80px_-42px_rgba(11,16,38,0.35)]">
               <div className="p-7 sm:p-9">
@@ -104,7 +104,10 @@ export default function HomePage() {
               </div>
               <div className="border-y border-slate-200 bg-[#f3f6fa] p-4 sm:p-5">
                 <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-                  <HealthOSShowcase />
+                  <HealthOSShowcase
+                    kind="registration"
+                    title="Compact registration, with fictional patient details."
+                  />
                 </div>
               </div>
               <div className="flex items-center justify-between gap-4 px-7 py-5 sm:px-9">

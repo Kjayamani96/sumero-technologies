@@ -219,26 +219,132 @@ export function PricingPlans() {
           </Link>
         </article>
       </div>
-      <p className="mt-6 text-sm leading-7 text-slate-600">
-        The plan cards list included features. Ask us to confirm plan allocation
-        and any setup charges for MyKad import, layout choices, follow-up
-        worklists, communication, feedback, Clinic Insights, occupational health
-        and lab-result tracking before purchase.
-      </p>
-      <div className="mt-6 rounded-2xl border border-sky-100 bg-sky-50/70 p-5 text-left sm:p-6">
-        <p className="text-sm font-semibold text-zinc-900">
-          MyInvois e-Invoice controlled rollout
+      <section className="mt-12" aria-labelledby="compare-plans">
+        <h2 id="compare-plans" className="text-2xl font-semibold">
+          Compare included features
+        </h2>
+        <div
+          className="mt-6 overflow-x-auto rounded-2xl border border-slate-200"
+          tabIndex={0}
+          role="region"
+          aria-label="Plan feature comparison, scroll horizontally on smaller screens"
+        >
+          <table className="w-full min-w-[560px] text-left text-sm">
+            <caption className="sr-only">
+              Existing HealthOS plan entitlements. Additional setup-dependent
+              capabilities are listed below.
+            </caption>
+            <thead className="bg-slate-50">
+              <tr>
+                {["Feature", "Essential", "Professional", "Group"].map(
+                  (label) => (
+                    <th key={label} scope="col" className="p-4 font-semibold">
+                      {label}
+                    </th>
+                  ),
+                )}
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                [
+                  "Registration, EMR, appointments and queue",
+                  "Included",
+                  "Included",
+                  "Per contracted branch",
+                ],
+                [
+                  "Consultation, prescriptions, MC and referrals",
+                  "Included",
+                  "Included",
+                  "Per contracted branch",
+                ],
+                [
+                  "Basic dispensing, billing and receipts",
+                  "Included",
+                  "Included",
+                  "Per contracted branch",
+                ],
+                [
+                  "Standard inventory, roles and audit history",
+                  "Included",
+                  "Included",
+                  "Per contracted branch",
+                ],
+                [
+                  "Manual WhatsApp reminder workflow",
+                  "Included",
+                  "Included",
+                  "Per contracted branch",
+                ],
+                [
+                  "Advanced inventory, suppliers and purchasing",
+                  "—",
+                  "Included",
+                  "Per contracted branch",
+                ],
+                [
+                  "Panels, invoices and receivables",
+                  "—",
+                  "Included",
+                  "Per contracted branch",
+                ],
+                [
+                  "Attendance, rosters and leave",
+                  "—",
+                  "Included",
+                  "Per contracted branch",
+                ],
+                [
+                  "Advanced reports and owner financial dashboards",
+                  "—",
+                  "Included",
+                  "Per contracted branch",
+                ],
+                [
+                  "Connected WhatsApp reminders and status",
+                  "—",
+                  "With clinic setup",
+                  "Agreed setup",
+                ],
+                ["Branch allowance", "One", "One", "Three or more"],
+                [
+                  "Doctor allowance",
+                  "Up to two",
+                  "Agreed plan terms",
+                  "Agreed scope",
+                ],
+                [
+                  "Staff allowance",
+                  "Up to eight",
+                  "Routine accounts under fair use",
+                  "Agreed scope",
+                ],
+              ].map(([feature, ...values]) => (
+                <tr key={feature} className="border-t border-slate-200">
+                  <th scope="row" className="p-4 font-medium">
+                    {feature}
+                  </th>
+                  {values.map((value, index) => (
+                    <td key={index} className="p-4 leading-6 text-slate-600">
+                      {value === "—" ? (
+                        <span aria-label="Not listed as included">—</span>
+                      ) : (
+                        value
+                      )}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-3 text-xs text-slate-600">
+          A dash means the capability is not listed as included in that plan.
+          Newer capability entitlements and setup charges are agreed once in
+          your clinic proposal.
         </p>
-        <p className="mt-2 text-sm leading-relaxed text-zinc-600">
-          e-Invoice operations are not assigned to a standard plan by default.
-          They are scoped as a controlled-rollout or add-on capability and
-          require clinic-specific configuration, credentials, authorisation,
-          testing and production activation following clinic assessment. Normal
-          receipts are separate from e-Invoice activation. Setup and third-party
-          usage charges are confirmed separately; no e-Invoice price is included
-          here.
-        </p>
-      </div>
+      </section>
     </div>
   );
 }

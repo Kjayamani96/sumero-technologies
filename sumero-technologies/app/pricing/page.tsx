@@ -244,132 +244,45 @@ export default function PricingPage() {
             Transparency
           </p>
           <h2 className="mt-4 max-w-2xl text-2xl font-semibold tracking-tight text-zinc-900 sm:text-3xl">
-            Availability and product boundaries
+            Setup at a glance
           </h2>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-600">
-            See what is ready today, what requires clinic-specific activation,
-            and which capabilities need a scope discussion.
+          <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600">
+            Choose a plan using the comparison above. These additional
+            capabilities have clinic-specific setup or scope.
           </p>
-
-          <div className="mt-10 space-y-8">
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {[
-              {
-                heading: "Available now",
-                description:
-                  "Core plan capabilities are available subject to your selected plan and onboarding scope.",
-                items: [
-                  {
-                    label: "Available",
-                    tone: "sky" as const,
-                    title: "Essential and Professional clinic workflows",
-                    note: "The capabilities listed in the plan cards above are available now.",
-                  },
-                ],
-              },
-              {
-                heading: "Current capabilities — confirm plan allocation",
-                description:
-                  "Confirm your plan entitlement, setup and any charges before purchase.",
-                items: [
-                  {
-                    label: "Confirm scope",
-                    tone: "amber" as const,
-                    title: "MyKad patient and photo import",
-                    note: "Requires a compatible reader, vendor SDK, Windows computer and configured bridge. Staff review details before saving.",
-                  },
-                  {
-                    label: "Confirm scope",
-                    tone: "amber" as const,
-                    title: "Lab-result and referral tracking",
-                    note: "Track results and referrals. Discuss the clinic workflow and plan allocation with SUMERO.",
-                  },
-                ],
-              },
-              {
-                heading: "Requires clinic setup and activation",
-                description:
-                  "Available only after connection, approval and go-live steps are complete.",
-                items: [
-                  {
-                    label: "Controlled rollout",
-                    tone: "sky" as const,
-                    title: "MyInvois e-Invoice workflows",
-                    note: "Available only as a controlled-rollout or add-on capability. Clinic assessment, configuration, MyInvois credentials and authorisation, testing, and explicit production activation are required. Setup and third-party charges, if any, are confirmed separately.",
-                  },
-                  {
-                    label: "Requires setup",
-                    tone: "sky" as const,
-                    title: "WhatsApp reminders and patient communication",
-                    note: "Requires a connected clinic WhatsApp number, appropriate consent and configuration. Staff review recipients and schedule sending through a background queue; status does not guarantee delivery.",
-                  },
-                ],
-              },
-              {
-                heading: "Outside current HealthOS scope",
-                description: "Not included in Essential or Professional today.",
-                items: [
-                  {
-                    label: "Not included",
-                    tone: "zinc" as const,
-                    title: "Payroll",
-                  },
-                  {
-                    label: "Not included",
-                    tone: "zinc" as const,
-                    title: "Accounting general ledger",
-                  },
-                  {
-                    label: "Not included",
-                    tone: "zinc" as const,
-                    title: "AI clinical assistance",
-                  },
-                  {
-                    label: "Standard terms",
-                    tone: "zinc" as const,
-                    title: "Compliance certification or guaranteed SLA",
-                    note: "We do not advertise certifications or fixed SLAs on this website.",
-                  },
-                ],
-              },
-            ].map((group) => (
-              <div key={group.heading}>
-                <h3 className="text-sm font-semibold text-zinc-900">
-                  {group.heading}
-                </h3>
-                <p className="mt-1 text-sm text-zinc-500">
-                  {group.description}
-                </p>
-                <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-                  {group.items.map((item) => (
-                    <li
-                      key={item.title}
-                      className="rounded-xl border border-zinc-200 bg-white p-4"
-                    >
-                      <span
-                        className={`inline-block rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide ${
-                          item.tone === "amber"
-                            ? "bg-amber-50 text-amber-800 ring-1 ring-amber-100"
-                            : item.tone === "sky"
-                              ? "bg-sky-50 text-sky-800 ring-1 ring-sky-100"
-                              : "bg-zinc-100 text-zinc-600 ring-1 ring-zinc-200/80"
-                        }`}
-                      >
-                        {item.label}
-                      </span>
-                      <p className="mt-3 text-sm font-medium leading-snug text-zinc-900">
-                        {item.title}
-                      </p>
-                      {"note" in item && item.note ? (
-                        <p className="mt-1.5 text-sm leading-relaxed text-zinc-500">
-                          {item.note}
-                        </p>
-                      ) : null}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              [
+                "MyKad import",
+                "A compatible MyKad reader connected to a Windows computer. Staff review imported details and photos before saving.",
+              ],
+              [
+                "WhatsApp reminders",
+                "A connected clinic WhatsApp number and appropriate consent. Messages are queued for sending; delivery timing varies.",
+              ],
+              [
+                "e-Invoice",
+                "Clinic assessment, configuration, authorisation, testing and activation. Normal receipts work separately.",
+              ],
+              [
+                "Additional workflows",
+                "Follow-ups, communication, feedback, Clinic Insights, occupational health and lab-result/referral tracking: plan allocation and any setup charges are agreed in your proposal.",
+              ],
+            ].map(([title, body]) => (
+              <article
+                key={title}
+                className="rounded-xl border border-slate-200 bg-white p-6"
+              >
+                <h3 className="font-semibold">{title}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-600">{body}</p>
+              </article>
             ))}
           </div>
+          <p className="mt-6 text-sm leading-7 text-slate-600">
+            Group clinic arrangements follow the agreed branch scope. Payroll, a
+            general ledger and AI clinical assistance are not standard plan
+            features.
+          </p>
 
           <p className="mt-10 text-sm leading-relaxed text-zinc-500">
             Prefer a walkthrough first?{" "}

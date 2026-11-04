@@ -35,7 +35,33 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-## HealthOS website review — 4 November 2026
+## Preview theme controls and consultation form — 4 November 2026
+
+Owner approved pushing these refinements to `main` and deploying to production. The preview-only notes below describe the earlier review stages.
+
+Each product demonstration now has its own moon/sun button for day/night appearance, including registration, consultation, dispensing, print examples and Clinic Insights. Switching theme preserves that preview’s selected stage, patient and edited notes; it does not affect the website theme or clinic settings. Seven per-preview controls were verified in Chrome.
+
+The consultation example is a populated, editable fictional form with vitals, presenting concern, examination, assessment/diagnosis and care plan. “Save demo note” only confirms the local demonstration; it does not send or persist clinic data. Theme switching preserves edits; reloading resets them. Clinic Insights now uses a theme-aware demonstration instead of a static SVG.
+
+## Populated fictional demonstrations — 4 November 2026
+
+Registration, Compact EMR, dispensary, dark-mode dispensary and print examples now use website-only demonstrations populated with fictional data. These replace the empty captures in the displayed website; older assets are retained but are not displayed. The demos are labelled illustrative and do not write to the clinic application.
+
+Dispensary fixtures contain three To Dispense patients, two Awaiting Payment patients and three Completed Today patients. Stage buttons and patient cards update the local preview details and amounts. Checkout/printing actions are display-only. Registration includes fictional identity/contact status and visit details; consultation includes fictional notes and a recorded assessment; print previews include example medicine, itemisation and matching totals. No live patient data was used or created.
+
+Chrome verified stage switching and patient selection, including RM38.00 = RM30.00 consultation + RM8.00 medicine. Final production build, TypeScript and site checks pass. Changes remain in the local preview for review.
+
+## Latest refinement review — 4 November 2026
+
+- Homepage content is immediately visible with no entrance-animation classes, reduced top padding and top alignment. Chrome measured the desktop headline at 192px from the viewport top, with opacity 1 and no animation.
+- MyKad copy now says “compatible MyKad reader connected to a Windows computer”.
+- Pricing has a semantic feature comparison with existing entitlements, plus one concise setup section. Prices and commercial constants are unchanged. At 390px the page remains 390px wide; the 560px table scrolls inside its 356px keyboard-focusable region.
+- With the owner’s explicit browser authorisation, captured the current registration form and empty dispensary in light/dark modes from the signed-in HealthOS UI. Captures in `public/marketing/current/` exclude patient records, clinic-specific status and staff account details. The registration form was not saved; a fictional draft was discarded. Original light appearance was restored. No clinic application source or records were modified.
+- Compact EMR, printing and Insights retain clearly labelled fictional illustrations. Populated current captures for these require a verified fictional demo dataset; live patient records were not used.
+- A single authorised live test enquiry returned HTTP 200 and was found in the connected Gmail INBOX, subject “HealthOS demo / trial enquiry”, marker `SUMERO-WEBSITE-QA-20261104-REFINEMENT`. This verifies inbox receipt, not only provider submission. Production sender and recipient configuration were restored in the preceding deployment.
+- Refinements are prepared in the local preview for review. The historical notes below describe the initial handover and its then-outstanding setup.
+
+## Initial HealthOS website review — 4 November 2026
 
 Local preview: http://localhost:3000 (start with `npm run dev -- --port 3000`).
 Initially prepared as a local preview for review. The owner subsequently requested pushing the website update to `main`.

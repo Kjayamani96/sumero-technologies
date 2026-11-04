@@ -10,7 +10,7 @@ const workflows = [
     intro: "A clear start for the front desk.",
     points: [
       "Choose Compact Workspace, Guided Registration or Classic to suit your team.",
-      "Import patient details and a photo with a compatible MyKad reader, vendor SDK and configured Windows bridge. Staff review the information before saving.",
+      "Import patient details and a photo with a compatible MyKad reader connected to a Windows computer. Staff review the information before saving.",
       "Save & Add To Queue keeps the next step close. Patient profiles and photos stay accessible to authorised staff.",
     ],
   },
@@ -78,7 +78,7 @@ export const healthOSFaqs = [
   ],
   [
     "What does MyKad import need?",
-    "A compatible reader, its vendor SDK, a Windows computer and a configured bridge. Staff review imported patient details and photos before saving. Ask us to confirm reader compatibility.",
+    "A compatible MyKad reader connected to a Windows computer. Our team helps arrange the reader software and connection during setup. Staff review imported patient details and photos before saving. Ask us to confirm reader compatibility.",
   ],
   [
     "Can I use ordinary receipts before e-Invoice activation?",
@@ -129,7 +129,10 @@ export function SumeroHealthOSContent() {
             </Link>
           </div>
           <div className="mt-12">
-            <HealthOSShowcase />
+            <HealthOSShowcase
+              kind="registration"
+              title="Compact registration: a clear start for the clinic day."
+            />
           </div>
         </div>
       </section>
