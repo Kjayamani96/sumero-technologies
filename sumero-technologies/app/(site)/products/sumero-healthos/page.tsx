@@ -1,5 +1,6 @@
 import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
+import { healthOSSchema } from "@/lib/healthos-schema";
 import { MarketingShell } from "@/components/marketing/MarketingShell";
 import {
   healthOSFaqs,
@@ -22,18 +23,7 @@ export default function SumeroHealthOSPage() {
           __html: JSON.stringify([
             {
               "@context": "https://schema.org",
-              "@type": "SoftwareApplication",
-              name: "SUMERO HealthOS",
-              applicationCategory: "BusinessApplication",
-              operatingSystem: "Web",
-              url: "https://sumerotech.com/products/sumero-healthos",
-              description:
-                "Clinic workflows for registration, consultation, dispensing, payment and follow-up. Capability availability depends on plan and setup.",
-              provider: {
-                "@type": "Organization",
-                name: "SUMERO Technologies",
-                url: "https://sumerotech.com",
-              },
+              ...healthOSSchema(),
             },
             {
               "@context": "https://schema.org",

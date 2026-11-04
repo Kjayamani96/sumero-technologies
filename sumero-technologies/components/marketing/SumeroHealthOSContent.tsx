@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { WorkflowPipeline } from "./WorkflowPipeline";
 import { HealthOSShowcase } from "./HealthOSShowcase";
+import { PRICING, formatRm } from "@/lib/pricing";
 
 const workflows = [
   {
@@ -119,6 +120,13 @@ export function SumeroHealthOSContent() {
             One clear next step for the front desk, doctor and dispensary.
             HealthOS helps private clinics keep everyday care moving, with
             layouts your team can choose.
+          </p>
+          <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600">
+            Essential starts at {formatRm(PRICING.essential.monthly)} per clinic per month;
+            Professional is {formatRm(PRICING.professional.monthly)}. One-time onboarding
+            and optional services are separate. Compare the Malaysian clinic guide in{" "}
+            <Link className="text-blue-700 underline" href="/clinic-management-system-malaysia">English</Link>{" "}
+            or <Link className="text-blue-700 underline" href="/ms/sistem-pengurusan-klinik" hrefLang="ms-MY" lang="ms">Bahasa Malaysia</Link>.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link className="primary-cta" href="/contact">

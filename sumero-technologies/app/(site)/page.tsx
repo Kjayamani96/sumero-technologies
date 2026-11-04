@@ -52,9 +52,9 @@ export default function HomePage() {
               A simpler clinic day, from registration to follow-up.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-              HealthOS, our flagship clinic software, gives front-desk staff,
-              doctors and dispensary teams a clear next step—with layouts they
-              can choose.
+              SUMERO HealthOS is web-based clinic software for Malaysian private
+              clinics. Connect registration, consultation, dispensing, billing
+              and follow-up, with layouts your team can choose.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Link

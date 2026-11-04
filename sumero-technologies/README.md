@@ -138,3 +138,25 @@ Reviewed in the local preview. The owner authorised pushing the SEO and Bahasa M
 3. Review crawl/indexing reports and actual query performance over time. Verify OAI-SearchBot access through hosting/firewall settings if blocking occurs. Crawler access and structured data do not guarantee rankings, citation or rich results.
 
 References used: https://developers.google.com/search/docs/specialty/international/localized-versions and https://developers.openai.com/api/docs/bots.
+
+## Search discovery improvements — 4 November 2026
+
+The English and Bahasa Malaysia clinic guides now contain server-rendered product facts, semantic Essential/Professional comparisons, annual subscription-plus-onboarding totals, a buyer checklist, populated fictional consultation/dispensing previews, and nine visible questions with matching FAQ data. Pricing still comes from the existing commercial constants. The product page and both language guides share the same SoftwareApplication entity ID, publisher, monthly offers and billing period. Homepage copy identifies the product and Malaysian audience directly.
+
+Crawler access and structured data make content easier to discover and interpret; they do not prove indexing, recommendation, ranking, or ChatGPT citation. No ratings, endorsements, customer counts, certifications or clinical claims were added. The fictional demonstrations do not access patient records. No training-policy change was made.
+
+### Notify participating search engines after deployment
+
+`node scripts/submit-indexnow.mjs` performs a dry run from the live sitemap.
+
+`node scripts/submit-indexnow.mjs --submit` verifies the live root verification file and sends the public sitemap URLs to IndexNow once. It is never called during builds or by a public API route. The key is a public domain-verification file, not a private application credential. A 200 response means URLs were received; 202 means receipt with key validation pending. Neither confirms indexing. The protocol shares notifications with participating search engines; this is not a Google indexing request or a direct ChatGPT submission.
+
+### Search Console status checked in the owner account
+
+The domain property is accessible and the sitemap was resubmitted successfully on 4 November 2026. URL Inspection showed Home, Security, Privacy and Data deletion indexed. Products, HealthOS, Pricing, Terms, both clinic guides and both contact pages were not indexed. Manual requests failed with a reCAPTCHA connection message, followed by a daily quota limit. Retry after Google permits requests again; do not repeatedly submit while quota-limited. The previous owner-account setup list above is historical and does not describe the current verified property.
+
+Two unpersonalized temporary ChatGPT web-search tests for “clinic software Malaysia” and “sistem pengurusan klinik Malaysia” did not mention or cite SUMERO before this refinement. Re-test after discovery has had time to update, without including SUMERO in the prompt. Record answers and citations; do not present one result as universal ranking evidence.
+
+Validation: `npm run build`, `PREVIEW_URL=http://localhost:3001 node scripts/check-seo.mjs`, `PREVIEW_URL=http://localhost:3001 node scripts/check-website.mjs`. Chrome checks include independent preview themes, reciprocal language navigation, and a 390px page without horizontal page overflow; wide demos/tables scroll within their own regions.
+
+Sources: https://developers.openai.com/api/docs/bots and https://www.indexnow.org/documentation.

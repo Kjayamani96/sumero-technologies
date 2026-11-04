@@ -1,11 +1,11 @@
 import { PRICING, formatRm } from "./pricing";
 export const clinicContent = {
   en: {
-    title: "Clinic Management System Malaysia | SUMERO HealthOS",
+    title: "Clinic Software Malaysia | SUMERO HealthOS",
     description:
       "Clinic management software for Malaysian private clinics. Explore registration, Compact EMR, dispensing, receipts, follow-ups, pricing and migration with HealthOS.",
     eyebrow: "For Malaysian private clinics",
-    heading: "Clinic management software for a simpler clinic day.",
+    heading: "SUMERO HealthOS: clinic software for Malaysia.",
     intro:
       "SUMERO HealthOS connects patient registration, consultation, medicine dispensing, payment and follow-up. Built by SUMERO Technologies, it gives clinic owners, doctors and front-desk teams a clearer view of everyday work.",
     demo: "Book a clinic demo",
@@ -116,7 +116,7 @@ export const clinicContent = {
     description:
       "Perisian pengurusan klinik untuk klinik swasta di Malaysia. Terokai pendaftaran, EMR, pendispensan ubat, resit, susulan, harga dan migrasi HealthOS.",
     eyebrow: "Untuk klinik swasta di Malaysia",
-    heading: "Sistem pengurusan klinik untuk urusan harian yang lebih mudah.",
+    heading: "SUMERO HealthOS: sistem pengurusan klinik Malaysia.",
     intro:
       "SUMERO HealthOS menghubungkan pendaftaran pesakit, konsultasi, pendispensan ubat, pembayaran dan susulan. Dibangunkan oleh SUMERO Technologies untuk membantu pemilik klinik, doktor dan petugas kaunter mengurus kerja harian dengan lebih jelas.",
     demo: "Tempah demo klinik",

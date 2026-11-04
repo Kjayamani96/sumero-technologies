@@ -41,6 +41,7 @@ export function SiteDocument({
                   url: SITE_URL,
                   logo: `${SITE_URL}/brand/sumero-technologies-horizontal.png`,
                   email: "support@sumerotech.com",
+                  areaServed: { "@type": "Country", name: "Malaysia" },
                 },
                 {
                   "@type": "WebSite",

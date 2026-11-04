@@ -74,7 +74,19 @@ for (const path of pairs[0]) {
   ].map((x) => JSON.parse(x[1]));
   const nodes = scripts.flatMap((x) => x["@graph"] || [x]);
   const faq = nodes.find((x) => x["@type"] === "FAQPage");
-  assert.equal(faq.mainEntity.length, 6);
+  assert.equal(faq.mainEntity.length, 9);
+  for (const question of faq.mainEntity) {
+    assert.ok(html.includes(question.name), `${path}: FAQ question is visible HTML`);
+    assert.ok(html.includes(question.acceptedAnswer.text.replaceAll("&", "&amp;").replaceAll("'", "&#x27;")), `${path}: FAQ answer matches visible HTML`);
+  }
+  for (const id of ["product-facts", "product-previews", "buying-checklist"])
+    assert.ok(html.includes(`id="${id}"`), `${path}: useful buying content rendered on server`);
+  assert.ok(html.includes("RM1,880") && html.includes("RM3,880"), `${path}: annual subscription plus setup totals`);
+  assert.ok(html.includes("<table"), `${path}: semantic plan comparison`);
+  const software = nodes.find((x) => x["@type"] === "SoftwareApplication");
+  assert.equal(software["@id"], `${site}/products/sumero-healthos#software`);
+  assert.deepEqual(software.offers.map(x => x.price), [149, 299]);
+  assert.ok(software.offers.every(x => x.priceSpecification.billingDuration === "P1M"));
   assert.ok(
     html.includes("RM149") && html.includes("RM299"),
     `${path}: public prices`,
