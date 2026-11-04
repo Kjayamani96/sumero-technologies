@@ -7,7 +7,10 @@ export const siteMetadata: Metadata = {
   },
   description:
     "SUMERO HealthOS clinic management software for Malaysian private clinics: registration, consultation, dispensing, billing and follow-up. Book a demo.",
-  verification: { google: process.env.GOOGLE_SITE_VERIFICATION || undefined },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION || undefined,
+    other: { "msvalidate.01": "B84BEAE71C065B4570834CF9855A7875" },
+  },
   keywords: [
     "SUMERO Technologies",
     "SUMERO HealthOS",
