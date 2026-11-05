@@ -82,7 +82,7 @@ export function SiteHeader() {
               alt="SUMERO Technologies"
               width={2172}
               height={724}
-              className="h-auto w-[178px] sm:w-[202px]"
+              className="h-auto w-[148px] min-[360px]:w-[178px] sm:w-[202px]"
               priority
             />
           </Link>
@@ -142,7 +142,7 @@ export function SiteHeader() {
 
         <button
           type="button"
-          className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-slate-200 text-slate-700 transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#008bff]/40 xl:hidden"
+          className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-lg border border-slate-200 text-slate-700 transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#008bff]/40 xl:hidden"
           aria-expanded={open}
           aria-controls={menuId}
           onClick={() => setOpen((v) => !v)}
