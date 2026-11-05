@@ -37,7 +37,9 @@ export function SiteDocument({
                 {
                   "@type": "Organization",
                   "@id": `${SITE_URL}/#organization`,
-                  name: "SUMERO Technologies",
+                  name: "SUMERO TECHNOLOGIES",
+                  legalName: "SUMERO TECHNOLOGIES",
+                  alternateName: "SUMERO Technologies",
                   url: SITE_URL,
                   logo: `${SITE_URL}/brand/sumero-technologies-horizontal.png`,
                   email: "support@sumerotech.com",

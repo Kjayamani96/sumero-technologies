@@ -13,6 +13,9 @@ export function SiteFooter({ locale = "en" }: { locale?: "en" | "ms" }) {
             height={724}
             className="h-auto w-52"
           />
+          <p className="mt-5 text-sm font-semibold text-white">
+            Nama perniagaan sah: SUMERO TECHNOLOGIES
+          </p>
           <p className="mt-5 max-w-xl text-sm leading-7 text-slate-300">
             HealthOS oleh SUMERO Technologies membantu klinik swasta
             menghubungkan pendaftaran, konsultasi, pendispensan, pembayaran dan
@@ -44,7 +47,7 @@ export function SiteFooter({ locale = "en" }: { locale?: "en" | "ms" }) {
             support@sumerotech.com
           </a>
           <p className="mt-7 text-xs text-slate-400">
-            © {new Date().getFullYear()} SUMERO Technologies. Hak cipta
+            © {new Date().getFullYear()} SUMERO TECHNOLOGIES. Hak cipta
             terpelihara.
           </p>
         </div>
@@ -63,6 +66,9 @@ export function SiteFooter({ locale = "en" }: { locale?: "en" | "ms" }) {
               height={724}
               className="h-auto w-[210px]"
             />
+            <p className="text-sm font-semibold text-white">
+              Legal business name: SUMERO TECHNOLOGIES
+            </p>
             <p className="text-sm leading-relaxed text-slate-300">
               We design and build practical technology products that simplify
               complex operations and connect the way teams work.
@@ -179,7 +185,7 @@ export function SiteFooter({ locale = "en" }: { locale?: "en" | "ms" }) {
         </div>
         <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-8 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} SUMERO Technologies. All rights
+            © {new Date().getFullYear()} SUMERO TECHNOLOGIES. All rights
             reserved.
           </p>
           <a

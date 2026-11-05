@@ -78,7 +78,9 @@ export default function ContactPage() {
               </li>
             </ul>
             <div className="mt-8 rounded-xl border border-zinc-200 bg-zinc-50 p-4 text-xs text-zinc-500">
-              <p className="font-medium text-zinc-700">Email</p>
+              <p className="font-semibold text-zinc-900">SUMERO TECHNOLOGIES</p>
+              <p className="mt-2">Legal business name and operator of sumerotech.com.</p>
+              <p className="mt-4 font-medium text-zinc-700">Business email</p>
               <a
                 href="mailto:support@sumerotech.com"
                 className="mt-1 block text-sky-700 hover:text-sky-600"

@@ -198,9 +198,16 @@ export default function HomePage() {
             </div>
             <div className="space-y-5 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
               <p>
-                SUMERO Technologies is a Malaysian technology company focused on
+                SUMERO TECHNOLOGIES is a Malaysian technology business focused on
                 building software products that make everyday operations
                 clearer, more connected and easier to manage.
+              </p>
+              <p>
+                SUMERO TECHNOLOGIES operates sumerotech.com and develops SUMERO
+                HealthOS. For business and product enquiries, contact us at{" "}
+                <a href="mailto:support@sumerotech.com" className="font-medium text-sky-700 underline">
+                  support@sumerotech.com
+                </a>.
               </p>
               <p>
                 We start with the people doing the work. By understanding their
