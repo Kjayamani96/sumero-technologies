@@ -170,3 +170,8 @@ summary {
 .demo-dark .text-blue-800 {
   color: #9bc6ff;
 }
+
+/* Let page columns shrink around wide, locally scrollable product previews. */
+main .grid > * {
+  min-width: 0;
+}

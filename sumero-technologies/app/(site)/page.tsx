@@ -43,7 +43,7 @@ export default function HomePage() {
     <MarketingShell>
       <section className="relative overflow-hidden border-b border-slate-200">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_65%_55%_at_85%_10%,rgba(0,212,255,0.10),transparent_62%),radial-gradient(ellipse_55%_45%_at_10%_5%,rgba(29,78,216,0.07),transparent_58%)]" />
-        <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-10 sm:px-6 sm:py-12 lg:grid-cols-[1.08fr_0.92fr] lg:items-start lg:px-8 lg:py-16">
+        <div className="relative mx-auto grid grid-cols-1 max-w-7xl gap-10 px-4 py-10 sm:px-6 sm:py-12 lg:grid-cols-[1.08fr_0.92fr] lg:items-start lg:px-8 lg:py-16">
           <div className="max-w-3xl">
             <p className="font-heading text-xs font-semibold uppercase tracking-[0.24em] text-[#1d4ed8]">
               SUMERO Technologies
