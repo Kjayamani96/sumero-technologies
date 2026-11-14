@@ -37,6 +37,22 @@ const walkthrough = [
     description: "Dispensary staff check instructions and quantities, prepare labels and move to checkout to collect payment.",
     alt: "HealthOS medicine review showing prescription directions, stock, label status and the checkout step",
   },
+  {
+    image: "panel-checkout",
+    width: 1168,
+    height: 418,
+    title: "Split the bill at checkout",
+    description: "For a visit shared between the patient and a direct company panel, choose Mixed billing and review both amounts. In this fictional RM65 visit, the patient pays RM15 at the counter and the linked company owes RM50.",
+    alt: "HealthOS mixed checkout with Fictional Alpha Clinic Panel, RM15 in cash from the patient and RM50 payable by the company",
+  },
+  {
+    image: "panel-receivables",
+    width: 1556,
+    height: 674,
+    title: "Track what the company owes",
+    description: "Use Panel Company Billing to review invoices, outstanding balances and company payments. This separate fictional account example shows an overdue invoice and the option to record a company payment.",
+    alt: "HealthOS company billing screen with fictional panel companies and an overdue invoice",
+  },
 ];
 
 const workflows = [
@@ -210,6 +226,22 @@ export function SumeroHealthOSContent() {
             );
           })}
         </ol>
+        <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-5 sm:p-6">
+          <h3 className="text-xl font-semibold text-slate-900">Plan and setup for panel billing</h3>
+          <p className="mt-2 max-w-3xl leading-7 text-slate-600">
+            Professional includes panel companies, invoices and receivables at{" "}
+            {formatRm(PRICING.professional.monthly)} per clinic per month, with{" "}
+            {formatRm(PRICING.onboarding.professional)} one-time onboarding.
+            Group plans include Professional capabilities for each contracted branch.
+          </p>
+          <p className="mt-3 max-w-3xl leading-7 text-slate-600">
+            Before checkout, set up the direct company panel and link it in the
+            patient profile. Confirm coverage and the patient’s share before
+            collecting payment. If your clinic bills through a third-party
+            administrator, confirm that workflow during onboarding. MyInvois
+            requires separate setup and activation.
+          </p>
+        </div>
         <p className="mt-8 max-w-3xl leading-7 text-slate-600">
           For a single branch with up to two doctors and eight staff accounts,
           Essential starts at {formatRm(PRICING.essential.monthly)} per clinic
