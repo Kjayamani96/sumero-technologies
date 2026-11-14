@@ -3,11 +3,11 @@ export const clinicContent = {
   en: {
     title: "Clinic Software Malaysia | SUMERO HealthOS",
     description:
-      "Clinic management software for Malaysian private clinics. Explore registration, Compact EMR, dispensing, receipts, follow-ups, pricing and migration with HealthOS.",
+      "Compare SUMERO HealthOS for Malaysian private GP clinics. See patient queues, EMR, dispensing and billing, plus published subscription and setup prices.",
     eyebrow: "For Malaysian private clinics",
-    heading: "SUMERO HealthOS: clinic software for Malaysia.",
+    heading: "Clinic software for Malaysian private clinics",
     intro:
-      "SUMERO HealthOS connects patient registration, consultation, medicine dispensing, payment and follow-up. Built by SUMERO Technologies, it gives clinic owners, doctors and front-desk teams a clearer view of everyday work.",
+      "SUMERO HealthOS is web-based clinic management software from SUMERO Technologies for private GP clinics in Malaysia. It brings patient registration and queues, electronic medical records (EMR), medicine dispensing, billing, receipts and follow-ups into one system.",
     demo: "Book a clinic demo",
     language: "Bahasa Malaysia",
     journey: "From the front desk to the next review",

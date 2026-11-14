@@ -1,4 +1,6 @@
-import { pageMetadata } from "@/lib/seo";
+import { jsonLd, pageMetadata } from "@/lib/seo";
+import { healthOSSchema } from "@/lib/healthos-schema";
+import { GUIDE_PATHS } from "@/lib/guide-paths";
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
@@ -12,42 +14,9 @@ import { PRICING, formatRm } from "@/lib/pricing";
 export const metadata: Metadata = pageMetadata({
   title: "Clinic Software Pricing Malaysia | SUMERO HealthOS",
   description:
-    "Compare Essential and Professional clinic software plans in MYR, onboarding fees, account limits, migration services and setup-dependent capabilities.",
+    "SUMERO HealthOS Essential costs RM149 and Professional costs RM299 per clinic per month. Compare annual billing, one-time setup fees and plan features.",
   path: "/pricing",
 });
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: "Sumero HealthOS",
-  applicationCategory: "BusinessApplication",
-  operatingSystem: "Web",
-  description:
-    "Sumero HealthOS helps Malaysian clinics manage the complete journey from appointment and queue to consultation, dispensing, payment and owner reporting—from one controlled workspace.",
-  offers: [
-    {
-      "@type": "Offer",
-      name: "Essential",
-      price: String(PRICING.essential.monthly),
-      priceCurrency: "MYR",
-      billingDuration: "P1M",
-      description: "Monthly subscription per clinic",
-    },
-    {
-      "@type": "Offer",
-      name: "Professional",
-      price: String(PRICING.professional.monthly),
-      priceCurrency: "MYR",
-      billingDuration: "P1M",
-      description: "Monthly subscription per clinic",
-    },
-  ],
-  provider: {
-    "@type": "Organization",
-    name: "Sumero Technologies",
-    url: "https://sumerotech.com",
-  },
-};
 
 const addOns = [
   {
@@ -87,7 +56,7 @@ export default function PricingPage() {
       <script
         id="healthos-pricing-jsonld"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLd({ "@context": "https://schema.org", ...healthOSSchema() }) }}
       />
 
       <section className="relative overflow-hidden border-b border-zinc-200">
@@ -98,17 +67,22 @@ export default function PricingPage() {
               Simple, transparent clinic pricing
             </p>
             <h1 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl lg:text-5xl">
-              Choose the HealthOS plan that fits your clinic
+              HealthOS pricing for Malaysian clinics
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg">
-              Start with the clinic workflow you need today and move to deeper
-              inventory, panel, workforce and financial control when your
-              operations grow.
+              Essential costs {formatRm(PRICING.essential.monthly)} and
+              Professional costs {formatRm(PRICING.professional.monthly)} per
+              clinic per month. One-time onboarding costs{" "}
+              {formatRm(PRICING.onboarding.essential)} for Essential or{" "}
+              {formatRm(PRICING.onboarding.professional)} for Professional.
             </p>
-            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-zinc-500">
-              Sumero HealthOS helps Malaysian clinics manage the complete
-              journey from appointment and queue to consultation, dispensing,
-              payment and owner reporting—from one controlled workspace.
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-zinc-600">
+              Both plans cover one branch. Group pricing is quoted based on
+              your branch count and rollout. See the{" "}
+              <Link href={GUIDE_PATHS.costs.en} className="text-blue-700 underline">
+                first-year cost comparison
+              </Link>{" "}
+              for monthly and annual billing, including onboarding.
             </p>
           </div>
 

@@ -93,6 +93,17 @@ export function ClinicLandingPage({ locale }: { locale: SiteLocale }) {
               <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
                 {c.intro}
               </p>
+              {locale === "en" && (
+                <p className="mt-4 max-w-2xl leading-7 text-slate-600">
+                  Essential is {formatRm(PRICING.essential.monthly)} and Professional is{" "}
+                  {formatRm(PRICING.professional.monthly)} per clinic per month.
+                  Both plans cover one branch. See{" "}
+                  <Link href="#pricing" className="text-blue-700 underline">
+                    annual prices and onboarding fees
+                  </Link>
+                  .
+                </p>
+              )}
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <Link href={CONTACT_PAGES[locale]} className="primary-cta">
                   {c.demo}
@@ -122,7 +133,13 @@ export function ClinicLandingPage({ locale }: { locale: SiteLocale }) {
                 ))}
               </ol>
               <p className="mt-8 border-t border-slate-200 pt-5 text-sm text-slate-600">
-                Essential · {formatRm(PRICING.essential.monthly)} {c.per}
+                {locale === "en" ? (
+                  <Link href="/products/sumero-healthos" className="text-blue-700 underline">
+                    See the HealthOS screens
+                  </Link>
+                ) : (
+                  <>Essential · {formatRm(PRICING.essential.monthly)} {c.per}</>
+                )}
               </p>
             </div>
           </div>
