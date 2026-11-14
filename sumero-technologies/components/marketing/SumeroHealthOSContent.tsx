@@ -4,6 +4,41 @@ import { WorkflowPipeline } from "./WorkflowPipeline";
 import { HealthOSShowcase } from "./HealthOSShowcase";
 import { PRICING, formatRm } from "@/lib/pricing";
 
+const walkthrough = [
+  {
+    image: "registration",
+    width: 1100,
+    height: 550,
+    title: "Register a patient",
+    description: "At the front desk, open the registration form, choose the visit type and select Add To Today’s Queue.",
+    alt: "HealthOS Register Patient form with General Consultation and Add To Today’s Queue selected",
+  },
+  {
+    image: "queue",
+    width: 1770,
+    height: 311,
+    title: "See who is waiting",
+    description: "The doctor’s waiting list shows queue numbers, visit reasons and priorities so the team can see who is next.",
+    alt: "HealthOS waiting list with two fictional patients, queue numbers and visit priorities",
+  },
+  {
+    image: "consultation",
+    width: 1860,
+    height: 374,
+    title: "Document the consultation",
+    description: "The doctor records encounter notes and a diagnosis, then adds services and medicines for the visit.",
+    alt: "HealthOS encounter notes beside the diagnosis and services panels, using a fictional case",
+  },
+  {
+    image: "dispensary",
+    width: 1752,
+    height: 557,
+    title: "Review medicines and move to checkout",
+    description: "Dispensary staff check instructions and quantities, prepare labels and move to checkout to collect payment.",
+    alt: "HealthOS medicine review showing prescription directions, stock, label status and the checkout step",
+  },
+];
+
 const workflows = [
   {
     title: "Register and welcome patients",
@@ -133,17 +168,57 @@ export function SumeroHealthOSContent() {
             <Link className="primary-cta" href="/contact">
               Book a demo
             </Link>
-            <Link className="secondary-cta" href="/pricing">
-              View pricing
+            <Link className="secondary-cta" href="#walkthrough">
+              See the clinic walkthrough
             </Link>
           </div>
-          <div className="mt-12">
-            <HealthOSShowcase
-              kind="registration"
-              title="Compact registration: a clear start for the clinic day."
-            />
-          </div>
         </div>
+      </section>
+      <section id="walkthrough" className="site-section scroll-mt-28">
+        <h2 className="section-title">See a clinic visit in HealthOS</h2>
+        <p className="mt-4 max-w-3xl leading-7 text-slate-600">
+          Follow the handoff from the front desk to the doctor and dispensary.
+          These screenshots show the HealthOS demo workspace with fictional
+          patient data. Select any screenshot to view it at full size.
+        </p>
+        <ol className="mt-8 space-y-8">
+          {walkthrough.map((step) => {
+            const src = `/marketing/walkthrough/${step.image}.webp`;
+            return (
+              <li key={step.image} className="min-w-0">
+                <figure className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
+                  <figcaption className="p-5 sm:p-6">
+                    <h3 className="text-xl font-semibold text-slate-900">{step.title}</h3>
+                    <p className="mt-2 max-w-3xl leading-7 text-slate-600">{step.description}</p>
+                  </figcaption>
+                  <a
+                    href={src}
+                    aria-label={`View full-size screenshot: ${step.title}`}
+                    className="block border-t border-slate-200 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-blue-700"
+                  >
+                    <Image
+                      src={src}
+                      alt={step.alt}
+                      width={step.width}
+                      height={step.height}
+                      sizes="(max-width: 768px) 100vw, 1120px"
+                      className="h-auto w-full"
+                    />
+                  </a>
+                </figure>
+              </li>
+            );
+          })}
+        </ol>
+        <p className="mt-8 max-w-3xl leading-7 text-slate-600">
+          For a single branch with up to two doctors and eight staff accounts,
+          Essential starts at {formatRm(PRICING.essential.monthly)} per clinic
+          per month, with a separate onboarding fee.{" "}
+          <Link href="/pricing" className="font-semibold text-blue-700 underline">
+            Compare pricing and included features
+          </Link>
+          .
+        </p>
       </section>
       <section className="site-section">
         <p className="eyebrow">The everyday clinic journey</p>
