@@ -149,6 +149,23 @@ export const healthOSFaqs = [
     "Use the contact form to request a demo or discuss a trial. The team will confirm availability and terms for your clinic.",
   ],
 ];
+const occupationalScreens = [
+  {
+    image: "occupational-worklist",
+    width: 1240,
+    height: 710,
+    title: "See which cases need attention",
+    alt: "Occupational Health worklist showing fictional cases awaiting examination and results",
+  },
+  {
+    image: "occupational-review",
+    width: 928,
+    height: 505,
+    title: "Review results and hand off to the doctor",
+    alt: "Occupational Health case with both sample results received and ready for doctor review",
+  },
+];
+
 export function SumeroHealthOSContent() {
   return (
     <>
@@ -186,6 +203,9 @@ export function SumeroHealthOSContent() {
             </Link>
             <Link className="secondary-cta" href="#walkthrough">
               See the clinic walkthrough
+            </Link>
+            <Link className="secondary-cta" href="#occupational-health">
+              Explore Occupational Health
             </Link>
           </div>
         </div>
@@ -293,6 +313,62 @@ export function SumeroHealthOSContent() {
             kind="dark-mode"
             title="Dark mode for the dispensary workspace."
           />
+        </div>
+      </section>
+      <section id="occupational-health" className="site-section scroll-mt-28">
+        <h2 className="section-title">Occupational Health in SUMERO HealthOS</h2>
+        <p className="mt-4 max-w-3xl leading-7 text-slate-600">
+          Manage pre-employment and periodic assessment cases from intake to
+          internal doctor review. Use the worklist to see which cases are
+          waiting for examinations or results, then record result notes or
+          link documents from the patient’s medical record. The screenshots
+          show the HealthOS interface in an isolated demo with fictional data.
+        </p>
+        <div className="mt-8 grid gap-6 lg:grid-cols-2">
+          {occupationalScreens.map((screen) => {
+            const src = `/marketing/walkthrough/${screen.image}.webp`;
+            return (
+              <figure key={screen.image} className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+                <figcaption className="p-5 text-lg font-semibold text-slate-900">
+                  {screen.title}
+                </figcaption>
+                <a href={src} className="block border-t border-slate-200 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-blue-700">
+                  <Image
+                    src={src}
+                    alt={screen.alt}
+                    width={screen.width}
+                    height={screen.height}
+                    sizes="(max-width: 1023px) 100vw, 560px"
+                    className="h-auto w-full"
+                  />
+                </a>
+              </figure>
+            );
+          })}
+        </div>
+        <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-5 sm:p-6">
+          <h3 className="text-xl font-semibold text-slate-900">Plan and setup</h3>
+          <p className="mt-2 max-w-3xl leading-7 text-slate-600">
+            Occupational Health plan availability and any setup fees are
+            confirmed in your clinic proposal. During onboarding, confirm who
+            opens cases and records results, who reviews them, and which
+            assessment types your clinic handles. At intake, link the worker’s
+            patient record and enter the employer, job and assessment details
+            for the case.
+          </p>
+          <p className="mt-3 max-w-3xl leading-7 text-slate-600">
+            This workflow covers general case management and internal review.
+            Discuss regulated medical surveillance, formal fitness
+            certification and employer reporting separately during scoping.
+          </p>
+          <div className="mt-5 flex flex-wrap items-center gap-4">
+            <Link href="/contact" className="primary-cta">
+              Ask about Occupational Health setup
+            </Link>
+            <Link href="/pricing" className="font-semibold text-blue-700 underline">
+              View plan details
+            </Link>
+          </div>
         </div>
       </section>
       <section className="border-y border-slate-200 bg-[#f3f6fa]">
